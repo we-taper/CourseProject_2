@@ -1,10 +1,16 @@
 package taper.Sakai.ServiceWrapper;
 
 import java.rmi.RemoteException;
+import java.util.Scanner;
 
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.axis2.AxisFault;
+import org.apache.axis2.databinding.ADBBean;
 import org.apache.axis2.databinding.ADBException;
 
 import taper.Sakai.WSDL.SakaiLoginServiceStub;
@@ -14,10 +20,21 @@ public class SakaiLogin {
 
 	public static void main(String[] args) throws AxisFault {
 
+		SakaiLogin login = new SakaiLogin();
+		String sessionidString = login.login("test", "taper");
+		Scanner input = new Scanner(System.in);
+		input.nextLine();
+	
+		login.logout(sessionidString);
+		input.nextLine();
+		login.logout(sessionidString);
+		input.nextLine();
+		
+		input.close();
 	}
 	
 	SakaiLoginServiceStub stub;
-	public SakaiLogin(String serveAddress) throws AxisFault {
+	public SakaiLogin() throws AxisFault {
 		stub = new SakaiLoginServiceStub();
 	}
 	
@@ -45,8 +62,9 @@ public class SakaiLogin {
 	/**
 	 * Logout of the Sakai serve.
 	 * @param sessionid Session id representing the user.
-	 * @return true if successfully logged out.
-	 * @TODO Here does not return true as expected.
+	 * @return True if successfully logged out.
+	 * @TODO Here does not return true as expected. On the other hand, even
+	 * if the user had successfully logged out, it would still return false.
 	 */
 	public boolean logout(String sessionid) {
 		SakaiLoginServiceStub.Logout logout = new SakaiLoginServiceStub.Logout();
