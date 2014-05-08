@@ -4,7 +4,32 @@ Sakai Entity API Summary
 Examples
 -----------------
 
-Login:http://localhost:8080/direct/session?_username=admin&_password=admin
+Login:
+
+<http://localhost:8080/direct/session?_username=admin&_password=admin>
+
+See pages:
+
+<http://localhost:8080/direct/site/mercury/pages>
+
+Access to group information:
+
+<http://localhost:8080/direct/site/mercury?group>
+
+Topic of a site:
+
+<http://localhost:8080/direct/topic?site=mercury>
+
+Information on a site:
+
+<http://localhost:8080/direct/site?_id=mercury>
+
+<http://localhost:8080/direct/site/mercury>
+
+<http://learning.sustc.edu.cn/direct/site?_id=7ba242f6-b728-478b-a126-431aafbde62e>
+
+<http://learning.sustc.edu.cn/direct/site/7ba242f6-b728-478b-a126-431aafbde62e>
+
 
 announcement
 ---------------------

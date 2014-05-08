@@ -3,15 +3,7 @@ package taper.Sakai.ServiceWrapper;
 import java.rmi.RemoteException;
 import java.util.Scanner;
 
-import javax.xml.stream.XMLStreamConstants;
-import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.XMLStreamReader;
-
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.axis2.AxisFault;
-import org.apache.axis2.databinding.ADBBean;
-import org.apache.axis2.databinding.ADBException;
 
 import taper.Sakai.WSDL.SakaiLoginServiceStub;
 
@@ -33,7 +25,7 @@ public class SakaiLogin {
 		input.close();
 	}
 	
-	SakaiLoginServiceStub stub;
+	private SakaiLoginServiceStub stub;
 	public SakaiLogin() throws AxisFault {
 		stub = new SakaiLoginServiceStub();
 	}
