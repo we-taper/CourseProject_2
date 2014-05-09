@@ -7,37 +7,40 @@ import org.apache.axis2.AxisFault;
 
 import taper.Sakai.WSDL.SakaiLoginServiceStub;
 
-
 public class SakaiLogin {
 
-	@Deprecated
-	/*Test only*/
+	/**
+	 * @deprecated Test only
+	 */
 	public static void main(String[] args) throws RemoteException {
 
 		SakaiLogin login = new SakaiLogin();
 		String sessionidString = login.login("test", "taper");
 		Scanner input = new Scanner(System.in);
 		input.nextLine();
-	
+
 		login.logout(sessionidString);
 		input.nextLine();
 		login.logout(sessionidString);
 		input.nextLine();
-		
+
 		input.close();
 	}
-	
+
 	private SakaiLoginServiceStub stub;
+
 	public SakaiLogin() throws AxisFault {
 		stub = new SakaiLoginServiceStub();
 	}
-	
+
 	/**
 	 * Login to Sakai serve
+	 * 
 	 * @param userId
 	 * @param password
 	 * @return The session id representing the logged-in user.
-	 * @throws RemoteException If password is wrong or not connected to serve.
+	 * @throws RemoteException
+	 *             If password is wrong or not connected to serve.
 	 */
 	public String login(String userId, String password) throws RemoteException {
 		SakaiLoginServiceStub.Login login = new SakaiLoginServiceStub.Login();
@@ -46,7 +49,7 @@ public class SakaiLogin {
 		SakaiLoginServiceStub.LoginResponse loginResponse = stub.login(login);
 		return loginResponse.getLoginReturn();
 	}
-	
+
 	/**
 	 * Logout of the Sakai serve.
 	 * 
@@ -62,8 +65,9 @@ public class SakaiLogin {
 	public boolean logout(String sessionid) throws RemoteException {
 		SakaiLoginServiceStub.Logout logout = new SakaiLoginServiceStub.Logout();
 		logout.setSessionid(sessionid);
-		SakaiLoginServiceStub.LogoutResponse logoutResponse = stub.logout(logout);
+		SakaiLoginServiceStub.LogoutResponse logoutResponse = stub
+				.logout(logout);
 		return logoutResponse.getLogoutReturn();
 	}
-	
+
 }
