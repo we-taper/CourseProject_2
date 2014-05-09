@@ -1,4 +1,23 @@
-#How to use start a demo Sakai.
+##How to Use Github
+
+1. Register
+2. Download the windows client for Windows.
+
+	Link: <https://windows.github.com/>
+	
+3. Fork My Source Code:
+
+	Guide:https://help.github.com/articles/fork-a-repo
+	
+4. Code on your code.
+
+5. Move your change back into my code.
+
+	There is a `pull request` in Github:<https://help.github.com/articles/using-pull-requests>
+	
+6. Done!
+
+##How to use start a demo Sakai.
 
 1. Download Demo
 	URL: <http://source.sakaiproject.org/release/2.9.3/artifacts/sakai-demo-2.9.3.zip>
