@@ -6,6 +6,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 
+import com.sun.corba.se.impl.orb.ParserTable.TestAcceptor1;
+
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
@@ -22,7 +24,7 @@ public class SakaiBase64Decoder {
 	public static String encode2Base64(byte[] data) {
 		return encoder.encode(data);
 	}
-	public static byte[] decodeBase64(String base64String) throws IOException {
+	public static byte[] decodeBase64ToByte(String base64String) throws IOException {
 		return decoder.decodeBuffer(base64String);
 	}
 	/**
@@ -50,6 +52,34 @@ public class SakaiBase64Decoder {
 	}
 	
 	public static void decodeAndWrite2File(String base64String, File dest) throws IOException {
-		writeByte2File(decodeBase64(base64String), dest);
+		writeByte2File(decodeBase64ToByte(base64String), dest);
+	}
+	
+    /**
+     * Read all the bytes from a file. The method ensures that the file is
+     * closed when all bytes have been read or an I/O error, or other runtime
+     * exception, is thrown.
+     *
+     * <p> Note that this method is intended for simple cases where it is
+     * convenient to read all bytes into a byte array. It is not intended for
+     * reading in large files.
+     *
+     * @param   path
+     *          the path to the file
+     *
+     * @return  a byte array containing the bytes read from the file
+     *
+     * @throws  IOException
+     *          if an I/O error occurs reading from the stream
+     * @throws  OutOfMemoryError
+     *          if an array of the required size cannot be allocated, for
+     *          example the file is larger that {@code 2GB}
+     * @throws  SecurityException
+     *          In the case of the default provider, and a security manager is
+     *          installed, the {@link SecurityManager#checkRead(String) checkRead}
+     *          method is invoked to check read access to the file.
+     */
+	public static byte[] readFileAsByte(File fileToRead) throws IOException {
+		return Files.readAllBytes(fileToRead.toPath());
 	}
 }

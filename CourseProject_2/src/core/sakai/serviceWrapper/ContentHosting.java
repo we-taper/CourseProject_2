@@ -1,5 +1,6 @@
 package core.sakai.serviceWrapper;
 
+import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
@@ -7,12 +8,13 @@ import java.util.ArrayList;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.log4j.Logger;
-import org.codehaus.stax2.io.EscapingWriterFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import taper.util.MIMEUtil;
+import taper.util.SakaiBase64Decoder;
 import taper.util.XMLUtil;
 import core.sakai.objects.Resource;
 import core.sakai.objects.Site;
@@ -38,9 +40,8 @@ public class ContentHosting {
 	 *            The sessionID for this user.
 	 * @author we.taper
 	 * @throws RemoteException
-	 * TODO test
 	 */
-	private ContentHosting(String sessionID) throws RemoteException {
+	public ContentHosting(String sessionID) throws RemoteException {
 		log = Logger.getLogger(ContentHosting.class);
 
 		this.sessionID = sessionID;
@@ -61,7 +62,6 @@ public class ContentHosting {
 	 * Get virtual root id for this user.
 	 * @return Virtual Root Id
 	 * @throws RemoteException
-	 * TODO test
 	 */
 	private String getVirtualRoot() throws RemoteException {
 		ContentHostingServiceStub.GetVirtualRoot getVirtualRoot = new ContentHostingServiceStub.GetVirtualRoot();
@@ -75,7 +75,7 @@ public class ContentHosting {
 	 * @param siteID Like: "mercury"
 	 * @return The size.
 	 * @throws RemoteException
-	 * TODO test
+	 * @deprecated Does not work properly. Don't use this.
 	 */
 	public long getSiteCollectionSize(String siteID) throws RemoteException {
 		ContentHostingServiceStub.GetSiteCollectionSize getSiteCollectionSize = new ContentHostingServiceStub.GetSiteCollectionSize();
@@ -89,27 +89,24 @@ public class ContentHosting {
 	 * Will return a list of all sites in Site[], including id, size, title etc.
 	 * @return
 	 * @throws RemoteException
-	 * TODO test
 	 */
 	public Site[] getAllSitesCollection() throws ParserConfigurationException, SAXException, IOException {
 		String xml = getAllSitesCollectionSizeInXml();
 		Document read = XMLUtil.loadXMLFromString(xml);
 		NodeList listList = read.getElementsByTagName("list");
+		NodeList siteList = listList.item(0).getChildNodes();
 		ArrayList<Site> sites= new ArrayList<>();
 		Element line;
-		for(int i = 0; i < listList.getLength(); i++) {
+		for(int i = 0; i < siteList.getLength(); i++) {
 			Site aSite = new Site();
 			
-			Element oneSite = (Element) listList.item(i);
-			
-			
-			line = (Element) oneSite.getElementsByTagName("site").item(0);
-			aSite.setCreatedBy(line.getAttribute("createdBy"));
-			aSite.setCreatedTime(line.getAttribute("createdTime"));
-			aSite.setID(line.getAttribute("id"));
-			aSite.setSize(Long.parseLong(line.getAttribute("size")));
-			aSite.setTitle(line.getAttribute("title"));
-			aSite.setType(line.getAttribute("type"));
+			Element oneSite = (Element) siteList.item(i);
+			aSite.setCreatedBy(oneSite.getAttribute("createdBy"));
+			aSite.setCreatedTime(oneSite.getAttribute("createdTime"));
+			aSite.setID(oneSite.getAttribute("id"));
+			aSite.setSize(Long.parseLong(oneSite.getAttribute("size")));
+			aSite.setTitle(oneSite.getAttribute("title"));
+			aSite.setType(oneSite.getAttribute("type"));
 			
 			sites.add(aSite);
 		}
@@ -120,7 +117,6 @@ public class ContentHosting {
 	 * Will return a list of all sites in XML, including id, size, title etc.
 	 * @return
 	 * @throws RemoteException
-	 * TODO test
 	 */
 	private String getAllSitesCollectionSizeInXml() throws RemoteException {
 		ContentHostingServiceStub.GetAllSitesCollectionSize getAllSitesCollectionSize = new ContentHostingServiceStub.GetAllSitesCollectionSize();
@@ -129,49 +125,95 @@ public class ContentHosting {
 		return response.getGetAllSitesCollectionSizeReturn();
 	}
 	
+	
 	/**
-	 * Get the resources related to the id, including their id and name etc. 
+	 * Get the resources related to the collection or Virtual id or resource id,
+	 * including their id and name etc. <Strong> A resource may be a real
+	 * resource or a collection.</Strong>
 	 * 
-	 * @param id of virtual root, collection, or resource.
+	 * @param id
+	 *            of collection, or Virtual ID, or Resource ID.
 	 * @return A list of resources.
-	 * @throws RemoteException Wrong id, wrong sessionID, etc.
-	 * TODO test, virtual id, collections, resource
+	 * @throws RemoteException
+	 *             Wrong id, wrong sessionID, etc.
+	 * @throws ParserConfigurationException
+	 *             Error reading the data, maybe you use a resource ID instead
+	 *             of a collection ID.
 	 */
 	public Resource[] getResources(String id) throws ParserConfigurationException, SAXException, IOException {
 		String xml = getResourcesInXml(id);
 		Document read = XMLUtil.loadXMLFromString(xml);
-		NodeList listList = read.getElementsByTagName("list");
+		NodeList resList = read.getElementsByTagName("resource");
 		ArrayList<Resource> resources = new ArrayList<>();
 		Element line;
-		for(int i = 0; i < listList.getLength(); i++) {
+		String str;
+
+		for(int i = 0; i < resList.getLength(); i++) {
 			Resource aResource = new Resource();
 			
-			Element oneRes = (Element) listList.item(i);
+			Element oneRes = (Element) resList.item(i);
 			
 			line = (Element) oneRes.getElementsByTagName("id").item(0);
-			aResource.setID(line.getFirstChild().getTextContent());
+			if (line == null) {
+				str = "";
+			} else {
+				str = line.getFirstChild().getTextContent();
+			}
+			aResource.setID(str);
 			
 			line = (Element) oneRes.getElementsByTagName("name").item(0);
-			aResource.setName(line.getFirstChild().getTextContent());
+			if(line.hasChildNodes()){
+				str = line.getFirstChild().getTextContent();
+			}else{
+				str = "";
+			}
+			aResource.setName(str);
 			
 			line = (Element) oneRes.getElementsByTagName("type").item(0);
-			aResource.setType(line.getFirstChild().getTextContent());
+			if(line.hasChildNodes()){
+				str = line.getFirstChild().getTextContent();
+			}else{
+				str = "";
+			}
+			aResource.setType(str);
 			
 			line = (Element) oneRes.getElementsByTagName("url").item(0);
-			aResource.setUrl(line.getFirstChild().getTextContent());
+			if(line.hasChildNodes()){
+				str = line.getFirstChild().getTextContent();
+			}else{
+				str = "";
+			}
+			aResource.setUrl(str);
 			
 			resources.add(aResource);
 		}
 		return resources.toArray(new Resource[0]);
 		
 	}
+	
+	/**
+	 * Get the collection related to Virtual id of this user,
+	 * including their id and name etc.
+	 * 
+	 * @return A list of resources.
+	 * @throws IOException 
+	 * @throws SAXException 
+	 * @throws RemoteException
+	 *             Wrong id, wrong sessionID, etc.
+	 * @throws ParserConfigurationException
+	 *             Error reading the data, maybe you use a resource ID instead
+	 *             of a collection ID.
+	 */
+	public Resource[] getRootCollection() throws ParserConfigurationException, SAXException, IOException {
+		return getResources(virtualRoot);
+	}
+	
 	/**
 	 * Get the resources related to the id, including their id and name etc. 
 	 * 
 	 * @param id of virtual root, collection, or resource.
 	 * @return The XML String describing the resources.
 	 * @throws RemoteException Wrong id, wrong sessionID, etc.
-	 * TODO test
 	 */
 	private String getResourcesInXml(String id) throws RemoteException {
 		ContentHostingServiceStub.GetResources getResources = new ContentHostingServiceStub.GetResources();
@@ -191,7 +233,6 @@ public class ContentHosting {
 	 *         String
 	 * @throws RemoteException
 	 *             Something went wrong: sessionID, resourceID etc.
-	 * TODO test
 	 */
 	public String getContentData(String resourceID) throws RemoteException{
 		ContentHostingServiceStub.GetContentData getContentData = new ContentHostingServiceStub.GetContentData();
@@ -209,18 +250,26 @@ public class ContentHosting {
 	 * @return
 	 * @throws RemoteException
 	 *             Something went wrong.
-	 * TODO test, virtual root, a collection, or a resource. null.
 	 */
 	public Resource getInfo(String id) throws ParserConfigurationException, SAXException, IOException {
-		String xml; Resource resource; Document read; NodeList list; Element aRes;
+		String xml;
+		Resource resource;
+		Document read;
+		NodeList list;
+		Element aRes;
 		xml = getInfoInXml(id);
-		if(xml == null) { return null;};
+		if (xml == null) {
+			return null;
+		}
+		if(xml.contains("org.sakaiproject.exception")) {
+			throw new RemoteException(xml);
+		}
 		read = XMLUtil.loadXMLFromString(xml);
 		list = read.getElementsByTagName("resource");
-		assert list.getLength() == 1;
+		log.assertLog(list.getLength() == 1, "List: " + list.getLength());
 		aRes = (Element) list.item(0);
 
-		String 
+		String
 			resID = aRes.getElementsByTagName("id").item(0).getFirstChild().getTextContent(),
 			name = aRes.getElementsByTagName("name").item(0).getFirstChild().getTextContent(),
 			type = aRes.getElementsByTagName("type").item(0).getFirstChild().getTextContent(),
@@ -237,7 +286,6 @@ public class ContentHosting {
 	 * @return
 	 * @throws RemoteException
 	 *             Something went wrong.
-	 * TODO test
 	 */
 	private String getInfoInXml(String id) throws RemoteException {
 		ContentHostingServiceStub.GetInfo getInfo = new ContentHostingServiceStub.GetInfo();
@@ -253,7 +301,6 @@ public class ContentHosting {
 	 * @param nameOfFolder
 	 * @return The id of the new collection. "failure" if failed.
 	 * @throws RemoteException Something went wrong.
-	 * TODO test
 	 */
 	public String createFolder(String collectionID, String nameOfFolder) throws RemoteException {
 		if(!collectionID.endsWith("/")) {
@@ -270,14 +317,15 @@ public class ContentHosting {
 	
 	/**
 	 * Add a resource to a given collection. The resource is passed either as
-	 * text or encoded using Base64 flagged using the binary parameter.
+	 * text or encoded using Base64 flagged using the binary parameter.<br>
+	 * Don't use this when uploading files. Use {@link uploadFile} instead.
 	 * 
 	 * @param nameOfContent
 	 *            of the resource to be added
 	 * @param collectionID
 	 *            of the collection it is to be added to (e.g. /group/mercury/)
 	 * @param content
-	 *            content string
+	 *            content in a string
 	 * @param descrip
 	 *            of the resource to be added
 	 * @param mime
@@ -290,9 +338,10 @@ public class ContentHosting {
 	 *         happened.
 	 * @throws RemoteException
 	 *             Something went wrong.
-	 * TODO test
 	 */
-	public boolean createContentItem(String nameOfContent, String collectionID, String content, String descrip, String mime, boolean isBinary  ) throws RemoteException {
+	public boolean createContentItem(String nameOfContent, String collectionID,
+			String content, String descrip, String mime, boolean isBinary)
+			throws RemoteException {
 		ContentHostingServiceStub.CreateContentItem createContentItem = new ContentHostingServiceStub.CreateContentItem();
 		createContentItem.setSessionid(sessionID);
 		createContentItem.setName(nameOfContent);
@@ -310,5 +359,40 @@ public class ContentHosting {
 			log.error("Wrong return from CreateContentItem");
 			return false;
 		}
+	}
+	
+	/**
+	 * Add a resource to a given collection. The resource is passed either as
+	 * text or encoded using Base64 flagged using the binary parameter.<br>
+	 * Don't use this when uploading files. Use {@link uploadFile} instead.
+	 * 
+	 * @param nameOfFile
+	 *            of the resource to be added, can be different from the name of
+	 *            file.
+	 * @param collectionID
+	 *            of the collection it is to be added to (e.g. /group/mercury/)
+	 * @param file
+	 *            File to be uploaded
+	 * @param descrp
+	 *            of the resource to be added
+	 * @return true if successfully added. false if failed or some error
+	 *         happened.
+	 * @throws RemoteException
+	 *             Something went wrong.
+	 * @throws IOException
+	 *             if an I/O error occurs reading from the stream
+	 * @throws OutOfMemoryError
+	 *             if an array of the required size cannot be allocated, for
+	 *             example the file is larger that {@code 2GB}
+	 * @throws SecurityException
+	 *             In the case of the default provider, and a security manager
+	 *             is installed, the {@link SecurityManager#checkRead(String)
+	 *             checkRead} method is invoked to check read access to the
+	 *             file.
+	 * 
+	 */
+	public boolean uploadFile(String nameOfFile, String collectioinID, File file, String descrp) throws IOException {
+		String base64 = SakaiBase64Decoder.encode2Base64(SakaiBase64Decoder.readFileAsByte(file));
+		return createContentItem(nameOfFile, collectioinID, base64, descrp, MIMEUtil.getMIMETypeFrom(file), true);
 	}
 }

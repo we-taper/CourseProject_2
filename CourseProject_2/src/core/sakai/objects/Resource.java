@@ -10,7 +10,7 @@ public class Resource {
 		this.url = url;
 	}
 	public Resource() {
-		this("unknow", "unknow", "unknow", "null");
+		this("unknow", "unknow", "unknow", "unknow");
 	}
 	public String getName() {
 		return name;
@@ -35,5 +35,10 @@ public class Resource {
 	}
 	public void setUrl(String url){
 		this.url = url;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("Name:%s, ID:%s, Type:%s, Url:%s",name,id,type,url);
 	}
 }

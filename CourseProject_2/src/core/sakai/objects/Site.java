@@ -16,7 +16,7 @@ public class Site {
 		this.id = id;
 		this.title = title;
 		this.createdBy = createdBy;
-		this.createdBy = createdTime;
+		this.createdTime = id;
 		this.size = size;
 		this.type = type;
 	}
@@ -60,7 +60,10 @@ public class Site {
 	@Override
 	public String toString() {
 		//TODO update this.
-		return "Title:"+getTitle()+","+
-				"ID"+getID();
+		return "Title:"+getTitle()+","
+				+"ID:"+getID()+","
+				+"Type:"+getType()+","
+				+"CreatedBy:"+getCreatedBy()+","
+				+"CreatedTime:"+getCreatedTime();
 	}
 }
