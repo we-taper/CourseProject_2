@@ -9,9 +9,9 @@ import core.sakai.wsdl.SakaiLoginServiceStub;
 
 public class SakaiLogin {
 
-	private SakaiLoginServiceStub stub;
+	private static SakaiLoginServiceStub stub;
 
-	public SakaiLogin() throws AxisFault {
+	private SakaiLogin() throws AxisFault {
 		stub = new SakaiLoginServiceStub();
 	}
 
@@ -24,7 +24,8 @@ public class SakaiLogin {
 	 * @throws RemoteException
 	 *             If password is wrong or not connected to serve.
 	 */
-	public String login(String userId, String password) throws RemoteException {
+	public static String login(String userId, String password) throws RemoteException, AxisFault {
+		stub = new SakaiLoginServiceStub();
 		SakaiLoginServiceStub.Login login = new SakaiLoginServiceStub.Login();
 		login.setId(userId);
 		login.setPw(password);
@@ -44,7 +45,7 @@ public class SakaiLogin {
 	 * @TODO Here does not return true as expected. On the other hand, even if
 	 *       the user had successfully logged out, it would still return false.
 	 */
-	public boolean logout(String sessionid) throws RemoteException {
+	public static boolean logout(String sessionid) throws RemoteException {
 		SakaiLoginServiceStub.Logout logout = new SakaiLoginServiceStub.Logout();
 		logout.setSessionid(sessionid);
 		SakaiLoginServiceStub.LogoutResponse logoutResponse = stub
