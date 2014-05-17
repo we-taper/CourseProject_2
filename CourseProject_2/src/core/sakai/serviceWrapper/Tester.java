@@ -75,8 +75,7 @@ public class Tester{
 //	}
 	public static void testAsycUpContent() throws RemoteException {
 		
-		SakaiLogin log = new SakaiLogin();
-		String sesID = log.login("admin", "admin");
+		String sesID = SakaiLogin.login("admin", "admin");
 		
 		System.out.println("sesID:"+sesID);
 		
@@ -98,10 +97,9 @@ public class Tester{
 		});
 	}
 	public static void testSakaiScript() throws ParserConfigurationException, SAXException, IOException {
-		SakaiLogin log = new SakaiLogin();
 		SakaiScript sakaiScript = new SakaiScript();
 		
-		String sesID = log.login("test", "test");
+		String sesID = SakaiLogin.login("test", "test");
 		
 		
 		String whoami = sakaiScript.getUserId(sesID);
@@ -127,8 +125,7 @@ public class Tester{
 	}
 	public static void testContentHosting() throws ParserConfigurationException, SAXException, IOException {
 		
-		SakaiLogin log = new SakaiLogin();
-		String sesId = log.login("admin", "admin");
+		String sesId = SakaiLogin.login("admin", "admin");
 		ContentHosting contentHosting = new ContentHosting(sesId);
 		Site[] sites = contentHosting.getAllSitesCollection();
 		System.out.println("Sites size: "+sites.length);
@@ -193,16 +190,14 @@ public class Tester{
 	}
 	public static void testLogin(String[] args) throws RemoteException {
 
-		SakaiLogin login = new SakaiLogin();
-		String sessionidString = login.login("admind", "admin");
-		ContentHosting contentHosting = new ContentHosting(sessionidString);
+		String sessionidString = SakaiLogin.login("admind", "admin");
 		Scanner input = new Scanner(System.in);
 		System.out.printf("To logout?");
 		input.nextLine();
 
-		login.logout(sessionidString);
+		SakaiLogin.logout(sessionidString);
 		input.nextLine();
-		login.logout(sessionidString);
+		SakaiLogin.logout(sessionidString);
 		input.nextLine();
 
 		input.close();
