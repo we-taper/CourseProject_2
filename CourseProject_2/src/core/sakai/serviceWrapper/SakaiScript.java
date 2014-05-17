@@ -24,13 +24,22 @@ public class SakaiScript {
 	}
 	
 	/**
-	 * Change the Email address of a user. Admin can modify other's email address.
+	 * Change the Email address of a user. A user can modify other's email
+	 * address if permitted by Sakai.
+	 * 
 	 * @param sessionID
-	 * @param userName the login username (ie jsmith26) of the user you want to edit
-	 * @param email the updated email address for the user
+	 * @param userName
+	 *            the name (i.e. jsmith26) of the user you want to edit
+	 * @param email
+	 *            the updated email address for the user
 	 * @return success or exception message.
-	 * @throws RemoteException Something went wrong.
-	 * TODO test
+	 * @throws RemoteException
+	 *             Something went wrong. 
+	 * <br><br>           
+	 * <strong>Note: </strong> If
+	 * something went wrong, it may throw a
+	 * {@code NullPointerException}, be careful not to forget to
+	 * catch this.
 	 */
 	public String changeUserEmail(String sessionID, String userName, String email) throws RemoteException {
 		SakaiScriptServiceStub.ChangeUserEmail op = new SakaiScriptServiceStub.ChangeUserEmail();
@@ -42,16 +51,18 @@ public class SakaiScript {
 	}
 	
 	/**
-	 * Get all sites related to a user.
+	 * Get all sites related to a user. You may get sites related to another
+	 * person if permitted.
 	 * 
 	 * @param sessionID
+	 * @param username
 	 * @return An array containing all the sites retrieved from Sakai.
 	 * @throws IOException
 	 * @throws SAXException
 	 * @throws ParserConfigurationException
 	 */
-	public Site[] getAllSitesForUser (String sessionID) throws ParserConfigurationException, SAXException, IOException {
-		String xml = getAllSitesForUserInXml(sessionID);
+	public Site[] getAllSitesForUser (String sessionID, String username) throws ParserConfigurationException, SAXException, IOException {
+		String xml = getAllSitesForUserInXml(sessionID,username);
 		Document read = XMLUtil.loadXMLFromString(xml);
 		NodeList itemList = read.getElementsByTagName("item");
 		ArrayList<Site> sites = new ArrayList<>();
@@ -75,17 +86,21 @@ public class SakaiScript {
 	}
 	
 	/**
-	 * Get all sites related to a user.
+	 * Get all sites related to a user. You may get sites related to another
+	 * person if permitted.
 	 * 
 	 * @param sessionID
+	 * @param username
+	 * 
 	 * @return XML document listing all sites user has read or write access
 	 *         based on their session id, including My Workspace sites.
-	 * @throws RemoteException Something went wrong.
-	 * TODO test
+	 * @throws RemoteException
+	 *             Something went wrong.
 	 */
-	private String getAllSitesForUserInXml (String sessionID) throws RemoteException {
+	private String getAllSitesForUserInXml (String sessionID, String username) throws RemoteException {
 		SakaiScriptServiceStub.GetAllSitesForUser op = new SakaiScriptServiceStub.GetAllSitesForUser();
 		op.setSessionid(sessionID);
+		op.setUserid(username);
 		SakaiScriptServiceStub.GetAllSitesForUserResponse response = stub.getAllSitesForUser(op);
 		return response.getGetAllSitesForUserReturn();
 	}
@@ -96,7 +111,6 @@ public class SakaiScript {
 	 * @param sessionID
 	 * @return User's email address.
 	 * @throws RemoteException
-	 * TODO test
 	 */
 	public String getUserEmail(String sessionID) throws RemoteException {
 		SakaiScriptServiceStub.GetUserEmail op = new SakaiScriptServiceStub.GetUserEmail();
@@ -111,7 +125,6 @@ public class SakaiScript {
 	 * @param sessionID
 	 * @return
 	 * @throws RemoteException
-	 * TODO test
 	 */
 	public String getUserId(String sessionID) throws RemoteException {
 		SakaiScriptServiceStub.GetUserId op = new SakaiScriptServiceStub.GetUserId();

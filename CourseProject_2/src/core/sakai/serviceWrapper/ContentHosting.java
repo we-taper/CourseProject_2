@@ -5,19 +5,23 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import javax.swing.JProgressBar;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.log4j.Logger;
+import org.omg.CORBA.PRIVATE_MEMBER;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import taper.util.EndEventHandler;
 import taper.util.MIMEUtil;
 import taper.util.SakaiBase64Decoder;
 import taper.util.XMLUtil;
 import core.sakai.objects.Resource;
 import core.sakai.objects.Site;
+import core.sakai.wsdl.ContentHostingServiceCallbackHandler;
 import core.sakai.wsdl.ContentHostingServiceStub;
 
 /**
@@ -224,9 +228,41 @@ public class ContentHosting {
 	}
 	
 	/**
+	 * An Asyc version of {@link getContentData}. TODO test
+	 * @param resourceID
+	 * @return resource (like a pdf, a ppt, a mp3 etc.) encoded in base64 as a
+	 *         String
+	 * @throws RemoteException
+	 *             Something went wrong: sessionID, resourceID etc.
+	 */
+	public void getContentData(String resourceID, EndEventHandler<String> handler ) throws RemoteException {
+		class Handler extends ContentHostingServiceCallbackHandler{
+			EndEventHandler<String> handler; 
+			Handler(EndEventHandler<String> handler) {
+				this.handler = handler;
+			}
+			
+			@Override
+			public void receiveResultgetContentData(ContentHostingServiceStub.GetContentDataResponse result) {
+				handler.finishedWithoutError(result.getGetContentDataReturn());
+			}
+			@Override
+			public void receiveErrorgetContentData(Exception e) {
+				handler.equals(e);
+			}
+		};
+		
+		ContentHostingServiceStub.GetContentData getContentData = new ContentHostingServiceStub.GetContentData();
+		getContentData.setSessionid(sessionID);
+		getContentData.setResourceId(resourceID);
+		
+		Handler handler2 = new Handler(handler);//TODO
+		stub.startgetContentData(getContentData, handler2);
+	}
+	/**
 	 * This will return the resource (like a pdf, a ppt, a mp3 etc.) encoded in
 	 * base64 as a String. The return could be huge if the resource is big.<br>
-	 * You may use #SakaiBase64Decoder to decode this String.
+	 * You may use {@link SakaiBase64Decoder} to decode this String.
 	 * 
 	 * @param resourceID
 	 * @return resource (like a pdf, a ppt, a mp3 etc.) encoded in base64 as a
@@ -318,7 +354,11 @@ public class ContentHosting {
 	/**
 	 * Add a resource to a given collection. The resource is passed either as
 	 * text or encoded using Base64 flagged using the binary parameter.<br>
-	 * Don't use this when uploading files. Use {@link uploadFile} instead.
+	 * Don't use this when uploading files. Use {@link #uploadFile} instead.<br>
+	 * <strong>
+	 * 	Be careful of the limitation on content's size allowed to be uploaded,
+	 *  which is typically 20MB.
+	 * </strong>
 	 * 
 	 * @param nameOfContent
 	 *            of the resource to be added
@@ -364,7 +404,11 @@ public class ContentHosting {
 	/**
 	 * Add a resource to a given collection. The resource is passed either as
 	 * text or encoded using Base64 flagged using the binary parameter.<br>
-	 * Don't use this when uploading files. Use {@link uploadFile} instead.
+	 * <br>
+	 * <strong>
+	 * 	Be careful of the limitation on content's size allowed to be uploaded,
+	 *  which is typically 20MB.
+	 * </strong>
 	 * 
 	 * @param nameOfFile
 	 *            of the resource to be added, can be different from the name of

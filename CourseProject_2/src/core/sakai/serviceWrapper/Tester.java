@@ -1,18 +1,22 @@
 package core.sakai.serviceWrapper;
 
+import java.awt.FlowLayout;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
-import java.nio.file.Files;
 import java.rmi.RemoteException;
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.axis2.AxisFault;
-import org.apache.james.mime4j.util.MimeUtil;
 import org.xml.sax.SAXException;
 
+import taper.util.DownloadTask4GUI;
+import taper.util.EndEventHandler;
 import taper.util.MIMEUtil;
 import taper.util.SakaiBase64Decoder;
 import core.sakai.objects.Resource;
@@ -26,10 +30,104 @@ import core.sakai.objects.Site;
 public class Tester{
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-		testContentHosting();
-	
+		testDownloadTask4GUI();
 	}
 	
+	public static void testDownloadTask4GUI() throws RemoteException {
+		class UpdateTextField extends JFrame implements PropertyChangeListener{
+
+			private JTextField textField = new JTextField();
+			private String prog = "Progress:";
+			String url;
+			String cookie_header = "JSESSIONID";
+			String sesID;
+			SakaiLogin log;
+
+			String cookie;
+			DownloadTask4GUI downloadTask4GUI;
+			
+			UpdateTextField() throws RemoteException {
+				log = new SakaiLogin();
+				sesID = log.login("admin", "admin");
+				System.out.println(sesID);
+				cookie = cookie_header + "=" + sesID+".localhost";
+				url = "http://localhost:8080/access/content/group/mercury/%E5%8F%AF%E5%8F%A3%E5%8F%AF%E4%B9%90%E5%88%9B%E6%84%8F%E5%B9%BF%E5%91%8A--%E8%BE%B9%E7%95%8C%E7%BA%BF%E7%AF%87.flv";
+
+				setSize(300, 300);
+				setLayout(new FlowLayout());
+				getContentPane().add(textField);
+				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				setVisible(true);
+
+				JOptionPane.showConfirmDialog(this, "Started?");
+				downloadTask4GUI = new DownloadTask4GUI(this, url, cookie,
+						"E:\\");
+				downloadTask4GUI.addPropertyChangeListener(this);
+				downloadTask4GUI.execute();
+			}
+			
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				if(evt.getPropertyName().equals("progress")){
+					textField.setText(prog+evt.getNewValue());
+				}
+				
+			}
+			
+		}
+
+		new UpdateTextField();
+	}
+	public static void testAsycUpContent() throws RemoteException {
+		
+		SakaiLogin log = new SakaiLogin();
+		String sesID = log.login("admin", "admin");
+		
+		System.out.println("sesID:"+sesID);
+		
+		ContentHosting contentHosting = new ContentHosting(sesID);
+		System.out.println("Start at:"+System.currentTimeMillis());
+		contentHosting.getContentData("/1group/mercury", new EndEventHandler<String>() {
+			
+			@Override
+			public void finishedWithoutError(String t) {
+				System.out.println("Finished:"+t);
+				
+			}
+			
+			@Override
+			public void errorHappened(Exception e) {
+				e.printStackTrace();
+				
+			}
+		});
+	}
+	public static void testSakaiScript() throws ParserConfigurationException, SAXException, IOException {
+		SakaiLogin log = new SakaiLogin();
+		SakaiScript sakaiScript = new SakaiScript();
+		
+		String sesID = log.login("admin", "admin");
+		
+		
+		String whoami = sakaiScript.getUserId(sesID);
+		System.out.println("Who am I:"+whoami);
+		
+		String usrEmail = sakaiScript.getUserEmail(sesID);
+		System.out.println("Org Email:"+usrEmail);
+
+		String changE = sakaiScript.changeUserEmail(sesID, "admin", "newEmail@SakaiLogin.com");
+		System.out.println("Change email:"+changE);
+		
+		usrEmail = sakaiScript.getUserEmail(sesID);
+		System.out.println("Chged Email:"+usrEmail);
+
+		Site[] allSite4Usr = sakaiScript.getAllSitesForUser(sesID,"test");
+		System.out.println("Sites4Usr: "+allSite4Usr.length);
+		for(Site s:allSite4Usr) {
+			System.out.println(s.toString());
+		}
+		
+	}
 	public static void testContentHosting() throws ParserConfigurationException, SAXException, IOException {
 		
 		SakaiLogin log = new SakaiLogin();
