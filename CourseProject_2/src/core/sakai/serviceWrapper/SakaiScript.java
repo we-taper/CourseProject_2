@@ -54,6 +54,8 @@ public class SakaiScript {
 	 * Get all sites related to a user. You may get sites related to another
 	 * person if permitted.
 	 * 
+	 * Restricted to super users.
+	 * 
 	 * @param sessionID
 	 * @param username
 	 * @return An array containing all the sites retrieved from Sakai.
