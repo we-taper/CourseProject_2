@@ -2,27 +2,18 @@ package core.sakai.serviceWrapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.StringReader;
 import java.rmi.RemoteException;
 import java.util.Scanner;
 
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamReader;
-import javax.xml.transform.stream.StreamSource;
 
-import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import taper.util.EndEventHandler;
 import taper.util.MIMEUtil;
 import taper.util.SakaiBase64Decoder;
-import taper.util.XMLUtil;
 import core.sakai.objects.Resource;
-import core.sakai.objects.SakaiList;
 import core.sakai.objects.Site;
 
 /**
