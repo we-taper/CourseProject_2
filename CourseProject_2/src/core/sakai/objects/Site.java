@@ -1,4 +1,9 @@
 package core.sakai.objects;
+
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name="site")
 public class Site {
 	private String id,title,createdBy,createdTime,type;
 	private long size;
@@ -20,36 +25,48 @@ public class Site {
 		this.size = size;
 		this.type = type;
 	}
+	
+	@XmlAttribute(name="id")
 	public String getID() {
 		return id;
 	}
 	public void setID(String id) {
 		this.id = id;
 	}
+
+	@XmlAttribute(name="createdBy")
 	public String getCreatedBy() {
 		return createdBy;
 	}
 	public void setCreatedBy(String s) {
 		this.createdBy = s;
 	}
+
+	@XmlAttribute(name="createdTime")
 	public String getCreatedTime() {
 		return createdTime;
 	}
 	public void setCreatedTime(String s) {
 		this.createdTime = s;
 	}
+
+	@XmlAttribute(name="size")
 	public long getSize() {
 		return size;
 	}
 	public void setSize(long s) {
 		this.size = s;
 	}
+	
+	@XmlAttribute(name="title")
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	@XmlAttribute(name="type")
 	public void setType(String type) {
 		this.type = type;
 	}
@@ -59,11 +76,7 @@ public class Site {
 	
 	@Override
 	public String toString() {
-		//TODO update this.
-		return "Title:"+getTitle()+","
-				+"ID:"+getID()+","
-				+"Type:"+getType()+","
-				+"CreatedBy:"+getCreatedBy()+","
-				+"CreatedTime:"+getCreatedTime();
+		return String.format("Title:%s, ID:%s, Type:%s, CreatedBy:%s, CreatedTime:%s, Size:%d",
+				getTitle(), getID(), getType(), getCreatedBy(), getCreatedTime(), getSize());
 	}
 }

@@ -1,4 +1,4 @@
-package testRest;
+package core.sakai.objects;
 
 import java.util.List;
 
@@ -9,13 +9,13 @@ import javax.xml.bind.annotation.*;
  * @author we.taper
  *
  */
-@XmlRootElement(name="FosterHome")
+@XmlRootElement(name="list")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SakaiList {
 
 
 //    @XmlElementWrapper(name="Families")
     @XmlElement(name="resource")
-    public List<SakaiResource> recList;
+    public List<Resource> recList;
 
 }
