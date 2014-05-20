@@ -17,16 +17,6 @@ import org.xml.sax.SAXException;
 public class XMLUtil {
 
 	/**
-	 * @deprecated Test only.
-	 * @param args
-	 * @throws Exception
-	 * TODO Clean up this.
-	 */
-	public static void main(String args[]) throws Exception {
-
-	}
-
-	/**
 	 * 
 	 * @param xml
 	 * @return
