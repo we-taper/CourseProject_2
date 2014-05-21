@@ -109,15 +109,6 @@ public class ContentHosting {
 	        JAXBContext jc = JAXBContext.newInstance(Site.class);
 	        Unmarshaller unmarshaller = jc.createUnmarshaller();
 	        aSite = (Site) unmarshaller.unmarshal(siteList.item(i));
-			
-//			Element oneSite = (Element) siteList.item(i);
-//			aSite.setCreatedBy(oneSite.getAttribute("createdBy"));
-//			aSite.setCreatedTime(oneSite.getAttribute("createdTime"));
-//			aSite.setID(oneSite.getAttribute("id"));
-//			aSite.setSize(Long.parseLong(oneSite.getAttribute("size")));
-//			aSite.setTitle(oneSite.getAttribute("title"));
-//			aSite.setType(oneSite.getAttribute("type"));
-			
 			sites.add(aSite);
 		}
 		return sites.toArray(new Site[0]);
