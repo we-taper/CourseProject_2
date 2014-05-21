@@ -10,18 +10,18 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name="resource")
 
-public class Resource {
+public class SakaiResource {
 
 	private String name,id,type,url;
 	
-	public Resource(String name, String id, String type, String url) {
+	public SakaiResource(String name, String id, String type, String url) {
 		this.name = name;
 		this.id = id;
 		this.type = type;
 		this.url = url;
 	}
 	
-	public Resource() {
+	public SakaiResource() {
 		this("unknow", "unknow", "unknow", "unknow");
 	}
 	
@@ -56,9 +56,12 @@ public class Resource {
 	public void setUrl(String url){
 		this.url = url;
 	}
-	
+
 	@Override
 	public String toString() {
-		return String.format("Name:%s, ID:%s, Type:%s, Url:%s",name,id,type,url);
+		return "SakaiResource [getName()=" + getName() + ", getID()=" + getID()
+				+ ", getType()=" + getType() + ", getUrl()=" + getUrl() + "]";
 	}
+	
+
 }

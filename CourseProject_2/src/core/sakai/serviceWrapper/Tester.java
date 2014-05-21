@@ -13,8 +13,8 @@ import org.xml.sax.SAXException;
 import taper.util.EndEventHandler;
 import taper.util.MIMEUtil;
 import taper.util.SakaiBase64Decoder;
-import core.sakai.objects.Resource;
-import core.sakai.objects.Site;
+import core.sakai.objects.SakaiResource;
+import core.sakai.objects.SakaiSite;
 
 /**
  * @deprecated Test only
@@ -117,10 +117,10 @@ public class Tester{
 		System.out.println("Chged Email:"+usrEmail);
 
 		ContentHosting contentHosting = new ContentHosting(sesID);
-		Site[] allSite4Usr = contentHosting.getAllSitesCollection();
+		SakaiSite[] allSite4Usr = contentHosting.getAllSitesCollection();
 //		Site[] allSite4Usr = sakaiScript.getAllSitesForUser(sesID,"test");
 		System.out.println("Sites4Usr: "+allSite4Usr.length);
-		for(Site s:allSite4Usr) {
+		for(SakaiSite s:allSite4Usr) {
 			System.out.println(s.toString());
 		}
 		
@@ -129,15 +129,15 @@ public class Tester{
 		
 		String sesId = SakaiLogin.login("admin", "admin");
 		ContentHosting contentHosting = new ContentHosting(sesId);
-		Site[] sites = contentHosting.getAllSitesCollection();
+		SakaiSite[] sites = contentHosting.getAllSitesCollection();
 		System.out.println("Sites size: "+sites.length);
-		for(Site a:sites) {
+		for(SakaiSite a:sites) {
 			System.out.println("Site:  "+a.toString());
 		}
 		
-		Resource rootCollectionResource[] = contentHosting.getRootCollection();
-		Resource mercury = new Resource();
-		for(Resource res: rootCollectionResource) {
+		SakaiResource rootCollectionResource[] = contentHosting.getRootCollection();
+		SakaiResource mercury = new SakaiResource();
+		for(SakaiResource res: rootCollectionResource) {
 			System.out.println("Root:"+res.toString());
 			if(res.getID().equalsIgnoreCase("/group/mercury/")) {
 				mercury = res;
@@ -148,9 +148,9 @@ public class Tester{
 			System.out.println(mercury);
 			System.exit(1);
 		}
-		Resource testSmile = new Resource();
-		Resource collectionResource[] = contentHosting.getResources(mercury.getID());
-		for(Resource res: collectionResource) {
+		SakaiResource testSmile = new SakaiResource();
+		SakaiResource collectionResource[] = contentHosting.getResources(mercury.getID());
+		for(SakaiResource res: collectionResource) {
 			System.out.println("Collection:"+res.toString());
 			if(res.getName().equals("Test Smile.png")) {
 				testSmile = res;
@@ -163,12 +163,12 @@ public class Tester{
 			System.out.println(testSmile);
 			System.exit(1);
 		}
-		Resource aResourceArray[] = contentHosting.getResources(testSmile.getID());
+		SakaiResource aResourceArray[] = contentHosting.getResources(testSmile.getID());
 		assert aResourceArray.length == 1;
 		System.out.println("aResArray:"+aResourceArray[0].toString());
 		
 		
-		Resource fromGetInfo = contentHosting.getInfo(testSmile.getID());
+		SakaiResource fromGetInfo = contentHosting.getInfo(testSmile.getID());
 		System.out.println("afromGetInfo:"+fromGetInfo.toString());
 		
 		

@@ -1,6 +1,5 @@
 package core.sakai.objects;
 
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="assignment")
@@ -14,11 +13,11 @@ public class SakaiAssignment {
 		return access;
 	}
 	
-	private Resource attachment;
-	public void setAttachment(Resource a){
+	private SakaiResource attachment;
+	public void setAttachment(SakaiResource a){
 		attachment = a;
 	}
-	public Resource getAttachment() {
+	public SakaiResource getAttachment() {
 		return attachment;
 	}
 	
@@ -232,7 +231,7 @@ public class SakaiAssignment {
 	
 	@Override
 	public String toString() {
-		return String.format("Assignment:%s, ID:%s, Entity_URL:%s",
-				getTitle(), getId(), getEntityURL());
+		return String.format("Assignment:%s, ID:%s, Entity_URL:%s, Start data:%s",
+				getTitle(), getId(), getEntityURL(), getOpenTime().getDisplay());
 	}
 }

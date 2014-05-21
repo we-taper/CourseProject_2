@@ -4,20 +4,20 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="site")
-public class Site {
+public class SakaiSite {
 	private String id,title,createdBy,createdTime,type;
 	private long size;
-	public Site() {
+	public SakaiSite() {
 		this("Unknow");
 	}
-	public Site(String id) {
+	public SakaiSite(String id) {
 		this(id,"Unset");
 	}
-	public Site(String id, String title) {
+	public SakaiSite(String id, String title) {
 		//TODO null --> name
 		this(id,title,null,null,0,null);
 	}
-	public Site(String id, String title, String createdBy, String createdTime, long size, String type) {
+	public SakaiSite(String id, String title, String createdBy, String createdTime, long size, String type) {
 		this.id = id;
 		this.title = title;
 		this.createdBy = createdBy;
@@ -73,10 +73,12 @@ public class Site {
 	public String getType(){
 		return type;
 	}
-	
 	@Override
 	public String toString() {
-		return String.format("Title:%s, ID:%s, Type:%s, CreatedBy:%s, CreatedTime:%s, Size:%d",
-				getTitle(), getID(), getType(), getCreatedBy(), getCreatedTime(), getSize());
+		return "SakaiSite [getID()=" + getID() + ", getCreatedBy()="
+				+ getCreatedBy() + ", getCreatedTime()=" + getCreatedTime()
+				+ ", getSize()=" + getSize() + ", getTitle()=" + getTitle()
+				+ ", getType()=" + getType() + "]";
 	}
+
 }

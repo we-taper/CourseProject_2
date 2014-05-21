@@ -16,6 +16,6 @@ public class SakaiList {
 
 //    @XmlElementWrapper(name="Families")
     @XmlElement(name="resource")
-    public List<Resource> recList;
+    public List<SakaiResource> recList;
 
 }

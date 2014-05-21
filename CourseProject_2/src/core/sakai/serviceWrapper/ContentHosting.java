@@ -20,9 +20,9 @@ import taper.util.EndEventHandler;
 import taper.util.MIMEUtil;
 import taper.util.SakaiBase64Decoder;
 import taper.util.XMLUtil;
-import core.sakai.objects.Resource;
+import core.sakai.objects.SakaiResource;
 import core.sakai.objects.SakaiList;
-import core.sakai.objects.Site;
+import core.sakai.objects.SakaiSite;
 import core.sakai.wsdl.ContentHostingServiceCallbackHandler;
 import core.sakai.wsdl.ContentHostingServiceStub;
 
@@ -97,21 +97,21 @@ public class ContentHosting {
 	 * @throws JAXBException 
 	 * @throws RemoteException
 	 */
-	public Site[] getAllSitesCollection() throws ParserConfigurationException, SAXException, IOException, JAXBException {
+	public SakaiSite[] getAllSitesCollection() throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		String xml = getAllSitesCollectionSizeInXml();
 		Document read = XMLUtil.loadXMLFromString(xml);
 		NodeList listList = read.getElementsByTagName("list");
 		NodeList siteList = listList.item(0).getChildNodes();
-		ArrayList<Site> sites= new ArrayList<>();
+		ArrayList<SakaiSite> sites= new ArrayList<>();
 		for(int i = 0; i < siteList.getLength(); i++) {
-			Site aSite = new Site();
+			SakaiSite aSite = new SakaiSite();
 			
-	        JAXBContext jc = JAXBContext.newInstance(Site.class);
+	        JAXBContext jc = JAXBContext.newInstance(SakaiSite.class);
 	        Unmarshaller unmarshaller = jc.createUnmarshaller();
-	        aSite = (Site) unmarshaller.unmarshal(siteList.item(i));
+	        aSite = (SakaiSite) unmarshaller.unmarshal(siteList.item(i));
 			sites.add(aSite);
 		}
-		return sites.toArray(new Site[0]);
+		return sites.toArray(new SakaiSite[0]);
 	}
 	
 	/**
@@ -142,7 +142,7 @@ public class ContentHosting {
 	 *             of a collection ID.
 	 * @throws JAXBException 
 	 */
-	public Resource[] getResources(String id) throws ParserConfigurationException, SAXException, IOException, JAXBException {
+	public SakaiResource[] getResources(String id) throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		String xml = getResourcesInXml(id);
 		StringReader sr = new StringReader(xml);
 		
@@ -151,7 +151,7 @@ public class ContentHosting {
         Unmarshaller unmarshaller = jc.createUnmarshaller();
 
         SakaiList list = (SakaiList) unmarshaller.unmarshal(sr);
-        return list.recList.toArray(new Resource[0]);
+        return list.recList.toArray(new SakaiResource[0]);
 	}
 	
 	/**
@@ -168,7 +168,7 @@ public class ContentHosting {
 	 *             of a collection ID.
 	 * @throws JAXBException 
 	 */
-	public Resource[] getRootCollection() throws ParserConfigurationException, SAXException, IOException, JAXBException {
+	public SakaiResource[] getRootCollection() throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		return getResources(virtualRoot);
 	}
 	
@@ -248,12 +248,12 @@ public class ContentHosting {
 	 * @throws RemoteException
 	 *             Something went wrong.
 	 */
-	public Resource getInfo(String id) throws ParserConfigurationException, SAXException, IOException, JAXBException {
+	public SakaiResource getInfo(String id) throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		String xml = getInfoInXml(id);
 		StringReader sReader = new StringReader(xml);
-        JAXBContext jc = JAXBContext.newInstance(Resource.class);
+        JAXBContext jc = JAXBContext.newInstance(SakaiResource.class);
         Unmarshaller unmarshaller = jc.createUnmarshaller();
-        Resource list = (Resource) unmarshaller.unmarshal(sReader);
+        SakaiResource list = (SakaiResource) unmarshaller.unmarshal(sReader);
         return list;
 	}
 	/**
