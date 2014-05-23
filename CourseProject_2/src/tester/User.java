@@ -1,4 +1,4 @@
-package testRest;
+package tester;
 import java.io.Serializable;
  
 import javax.xml.bind.annotation.XmlAccessType;

@@ -1,5 +1,7 @@
 package core.sakai.objects;
 
+import java.util.Arrays;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="assignment")
@@ -233,5 +235,231 @@ public class SakaiAssignment {
 	public String toString() {
 		return String.format("Assignment:%s, ID:%s, Entity_URL:%s, Start data:%s",
 				getTitle(), getId(), getEntityURL(), getOpenTime().getDisplay());
+	}
+	
+	@XmlRootElement(name="content")
+	public static class SakaiAssignmentContent{
+		@Override
+		public String toString() {
+			return "SakaiAssignmentContent [allowAttachments="
+					+ allowAttachments + ", allowReviewService="
+					+ allowReviewService + ", allowStudentViewReport="
+					+ allowStudentViewReport + ", attachments="
+					+ Arrays.toString(attachments) + ", authorLastModified="
+					+ authorLastModified + ", authors="
+					+ Arrays.toString(authors) + ", context=" + context
+					+ ", creator=" + creator + ", generateOriginalityReport="
+					+ generateOriginalityReport + ", groupProject="
+					+ groupProject + ", honorPledge=" + honorPledge + ", id="
+					+ id + ", instructions=" + instructions
+					+ ", maxGradePoint=" + maxGradePoint
+					+ ", maxGradePointDisplay=" + maxGradePointDisplay
+					+ ", properties=" + Arrays.toString(properties)
+					+ ", reference=" + reference + ", submitReviewRepo="
+					+ submitReviewRepo + ", timeCreated=" + timeCreated
+					+ ", timeLastModified=" + timeLastModified + ", title="
+					+ title + ", typeOfGrade=" + typeOfGrade
+					+ ", typeOfSubmission=" + typeOfSubmission + ", url=" + url
+					+ ", checkInstitution=" + checkInstitution
+					+ ", checkInternet=" + checkInternet
+					+ ", checkPublications=" + checkPublications
+					+ ", checkTurnitin=" + checkTurnitin + "]";
+		}
+		private boolean allowAttachments;
+		private boolean allowReviewService;
+		private boolean allowStudentViewReport;
+		private SakaiResource[] attachments;
+		private String authorLastModified;
+		private String[] authors;
+		private String context;
+		private String creator;
+		private long generateOriginalityReport;
+		private boolean groupProject;
+		private long honorPledge;
+		private String id;
+		private String instructions;
+		private double maxGradePoint;
+		private String maxGradePointDisplay;
+		private Object[] properties;
+		private String reference;
+		private long submitReviewRepo;
+		private SakaiTime timeCreated;
+		private SakaiTime timeLastModified;
+		private String title;
+		private long typeOfGrade;
+		private long typeOfSubmission;
+		private String url;
+		private boolean checkInstitution;
+		private boolean checkInternet;
+		private boolean checkPublications;
+		private boolean checkTurnitin;
+		public boolean isAllowAttachments() {
+			return allowAttachments;
+		}
+		public void setAllowAttachments(boolean allowAttachments) {
+			this.allowAttachments = allowAttachments;
+		}
+		public boolean isAllowReviewService() {
+			return allowReviewService;
+		}
+		public void setAllowReviewService(boolean allowReviewService) {
+			this.allowReviewService = allowReviewService;
+		}
+		public boolean isAllowStudentViewReport() {
+			return allowStudentViewReport;
+		}
+		public void setAllowStudentViewReport(boolean allowStudentViewReport) {
+			this.allowStudentViewReport = allowStudentViewReport;
+		}
+		public SakaiResource[] getAttachments() {
+			return attachments;
+		}
+		public void setAttachments(SakaiResource[] attachments) {
+			this.attachments = attachments;
+		}
+		public String getAuthorLastModified() {
+			return authorLastModified;
+		}
+		public void setAuthorLastModified(String authorLastModified) {
+			this.authorLastModified = authorLastModified;
+		}
+		public String[] getAuthors() {
+			return authors;
+		}
+		public void setAuthors(String[] authors) {
+			this.authors = authors;
+		}
+		public String getContext() {
+			return context;
+		}
+		public void setContext(String context) {
+			this.context = context;
+		}
+		public String getCreator() {
+			return creator;
+		}
+		public void setCreator(String creator) {
+			this.creator = creator;
+		}
+		public long getGenerateOriginalityReport() {
+			return generateOriginalityReport;
+		}
+		public void setGenerateOriginalityReport(long generateOriginalityReport) {
+			this.generateOriginalityReport = generateOriginalityReport;
+		}
+		public boolean isGroupProject() {
+			return groupProject;
+		}
+		public void setGroupProject(boolean groupProject) {
+			this.groupProject = groupProject;
+		}
+		public long getHonorPledge() {
+			return honorPledge;
+		}
+		public void setHonorPledge(long honorPledge) {
+			this.honorPledge = honorPledge;
+		}
+		public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
+		public String getInstructions() {
+			return instructions;
+		}
+		public void setInstructions(String instructions) {
+			this.instructions = instructions;
+		}
+		public double getMaxGradePoint() {
+			return maxGradePoint;
+		}
+		public void setMaxGradePoint(double maxGradePoint) {
+			this.maxGradePoint = maxGradePoint;
+		}
+		public String getMaxGradePointDisplay() {
+			return maxGradePointDisplay;
+		}
+		public void setMaxGradePointDisplay(String maxGradePointDisplay) {
+			this.maxGradePointDisplay = maxGradePointDisplay;
+		}
+		public Object[] getProperties() {
+			return properties;
+		}
+		public void setProperties(Object[] properties) {
+			this.properties = properties;
+		}
+		public String getReference() {
+			return reference;
+		}
+		public void setReference(String reference) {
+			this.reference = reference;
+		}
+		public long getSubmitReviewRepo() {
+			return submitReviewRepo;
+		}
+		public void setSubmitReviewRepo(long submitReviewRepo) {
+			this.submitReviewRepo = submitReviewRepo;
+		}
+		public SakaiTime getTimeCreated() {
+			return timeCreated;
+		}
+		public void setTimeCreated(SakaiTime timeCreated) {
+			this.timeCreated = timeCreated;
+		}
+		public SakaiTime getTimeLastModified() {
+			return timeLastModified;
+		}
+		public void setTimeLastModified(SakaiTime timeLastModified) {
+			this.timeLastModified = timeLastModified;
+		}
+		public String getTitle() {
+			return title;
+		}
+		public void setTitle(String title) {
+			this.title = title;
+		}
+		public long getTypeOfGrade() {
+			return typeOfGrade;
+		}
+		public void setTypeOfGrade(long typeOfGrade) {
+			this.typeOfGrade = typeOfGrade;
+		}
+		public long getTypeOfSubmission() {
+			return typeOfSubmission;
+		}
+		public void setTypeOfSubmission(long typeOfSubmission) {
+			this.typeOfSubmission = typeOfSubmission;
+		}
+		public String getUrl() {
+			return url;
+		}
+		public void setUrl(String url) {
+			this.url = url;
+		}
+		public boolean isCheckInstitution() {
+			return checkInstitution;
+		}
+		public void setCheckInstitution(boolean checkInstitution) {
+			this.checkInstitution = checkInstitution;
+		}
+		public boolean isCheckInternet() {
+			return checkInternet;
+		}
+		public void setCheckInternet(boolean checkInternet) {
+			this.checkInternet = checkInternet;
+		}
+		public boolean isCheckPublications() {
+			return checkPublications;
+		}
+		public void setCheckPublications(boolean checkPublications) {
+			this.checkPublications = checkPublications;
+		}
+		public boolean isCheckTurnitin() {
+			return checkTurnitin;
+		}
+		public void setCheckTurnitin(boolean checkTurnitin) {
+			this.checkTurnitin = checkTurnitin;
+		}
 	}
 }

@@ -1,4 +1,4 @@
-package testRest;
+package tester;
  
 import java.io.BufferedReader;
 import java.io.IOException;
