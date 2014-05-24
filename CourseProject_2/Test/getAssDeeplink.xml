@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- http://localhost:8080/direct/assignment/deepLink/mercury/a04e98ad-f233-4ff4-95b3-13653d1b3ed2.xml -->
+<assignment type='bean' size='6'>
+  <data type='map' size='3'>
+    <assignmentUrl>http://localhost:8080/portal/directtool/mercury-610?assignmentId=/assignment/a/mercury/a04e98ad-f233-4ff4-95b3-13653d1b3ed2&amp;panel=Main&amp;sakai_action=doView_assignment</assignmentUrl>
+    <assignmentTitle>new hw</assignmentTitle>
+    <assignmentId>a04e98ad-f233-4ff4-95b3-13653d1b3ed2</assignmentId>
+  </data>
+  <displayTitle>deepLink</displayTitle>
+  <entityId/>
+  <entityProperties type='map' size='0'>
+  </entityProperties>
+  <entityReference>/assignment</entityReference>
+  <entityURL>http://localhost:8080/direct/assignment</entityURL>
+</assignment>

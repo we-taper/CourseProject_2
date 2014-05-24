@@ -2,16 +2,17 @@ package core.sakai.serviceWrapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.StringReader;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import javax.swing.JProgressBar;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.log4j.Logger;
-import org.omg.CORBA.PRIVATE_MEMBER;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -19,8 +20,9 @@ import taper.util.EndEventHandler;
 import taper.util.MIMEUtil;
 import taper.util.SakaiBase64Decoder;
 import taper.util.XMLUtil;
-import core.sakai.objects.Resource;
-import core.sakai.objects.Site;
+import core.sakai.objects.SakaiResource;
+import core.sakai.objects.SakaiList;
+import core.sakai.objects.SakaiSiteInfo;
 import core.sakai.wsdl.ContentHostingServiceCallbackHandler;
 import core.sakai.wsdl.ContentHostingServiceStub;
 
@@ -92,29 +94,24 @@ public class ContentHosting {
 	/**
 	 * Will return a list of all sites in Site[], including id, size, title etc.
 	 * @return
+	 * @throws JAXBException 
 	 * @throws RemoteException
 	 */
-	public Site[] getAllSitesCollection() throws ParserConfigurationException, SAXException, IOException {
+	public SakaiSiteInfo[] getAllSitesCollection() throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		String xml = getAllSitesCollectionSizeInXml();
 		Document read = XMLUtil.loadXMLFromString(xml);
 		NodeList listList = read.getElementsByTagName("list");
 		NodeList siteList = listList.item(0).getChildNodes();
-		ArrayList<Site> sites= new ArrayList<>();
-		Element line;
+		ArrayList<SakaiSiteInfo> sites= new ArrayList<>();
 		for(int i = 0; i < siteList.getLength(); i++) {
-			Site aSite = new Site();
+			SakaiSiteInfo aSite = new SakaiSiteInfo();
 			
-			Element oneSite = (Element) siteList.item(i);
-			aSite.setCreatedBy(oneSite.getAttribute("createdBy"));
-			aSite.setCreatedTime(oneSite.getAttribute("createdTime"));
-			aSite.setID(oneSite.getAttribute("id"));
-			aSite.setSize(Long.parseLong(oneSite.getAttribute("size")));
-			aSite.setTitle(oneSite.getAttribute("title"));
-			aSite.setType(oneSite.getAttribute("type"));
-			
+	        JAXBContext jc = JAXBContext.newInstance(SakaiSiteInfo.class);
+	        Unmarshaller unmarshaller = jc.createUnmarshaller();
+	        aSite = (SakaiSiteInfo) unmarshaller.unmarshal(siteList.item(i));
 			sites.add(aSite);
 		}
-		return sites.toArray(new Site[0]);
+		return sites.toArray(new SakaiSiteInfo[0]);
 	}
 	
 	/**
@@ -143,61 +140,29 @@ public class ContentHosting {
 	 * @throws ParserConfigurationException
 	 *             Error reading the data, maybe you use a resource ID instead
 	 *             of a collection ID.
+	 * @throws JAXBException 
 	 */
-	public Resource[] getResources(String id) throws ParserConfigurationException, SAXException, IOException {
+	public SakaiResource[] getResources(String id) throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		String xml = getResourcesInXml(id);
-		Document read = XMLUtil.loadXMLFromString(xml);
-		NodeList resList = read.getElementsByTagName("resource");
-		ArrayList<Resource> resources = new ArrayList<>();
-		Element line;
-		String str;
-
-		for(int i = 0; i < resList.getLength(); i++) {
-			Resource aResource = new Resource();
-			
-			Element oneRes = (Element) resList.item(i);
-			
-			line = (Element) oneRes.getElementsByTagName("id").item(0);
-			if (line == null) {
-				str = "";
-			} else {
-				str = line.getFirstChild().getTextContent();
-			}
-			aResource.setID(str);
-			
-			line = (Element) oneRes.getElementsByTagName("name").item(0);
-			if(line.hasChildNodes()){
-				str = line.getFirstChild().getTextContent();
-			}else{
-				str = "";
-			}
-			aResource.setName(str);
-			
-			line = (Element) oneRes.getElementsByTagName("type").item(0);
-			if(line.hasChildNodes()){
-				str = line.getFirstChild().getTextContent();
-			}else{
-				str = "";
-			}
-			aResource.setType(str);
-			
-			line = (Element) oneRes.getElementsByTagName("url").item(0);
-			if(line.hasChildNodes()){
-				str = line.getFirstChild().getTextContent();
-			}else{
-				str = "";
-			}
-			aResource.setUrl(str);
-			
-			resources.add(aResource);
-		}
-		return resources.toArray(new Resource[0]);
+		StringReader sr = new StringReader(xml);
 		
+        JAXBContext jc = JAXBContext.newInstance(SakaiList.class);
+
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+
+        SakaiList list = (SakaiList) unmarshaller.unmarshal(sr);
+        if(list.recList != null) {
+        return list.recList.toArray(new SakaiResource[0]);
+        }else{
+        	return new SakaiResource[0];
+        }
 	}
 	
 	/**
 	 * Get the collection related to Virtual id of this user,
 	 * including their id and name etc.
+	 * 
+	 * <strong> Limited to admin. </strong>
 	 * 
 	 * @return A list of resources.
 	 * @throws IOException 
@@ -207,8 +172,9 @@ public class ContentHosting {
 	 * @throws ParserConfigurationException
 	 *             Error reading the data, maybe you use a resource ID instead
 	 *             of a collection ID.
+	 * @throws JAXBException 
 	 */
-	public Resource[] getRootCollection() throws ParserConfigurationException, SAXException, IOException {
+	public SakaiResource[] getRootCollection() throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		return getResources(virtualRoot);
 	}
 	
@@ -284,34 +250,17 @@ public class ContentHosting {
 	 * @param id
 	 *            of the virtual root, a collection, or a resource.
 	 * @return
+	 * @throws JAXBException 
 	 * @throws RemoteException
 	 *             Something went wrong.
 	 */
-	public Resource getInfo(String id) throws ParserConfigurationException, SAXException, IOException {
-		String xml;
-		Resource resource;
-		Document read;
-		NodeList list;
-		Element aRes;
-		xml = getInfoInXml(id);
-		if (xml == null) {
-			return null;
-		}
-		if(xml.contains("org.sakaiproject.exception")) {
-			throw new RemoteException(xml);
-		}
-		read = XMLUtil.loadXMLFromString(xml);
-		list = read.getElementsByTagName("resource");
-		log.assertLog(list.getLength() == 1, "List: " + list.getLength());
-		aRes = (Element) list.item(0);
-
-		String
-			resID = aRes.getElementsByTagName("id").item(0).getFirstChild().getTextContent(),
-			name = aRes.getElementsByTagName("name").item(0).getFirstChild().getTextContent(),
-			type = aRes.getElementsByTagName("type").item(0).getFirstChild().getTextContent(),
-			url = aRes.getElementsByTagName("url").item(0).getFirstChild().getTextContent();
-		resource = new Resource(name, resID, type, url);
-		return resource;
+	public SakaiResource getInfo(String id) throws ParserConfigurationException, SAXException, IOException, JAXBException {
+		String xml = getInfoInXml(id);
+		StringReader sReader = new StringReader(xml);
+        JAXBContext jc = JAXBContext.newInstance(SakaiResource.class);
+        Unmarshaller unmarshaller = jc.createUnmarshaller();
+        SakaiResource list = (SakaiResource) unmarshaller.unmarshal(sReader);
+        return list;
 	}
 	/**
 	 * Returns an empty string if no resources in this collection or an XML list

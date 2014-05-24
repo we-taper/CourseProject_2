@@ -30,8 +30,21 @@ Information on a site:
 
 <http://learning.sustc.edu.cn/direct/site/7ba242f6-b728-478b-a126-431aafbde62e>
 
+Announcement
+
+http://learning.sustc.edu.cn/direct/announcement/site/7ba242f6-b728-478b-a126-431aafbde62e.xml?n=20&d=100
+
+http://learning.sustc.edu.cn/direct/announcement/7ba242f6-b728-478b-a126-431aafbde62e:main:9642ebce-af25-4f43-b29d-b502afcf5a8a.xml
+
+Assignment
+
+http://localhost:8080/direct/assignment/deepLink/mercury/a04e98ad-f233-4ff4-95b3-13653d1b3ed2.xml
+
+http://localhost:8080/direct/assignment/deepLinkWithPermissions/mercury/a04e98ad-f233-4ff4-95b3-13653d1b3ed2.xml
+
 
 announcement
+
 ---------------------
 
 <http://learning.sustc.edu.cn/direct/announcement/describe>

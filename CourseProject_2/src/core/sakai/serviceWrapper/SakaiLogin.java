@@ -11,6 +11,10 @@ public class SakaiLogin {
 
 	private static SakaiLoginServiceStub stub;
 
+	/**
+	 * Edited by we.taper
+	 * @throws AxisFault
+	 */
 	private SakaiLogin() throws AxisFault {
 		stub = new SakaiLoginServiceStub();
 	}

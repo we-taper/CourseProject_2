@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.Scanner;
 
+import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
@@ -12,8 +13,8 @@ import org.xml.sax.SAXException;
 import taper.util.EndEventHandler;
 import taper.util.MIMEUtil;
 import taper.util.SakaiBase64Decoder;
-import core.sakai.objects.Resource;
-import core.sakai.objects.Site;
+import core.sakai.objects.SakaiResource;
+import core.sakai.objects.SakaiSiteInfo;
 
 /**
  * @deprecated Test only
@@ -22,10 +23,11 @@ import core.sakai.objects.Site;
  */
 public class Tester{
 
-	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
-		testSakaiScript();
+	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, JAXBException {
+		testContentHosting();
 	}
 	
+
 //	public static void testDownloadTask4GUI() throws RemoteException {
 //		class UpdateTextField extends JFrame implements PropertyChangeListener{
 //
@@ -75,8 +77,7 @@ public class Tester{
 //	}
 	public static void testAsycUpContent() throws RemoteException {
 		
-		SakaiLogin log = new SakaiLogin();
-		String sesID = log.login("admin", "admin");
+		String sesID = SakaiLogin.login("admin", "admin");
 		
 		System.out.println("sesID:"+sesID);
 		
@@ -97,11 +98,10 @@ public class Tester{
 			}
 		});
 	}
-	public static void testSakaiScript() throws ParserConfigurationException, SAXException, IOException {
-		SakaiLogin log = new SakaiLogin();
+	public static void testSakaiScript() throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		SakaiScript sakaiScript = new SakaiScript();
 		
-		String sesID = log.login("test", "test");
+		String sesID = SakaiLogin.login("test", "test");
 		
 		
 		String whoami = sakaiScript.getUserId(sesID);
@@ -117,28 +117,33 @@ public class Tester{
 		System.out.println("Chged Email:"+usrEmail);
 
 		ContentHosting contentHosting = new ContentHosting(sesID);
-		Site[] allSite4Usr = contentHosting.getAllSitesCollection();
+		SakaiSiteInfo[] allSite4Usr = contentHosting.getAllSitesCollection();
 //		Site[] allSite4Usr = sakaiScript.getAllSitesForUser(sesID,"test");
 		System.out.println("Sites4Usr: "+allSite4Usr.length);
-		for(Site s:allSite4Usr) {
+		for(SakaiSiteInfo s:allSite4Usr) {
 			System.out.println(s.toString());
 		}
 		
 	}
-	public static void testContentHosting() throws ParserConfigurationException, SAXException, IOException {
+	public static void testContentHosting() throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		
-		SakaiLogin log = new SakaiLogin();
-		String sesId = log.login("admin", "admin");
+		String sesId = SakaiLogin.login("test", "test");
 		ContentHosting contentHosting = new ContentHosting(sesId);
-		Site[] sites = contentHosting.getAllSitesCollection();
+		SakaiSiteInfo[] sites = contentHosting.getAllSitesCollection();
 		System.out.println("Sites size: "+sites.length);
-		for(Site a:sites) {
+		for(SakaiSiteInfo a:sites) {
 			System.out.println("Site:  "+a.toString());
 		}
 		
-		Resource rootCollectionResource[] = contentHosting.getRootCollection();
-		Resource mercury = new Resource();
-		for(Resource res: rootCollectionResource) {
+		SakaiResource rootCollectionResource[] = contentHosting.getRootCollection();
+		/*
+		 * If you are not admin and can not get rootCollectionResource, you may
+		 * simple add "/group/" to the site ID and that would be the
+		 * RootCollection for your site.
+		 * e.g.: siteID: mercury --> /group/mercury
+		 */
+		SakaiResource mercury = new SakaiResource();
+		for(SakaiResource res: rootCollectionResource) {
 			System.out.println("Root:"+res.toString());
 			if(res.getID().equalsIgnoreCase("/group/mercury/")) {
 				mercury = res;
@@ -146,12 +151,12 @@ public class Tester{
 		}
 		
 		if(mercury.getID().equals("unknow")) {
-			System.out.println(mercury);
-			System.exit(1);
+			System.out.println("Unknow mercury:"+mercury);
+			mercury.setID("/group/mercury/");
 		}
-		Resource testSmile = new Resource();
-		Resource collectionResource[] = contentHosting.getResources(mercury.getID());
-		for(Resource res: collectionResource) {
+		SakaiResource testSmile = new SakaiResource();
+		SakaiResource collectionResource[] = contentHosting.getResources(mercury.getID());
+		for(SakaiResource res: collectionResource) {
 			System.out.println("Collection:"+res.toString());
 			if(res.getName().equals("Test Smile.png")) {
 				testSmile = res;
@@ -164,12 +169,12 @@ public class Tester{
 			System.out.println(testSmile);
 			System.exit(1);
 		}
-		Resource aResourceArray[] = contentHosting.getResources(testSmile.getID());
+		SakaiResource aResourceArray[] = contentHosting.getResources(testSmile.getID());
 		assert aResourceArray.length == 1;
 		System.out.println("aResArray:"+aResourceArray[0].toString());
 		
 		
-		Resource fromGetInfo = contentHosting.getInfo(testSmile.getID());
+		SakaiResource fromGetInfo = contentHosting.getInfo(testSmile.getID());
 		System.out.println("afromGetInfo:"+fromGetInfo.toString());
 		
 		
@@ -193,16 +198,14 @@ public class Tester{
 	}
 	public static void testLogin(String[] args) throws RemoteException {
 
-		SakaiLogin login = new SakaiLogin();
-		String sessionidString = login.login("admind", "admin");
-		ContentHosting contentHosting = new ContentHosting(sessionidString);
+		String sessionidString = SakaiLogin.login("admind", "admin");
 		Scanner input = new Scanner(System.in);
 		System.out.printf("To logout?");
 		input.nextLine();
 
-		login.logout(sessionidString);
+		SakaiLogin.logout(sessionidString);
 		input.nextLine();
-		login.logout(sessionidString);
+		SakaiLogin.logout(sessionidString);
 		input.nextLine();
 
 		input.close();

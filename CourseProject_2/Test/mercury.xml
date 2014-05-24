@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<announcement_collection entityPrefix="announcement">
+<announcement type='bean' size='13'>
+  <announcementId>9d9ead84-9aa7-4b5a-a143-76c0eeb9beac</announcementId>
+  <attachments type='collection' size='1'>
+    <decoratedattachment type='bean' size='5'>
+      <id/>
+      <name>基础生命科学_chapter8.pdf</name>
+      <ref/>
+      <type/>
+      <url>http://localhost:8080/access/content/attachment/mercury/%E9%80%9A%E7%9F%A5/1106a429-65e6-465e-98da-46e7f8e15313/%E5%9F%BA%E7%A1%80%E7%94%9F%E5%91%BD%E7%A7%91%E5%AD%A6_chapter8.pdf</url>
+    </decoratedattachment>
+  </attachments>
+  <body>&lt;p&gt;  这里是正文。And an attachment.&lt;/p&gt;</body>
+  <createdByDisplayName>Sakai Administrator</createdByDisplayName>
+  <createdOn type='date' date='2014-05-21T19:58:44+08:00'>1400673524185</createdOn>
+  <id>mercury:main:9d9ead84-9aa7-4b5a-a143-76c0eeb9beac</id>
+  <siteId>mercury</siteId>
+  <siteTitle>mercury site</siteTitle>
+  <title>一个新的通知</title>
+  <entityReference>/announcement/mercury:main:9d9ead84-9aa7-4b5a-a143-76c0eeb9beac</entityReference>
+  <entityURL>http://localhost:8080/direct/announcement/mercury:main:9d9ead84-9aa7-4b5a-a143-76c0eeb9beac</entityURL>
+  <entityId>mercury:main:9d9ead84-9aa7-4b5a-a143-76c0eeb9beac</entityId>
+  <entityTitle>一个新的通知</entityTitle>
+</announcement>
+<announcement type='bean' size='13'>
+  <announcementId>5ac4ef07-8a2e-4c38-bcd0-4680588305a0</announcementId>
+  <attachments type='collection' size='0'>
+  </attachments>
+  <body>作业开始日期</body>
+  <createdByDisplayName>Sakai Administrator</createdByDisplayName>
+  <createdOn type='date' date='2014-05-21T12:52:02+08:00'>1400647922853</createdOn>
+  <id>mercury:main:5ac4ef07-8a2e-4c38-bcd0-4680588305a0</id>
+  <siteId>mercury</siteId>
+  <siteTitle>mercury site</siteTitle>
+  <title>作业：开始日期</title>
+  <entityReference>/announcement/mercury:main:5ac4ef07-8a2e-4c38-bcd0-4680588305a0</entityReference>
+  <entityURL>http://localhost:8080/direct/announcement/mercury:main:5ac4ef07-8a2e-4c38-bcd0-4680588305a0</entityURL>
+  <entityId>mercury:main:5ac4ef07-8a2e-4c38-bcd0-4680588305a0</entityId>
+  <entityTitle>作业：开始日期</entityTitle>
+</announcement>
+</announcement_collection>
