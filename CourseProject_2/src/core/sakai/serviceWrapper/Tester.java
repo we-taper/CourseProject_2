@@ -14,7 +14,7 @@ import taper.util.EndEventHandler;
 import taper.util.MIMEUtil;
 import taper.util.SakaiBase64Decoder;
 import core.sakai.objects.SakaiResource;
-import core.sakai.objects.SakaiSite;
+import core.sakai.objects.SakaiSiteInfo;
 
 /**
  * @deprecated Test only
@@ -117,25 +117,31 @@ public class Tester{
 		System.out.println("Chged Email:"+usrEmail);
 
 		ContentHosting contentHosting = new ContentHosting(sesID);
-		SakaiSite[] allSite4Usr = contentHosting.getAllSitesCollection();
+		SakaiSiteInfo[] allSite4Usr = contentHosting.getAllSitesCollection();
 //		Site[] allSite4Usr = sakaiScript.getAllSitesForUser(sesID,"test");
 		System.out.println("Sites4Usr: "+allSite4Usr.length);
-		for(SakaiSite s:allSite4Usr) {
+		for(SakaiSiteInfo s:allSite4Usr) {
 			System.out.println(s.toString());
 		}
 		
 	}
 	public static void testContentHosting() throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		
-		String sesId = SakaiLogin.login("admin", "admin");
+		String sesId = SakaiLogin.login("test", "test");
 		ContentHosting contentHosting = new ContentHosting(sesId);
-		SakaiSite[] sites = contentHosting.getAllSitesCollection();
+		SakaiSiteInfo[] sites = contentHosting.getAllSitesCollection();
 		System.out.println("Sites size: "+sites.length);
-		for(SakaiSite a:sites) {
+		for(SakaiSiteInfo a:sites) {
 			System.out.println("Site:  "+a.toString());
 		}
 		
 		SakaiResource rootCollectionResource[] = contentHosting.getRootCollection();
+		/*
+		 * If you are not admin and can not get rootCollectionResource, you may
+		 * simple add "/group/" to the site ID and that would be the
+		 * RootCollection for your site.
+		 * e.g.: siteID: mercury --> /group/mercury
+		 */
 		SakaiResource mercury = new SakaiResource();
 		for(SakaiResource res: rootCollectionResource) {
 			System.out.println("Root:"+res.toString());
@@ -145,8 +151,8 @@ public class Tester{
 		}
 		
 		if(mercury.getID().equals("unknow")) {
-			System.out.println(mercury);
-			System.exit(1);
+			System.out.println("Unknow mercury:"+mercury);
+			mercury.setID("/group/mercury/");
 		}
 		SakaiResource testSmile = new SakaiResource();
 		SakaiResource collectionResource[] = contentHosting.getResources(mercury.getID());

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<assignment type='bean' size='6'>
+  <data type='map' size='2'>
+    <assignmentTitle>new hw</assignmentTitle>
+    <assignmentId>a04e98ad-f233-4ff4-95b3-13653d1b3ed2</assignmentId>
+  </data>
+  <displayTitle>deepLinkWithPermissions</displayTitle>
+  <entityId/>
+  <entityProperties type='map' size='0'>
+  </entityProperties>
+  <entityReference>/assignment</entityReference>
+  <entityURL>http://localhost:8080/direct/assignment</entityURL>
+</assignment>

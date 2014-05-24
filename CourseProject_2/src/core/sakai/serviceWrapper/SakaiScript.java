@@ -13,7 +13,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import taper.util.XMLUtil;
-import core.sakai.objects.SakaiSite;
+import core.sakai.objects.SakaiSiteInfo;
 import core.sakai.wsdl.SakaiScriptServiceStub;
 
 public class SakaiScript {
@@ -63,13 +63,13 @@ public class SakaiScript {
 	 * @throws SAXException
 	 * @throws ParserConfigurationException
 	 */
-	public SakaiSite[] getAllSitesForUser (String sessionID, String username) throws ParserConfigurationException, SAXException, IOException {
+	public SakaiSiteInfo[] getAllSitesForUser (String sessionID, String username) throws ParserConfigurationException, SAXException, IOException {
 		String xml = getAllSitesForUserInXml(sessionID,username);
 		Document read = XMLUtil.loadXMLFromString(xml);
 		NodeList itemList = read.getElementsByTagName("item");
-		ArrayList<SakaiSite> sites = new ArrayList<>();
+		ArrayList<SakaiSiteInfo> sites = new ArrayList<>();
 		for(int i = 0; i < itemList.getLength(); i++) {
-			SakaiSite aSite = new SakaiSite();
+			SakaiSiteInfo aSite = new SakaiSiteInfo();
 			
 			Element oneItem = (Element) itemList.item(i);
 			NodeList siteId = oneItem.getElementsByTagName("siteId");
@@ -84,7 +84,7 @@ public class SakaiScript {
 			
 			sites.add(aSite);
 		}
-		return sites.toArray(new SakaiSite[0]);
+		return sites.toArray(new SakaiSiteInfo[0]);
 	}
 	
 	/**

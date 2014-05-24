@@ -13,6 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.JAXBContext;
@@ -33,6 +34,7 @@ import taper.util.MyHTTPUtil;
 import taper.util.XMLUtil;
 import core.sakai.objects.Constants;
 import core.sakai.objects.SakaiAssignment;
+import core.sakai.objects.SakaiSubmission;
 import core.sakai.wsdl.AssignmentsServiceStub;
 import core.sakai.wsdl.AssignmentsServiceStub.CreateSubmission;
 import core.sakai.wsdl.AssignmentsServiceStub.GetSubmissionsForAssignment;
@@ -41,18 +43,18 @@ import core.sakai.wsdl.ContentHostingServiceStub.GetContentData;
 public class AssignmentServices {
 
 	private static Logger log = Logger.getLogger(AssignmentServices.class);
-	public static void main(String[] args) throws Exception,
-			ParserConfigurationException, SAXException {
-		new TesterForThis().testGetSubm();;
+
+	public static void main(String[] args) throws Exception {
+		new TesterForThis().testCreSub();
 	}
 
-	private static class TesterForThis{
+	private static class TesterForThis {
 		private static void testGetAssign() throws Exception, JAXBException {
 			SakaiAssignment[] assignments = getAssignmentsForSite("mercury",
 					"df4c6378-a8cd-4ab3-b0a6-b3aab984d9a7",
 					"http://localhost:8080/");
 			for (SakaiAssignment a : assignments) {
-				System.out.println(a);
+				System.out.println(a.toString());
 			}
 		}
 
@@ -61,13 +63,28 @@ public class AssignmentServices {
 					"mercury", "142c8ef4-2c0d-4119-9890-c08a5c2fedff",
 					"df4c6378-a8cd-4ab3-b0a6-b3aab984d9a7"));
 		}
+
 		private static void testGetSubm() throws Exception {
 			String ses = SakaiLogin.login("admin", "admin");
-			String ret = getSubmissionsForAssignment("142c8ef4-2c0d-4119-9890-c08a5c2fedff", ses);
-			log.error(ret);
+			SakaiSubmission[] sakaiSubmissions = getSubmissionsForAssignment(
+					"a04e98ad-f233-4ff4-95b3-13653d1b3ed2", ses);
+			SakaiLogin.logout(ses);
+			for (SakaiSubmission s : sakaiSubmissions) {
+				log.error(s);
+			}
+		}
+
+		private static void testCreSub() throws Exception {
+			String ses = SakaiLogin.login("admin", "admin");
+			String context = "this is my context for submissioin 込込込込込込";
+			String context2 = "mercury";
+			String rep = createSubmission("142c8ef4-2c0d-4119-9890-c08a5c2fedff",
+					context2, ses,
+					System.currentTimeMillis(), "admin");
+			SakaiLogin.logout(ses);
+			log.error(rep);
 		}
 	}
-
 
 	/**
 	 * Get all assignments for a site
@@ -84,7 +101,8 @@ public class AssignmentServices {
 	 *             {@link serverURL} is illegal.
 	 * @throws JAXBException
 	 *             if the message got from remote cannot be recognized.
-	 * @throws RemoteException if the session String is invalid.
+	 * @throws RemoteException
+	 *             if the session String is invalid.
 	 */
 	public static SakaiAssignment[] getAssignmentsForSite(String siteId,
 			String sessionStr, String serverURL) throws IOException,
@@ -134,9 +152,9 @@ public class AssignmentServices {
 		SakaiAssignmentCollection collection = (SakaiAssignmentCollection) unmarshaller
 				.unmarshal(br);
 		conn.disconnect();
-		try{
+		try {
 			return collection.getAssignment().toArray(new SakaiAssignment[0]);
-		}catch (NullPointerException e){
+		} catch (NullPointerException e) {
 			throw new RemoteException("The session String is invalid");
 		}
 
@@ -162,7 +180,8 @@ public class AssignmentServices {
 	 */
 	public static SakaiAssignment.SakaiAssignmentContent getAssignmentContent(
 			String serverURL, String siteId, String assignmentId,
-			String sessionStr) throws  IOException, JAXBException, ParserConfigurationException, SAXException  {
+			String sessionStr) throws IOException, JAXBException,
+			ParserConfigurationException, SAXException {
 
 		if (siteId.startsWith("/")) {
 			siteId = siteId.substring(1, siteId.length());
@@ -191,10 +210,11 @@ public class AssignmentServices {
 	 * 
 	 * @param contentNode
 	 * @return
-	 * @throws JAXBException if we cannot process the information got from remote server.
+	 * @throws JAXBException
+	 *             if we cannot process the information got from remote server.
 	 */
 	private static SakaiAssignment.SakaiAssignmentContent getAssignmentContent(
-			Node contentNode) throws JAXBException  {
+			Node contentNode) throws JAXBException {
 
 		// Remove all trouble properties.
 		NodeList propertieslist = null;
@@ -221,19 +241,19 @@ public class AssignmentServices {
 	 * TODO test
 	 * 
 	 * @param assignmentId
-	 * @param siteId
+	 * @param context
 	 * @param session
 	 * @param time
 	 * @param userId
 	 * @return
 	 * @throws RemoteException
 	 */
-	public static String createSubmission(String assignmentId, String siteId,
+	public static String createSubmission(String assignmentId, String context,
 			String session, long time, String userId) throws RemoteException {
 		AssignmentsServiceStub stub = new AssignmentsServiceStub();
 		AssignmentsServiceStub.CreateSubmission a = new AssignmentsServiceStub.CreateSubmission();
 		a.setAssignmentId(assignmentId);
-		a.setContext(siteId);
+		a.setContext(context);
 		a.setSessionId(session);
 		a.setTime(time);
 		a.setUserId(userId);
@@ -243,14 +263,46 @@ public class AssignmentServices {
 	}
 
 	/**
-	 * TODO test
+	 * Get all submitted submission for an assignment.
 	 * 
 	 * @param assignmentId
 	 * @param session
 	 * @return
+	 * @throws IOException
+	 * @throws SAXException
+	 *             if the xml got from server has something wrong.
+	 * @throws ParserConfigurationException
+	 * @throws JAXBException
+	 *             if we cannot store XML into java object.
+	 */
+	public static SakaiSubmission[] getSubmissionsForAssignment(
+			String assignmentId, String session)
+			throws ParserConfigurationException, SAXException, IOException,
+			JAXBException {
+		String submissionsXml = getSubmissionsForAssignmentInXML(assignmentId,
+				session);
+		Document submissionsDoc = XMLUtil.loadXMLFromString(submissionsXml);
+		Node temp = submissionsDoc.getChildNodes().item(0);
+		NodeList submissions = temp.getChildNodes();
+		SakaiSubmission[] submissions_array = new SakaiSubmission[submissions
+				.getLength()];
+		for (int i = 0; i < submissions.getLength(); i++) {
+			JAXBContext jc = JAXBContext.newInstance(SakaiSubmission.class);
+			Unmarshaller unmarshaller = jc.createUnmarshaller();
+			submissions_array[i] = (SakaiSubmission) unmarshaller
+					.unmarshal(submissions.item(i));
+		}
+		return submissions_array;
+	}
+
+	/**
+	 * 
+	 * @param assignmentId
+	 * @param session
+	 * @returns
 	 * @throws RemoteException
 	 */
-	public static String getSubmissionsForAssignment(String assignmentId,
+	private static String getSubmissionsForAssignmentInXML(String assignmentId,
 			String session) throws RemoteException {
 		AssignmentsServiceStub stub = new AssignmentsServiceStub();
 		AssignmentsServiceStub.GetSubmissionsForAssignment a = new AssignmentsServiceStub.GetSubmissionsForAssignment();

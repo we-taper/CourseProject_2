@@ -22,7 +22,7 @@ import taper.util.SakaiBase64Decoder;
 import taper.util.XMLUtil;
 import core.sakai.objects.SakaiResource;
 import core.sakai.objects.SakaiList;
-import core.sakai.objects.SakaiSite;
+import core.sakai.objects.SakaiSiteInfo;
 import core.sakai.wsdl.ContentHostingServiceCallbackHandler;
 import core.sakai.wsdl.ContentHostingServiceStub;
 
@@ -97,21 +97,21 @@ public class ContentHosting {
 	 * @throws JAXBException 
 	 * @throws RemoteException
 	 */
-	public SakaiSite[] getAllSitesCollection() throws ParserConfigurationException, SAXException, IOException, JAXBException {
+	public SakaiSiteInfo[] getAllSitesCollection() throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		String xml = getAllSitesCollectionSizeInXml();
 		Document read = XMLUtil.loadXMLFromString(xml);
 		NodeList listList = read.getElementsByTagName("list");
 		NodeList siteList = listList.item(0).getChildNodes();
-		ArrayList<SakaiSite> sites= new ArrayList<>();
+		ArrayList<SakaiSiteInfo> sites= new ArrayList<>();
 		for(int i = 0; i < siteList.getLength(); i++) {
-			SakaiSite aSite = new SakaiSite();
+			SakaiSiteInfo aSite = new SakaiSiteInfo();
 			
-	        JAXBContext jc = JAXBContext.newInstance(SakaiSite.class);
+	        JAXBContext jc = JAXBContext.newInstance(SakaiSiteInfo.class);
 	        Unmarshaller unmarshaller = jc.createUnmarshaller();
-	        aSite = (SakaiSite) unmarshaller.unmarshal(siteList.item(i));
+	        aSite = (SakaiSiteInfo) unmarshaller.unmarshal(siteList.item(i));
 			sites.add(aSite);
 		}
-		return sites.toArray(new SakaiSite[0]);
+		return sites.toArray(new SakaiSiteInfo[0]);
 	}
 	
 	/**
@@ -151,12 +151,18 @@ public class ContentHosting {
         Unmarshaller unmarshaller = jc.createUnmarshaller();
 
         SakaiList list = (SakaiList) unmarshaller.unmarshal(sr);
+        if(list.recList != null) {
         return list.recList.toArray(new SakaiResource[0]);
+        }else{
+        	return new SakaiResource[0];
+        }
 	}
 	
 	/**
 	 * Get the collection related to Virtual id of this user,
 	 * including their id and name etc.
+	 * 
+	 * <strong> Limited to admin. </strong>
 	 * 
 	 * @return A list of resources.
 	 * @throws IOException 
