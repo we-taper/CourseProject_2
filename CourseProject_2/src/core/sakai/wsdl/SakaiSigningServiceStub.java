@@ -49,7 +49,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws", "hex2Byte"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws", "hex2Byte"));
 	    _service.addOperation(__operation);
 	    
 
@@ -61,7 +61,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws", "testsign"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws", "testsign"));
 	    _service.addOperation(__operation);
 	    
 
@@ -73,7 +73,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws", "touchsession"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws", "touchsession"));
 	    _service.addOperation(__operation);
 	    
 
@@ -85,7 +85,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws", "verifysign"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws", "verifysign"));
 	    _service.addOperation(__operation);
 	    
 
@@ -97,7 +97,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws", "getsession"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws", "getsession"));
 	    _service.addOperation(__operation);
 	    
 
@@ -109,7 +109,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws", "getSessionToServer"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws", "getSessionToServer"));
 	    _service.addOperation(__operation);
 	    
 
@@ -163,7 +163,7 @@
      */
     public SakaiSigningServiceStub(org.apache.axis2.context.ConfigurationContext configurationContext) throws org.apache.axis2.AxisFault {
         
-                    this(configurationContext,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws" );
+                    this(configurationContext,"http://localhost:8080/sakai-axis/SakaiSigning.jws" );
                 
     }
 
@@ -172,7 +172,7 @@
      */
     public SakaiSigningServiceStub() throws org.apache.axis2.AxisFault {
         
-                    this(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws" );
+                    this("http://localhost:8080/sakai-axis/SakaiSigning.jws" );
                 
     }
 
@@ -207,7 +207,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/hex2byteRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/hex2byteRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -226,8 +226,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     hex2Byte0,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "hex2Byte")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "hex2Byte")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "hex2Byte"));
                                                 
         //adding SOAP soap_headers
@@ -324,7 +324,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/hex2byteRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/hex2byteRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -343,8 +343,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     hex2Byte0,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "hex2Byte")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "hex2Byte")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "hex2Byte"));
                                                 
         // adding SOAP soap_headers
@@ -476,7 +476,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/testsignRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/testsignRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -495,8 +495,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     testsign2,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "testsign")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "testsign")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "testsign"));
                                                 
         //adding SOAP soap_headers
@@ -593,7 +593,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/testsignRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/testsignRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -612,8 +612,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     testsign2,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "testsign")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "testsign")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "testsign"));
                                                 
         // adding SOAP soap_headers
@@ -745,7 +745,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/touchsessionRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/touchsessionRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -764,8 +764,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     touchsession4,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "touchsession")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "touchsession")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "touchsession"));
                                                 
         //adding SOAP soap_headers
@@ -862,7 +862,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/touchsessionRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/touchsessionRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -881,8 +881,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     touchsession4,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "touchsession")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "touchsession")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "touchsession"));
                                                 
         // adding SOAP soap_headers
@@ -1014,7 +1014,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[3].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/verifysignRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/verifysignRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1033,8 +1033,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     verifysign6,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "verifysign")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "verifysign")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "verifysign"));
                                                 
         //adding SOAP soap_headers
@@ -1131,7 +1131,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[3].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/verifysignRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/verifysignRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1150,8 +1150,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     verifysign6,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "verifysign")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "verifysign")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "verifysign"));
                                                 
         // adding SOAP soap_headers
@@ -1283,7 +1283,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[4].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/getsessionRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/getsessionRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1302,8 +1302,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     getsession8,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "getsession")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "getsession")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "getsession"));
                                                 
         //adding SOAP soap_headers
@@ -1400,7 +1400,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[4].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/getsessionRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/getsessionRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1419,8 +1419,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     getsession8,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "getsession")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "getsession")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "getsession"));
                                                 
         // adding SOAP soap_headers
@@ -1552,7 +1552,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[5].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/getSessionToServerRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/getSessionToServerRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1571,8 +1571,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     getSessionToServer10,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "getSessionToServer")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "getSessionToServer")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "getSessionToServer"));
                                                 
         //adding SOAP soap_headers
@@ -1669,7 +1669,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[5].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws/SakaiSigning/getSessionToServerRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/SakaiSigning.jws/SakaiSigning/getSessionToServerRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1688,8 +1688,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     getSessionToServer10,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
-                                                    "getSessionToServer")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
+                                                    "getSessionToServer")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/SakaiSigning.jws",
                                                     "getSessionToServer"));
                                                 
         // adding SOAP soap_headers
@@ -1831,12 +1831,12 @@
         }
         return false;
     }
-     //core.sakai.objects.SakaiConstants.SERVER_URL + /sakai-axis/SakaiSigning.jws
+     //http://localhost:8080/sakai-axis/SakaiSigning.jws
         public static class VerifysignResponse
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                "http://localhost:8080/sakai-axis/SakaiSigning.jws",
                 "verifysignResponse",
                 "ns1");
 
@@ -1917,7 +1917,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/SakaiSigning.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":verifysignResponse",
@@ -1955,7 +1955,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/SakaiSigning.jws")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -3144,7 +3144,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                "http://localhost:8080/sakai-axis/SakaiSigning.jws",
                 "testsignResponse",
                 "ns1");
 
@@ -3225,7 +3225,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/SakaiSigning.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":testsignResponse",
@@ -3263,7 +3263,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/SakaiSigning.jws")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -3580,7 +3580,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                "http://localhost:8080/sakai-axis/SakaiSigning.jws",
                 "getsessionResponse",
                 "ns1");
 
@@ -3661,7 +3661,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/SakaiSigning.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":getsessionResponse",
@@ -3699,7 +3699,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/SakaiSigning.jws")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -4016,7 +4016,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                "http://localhost:8080/sakai-axis/SakaiSigning.jws",
                 "getSessionToServerResponse",
                 "ns1");
 
@@ -4097,7 +4097,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/SakaiSigning.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":getSessionToServerResponse",
@@ -4135,7 +4135,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/SakaiSigning.jws")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -4452,7 +4452,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                "http://localhost:8080/sakai-axis/SakaiSigning.jws",
                 "touchsessionResponse",
                 "ns1");
 
@@ -4533,7 +4533,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/SakaiSigning.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":touchsessionResponse",
@@ -4571,7 +4571,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/SakaiSigning.jws")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -4888,7 +4888,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws",
+                "http://localhost:8080/sakai-axis/SakaiSigning.jws",
                 "hex2byteResponse",
                 "ns1");
 
@@ -4969,7 +4969,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/SakaiSigning.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":hex2byteResponse",
@@ -5007,7 +5007,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiSigning.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/SakaiSigning.jws")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();

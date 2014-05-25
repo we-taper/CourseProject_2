@@ -1,15 +1,10 @@
 package core.sakai.serviceWrapper;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
-import java.util.Properties;
 import java.util.Scanner;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -29,7 +24,7 @@ import core.sakai.objects.SakaiSiteInfo;
 public class Tester{
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, JAXBException {
-		testLogin();
+		testContentHosting();
 	}
 	
 
@@ -201,13 +196,15 @@ public class Tester{
 		System.out.println("Uplaod file:"+responseUpload);
 
 	}
-	public static void testLogin() throws RemoteException {
+	public static void testLogin(String[] args) throws RemoteException {
 
-		String sessionidString = SakaiLogin.login("admin", "admin");
+		String sessionidString = SakaiLogin.login("admind", "admin");
 		Scanner input = new Scanner(System.in);
 		System.out.printf("To logout?");
 		input.nextLine();
 
+		SakaiLogin.logout(sessionidString);
+		input.nextLine();
 		SakaiLogin.logout(sessionidString);
 		input.nextLine();
 

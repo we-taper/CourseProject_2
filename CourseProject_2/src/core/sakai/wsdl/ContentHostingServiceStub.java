@@ -45,7 +45,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getAllSitesCollectionSize"));
 		_service.addOperation(__operation);
 
@@ -54,7 +54,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"createContentItem"));
 		_service.addOperation(__operation);
 
@@ -63,7 +63,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getResources"));
 		_service.addOperation(__operation);
 
@@ -72,7 +72,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getVirtualRoot"));
 		_service.addOperation(__operation);
 
@@ -81,7 +81,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"createFolder"));
 		_service.addOperation(__operation);
 
@@ -90,7 +90,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"createTopFolder"));
 		_service.addOperation(__operation);
 
@@ -99,7 +99,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getSiteCollectionSize"));
 		_service.addOperation(__operation);
 
@@ -108,7 +108,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getContentData"));
 		_service.addOperation(__operation);
 
@@ -117,7 +117,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getInfo"));
 		_service.addOperation(__operation);
 
@@ -169,7 +169,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			throws org.apache.axis2.AxisFault {
 
 		this(configurationContext,
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+				"http://localhost:8080/sakai-axis/ContentHosting.jws");
 
 	}
 
@@ -178,7 +178,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 	 */
 	public ContentHostingServiceStub() throws org.apache.axis2.AxisFault {
 
-		this(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+		this("http://localhost:8080/sakai-axis/ContentHosting.jws");
 
 	}
 
@@ -211,7 +211,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getAllSitesCollectionSizeRequest");
+							"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getAllSitesCollectionSizeRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -231,10 +231,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 							.getSoapVersionURI()),
 					getAllSitesCollectionSize0,
 					optimizeContent(new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getAllSitesCollectionSize")),
 					new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getAllSitesCollectionSize"));
 
 			// adding SOAP soap_headers
@@ -353,7 +353,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getAllSitesCollectionSizeRequest");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getAllSitesCollectionSizeRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -370,10 +370,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), getAllSitesCollectionSize0,
 				optimizeContent(new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getAllSitesCollectionSize")),
 				new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getAllSitesCollectionSize"));
 
 		// adding SOAP soap_headers
@@ -534,7 +534,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/createContentItemRequest");
+							"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/createContentItemRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -554,10 +554,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 							.getSoapVersionURI()),
 					createContentItem2,
 					optimizeContent(new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"createContentItem")),
 					new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"createContentItem"));
 
 			// adding SOAP soap_headers
@@ -675,7 +675,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/createContentItemRequest");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/createContentItemRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -692,9 +692,9 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), createContentItem2,
 				optimizeContent(new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"createContentItem")), new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"createContentItem"));
 
 		// adding SOAP soap_headers
@@ -855,7 +855,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getResourcesRequest");
+							"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getResourcesRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -875,10 +875,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 							.getSoapVersionURI()),
 					getResources4,
 					optimizeContent(new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getResources")),
 					new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getResources"));
 
 			// adding SOAP soap_headers
@@ -994,7 +994,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getResourcesRequest");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getResourcesRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -1011,9 +1011,9 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), getResources4,
 				optimizeContent(new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getResources")), new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getResources"));
 
 		// adding SOAP soap_headers
@@ -1174,7 +1174,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getVirtualRootRequest");
+							"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getVirtualRootRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -1194,10 +1194,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 							.getSoapVersionURI()),
 					getVirtualRoot6,
 					optimizeContent(new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getVirtualRoot")),
 					new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getVirtualRoot"));
 
 			// adding SOAP soap_headers
@@ -1313,7 +1313,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getVirtualRootRequest");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getVirtualRootRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -1330,9 +1330,9 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), getVirtualRoot6,
 				optimizeContent(new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getVirtualRoot")), new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getVirtualRoot"));
 
 		// adding SOAP soap_headers
@@ -1493,7 +1493,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/createFolderRequest");
+							"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/createFolderRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -1513,10 +1513,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 							.getSoapVersionURI()),
 					createFolder8,
 					optimizeContent(new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"createFolder")),
 					new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"createFolder"));
 
 			// adding SOAP soap_headers
@@ -1632,7 +1632,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/createFolderRequest");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/createFolderRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -1649,9 +1649,9 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), createFolder8,
 				optimizeContent(new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"createFolder")), new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"createFolder"));
 
 		// adding SOAP soap_headers
@@ -1812,7 +1812,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/createTopFolderRequest");
+							"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/createTopFolderRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -1832,10 +1832,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 							.getSoapVersionURI()),
 					createTopFolder10,
 					optimizeContent(new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"createTopFolder")),
 					new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"createTopFolder"));
 
 			// adding SOAP soap_headers
@@ -1951,7 +1951,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/createTopFolderRequest");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/createTopFolderRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -1968,9 +1968,9 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), createTopFolder10,
 				optimizeContent(new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"createTopFolder")), new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"createTopFolder"));
 
 		// adding SOAP soap_headers
@@ -2131,7 +2131,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getSiteCollectionSizeRequest");
+							"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getSiteCollectionSizeRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -2151,10 +2151,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 							.getSoapVersionURI()),
 					getSiteCollectionSize12,
 					optimizeContent(new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getSiteCollectionSize")),
 					new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getSiteCollectionSize"));
 
 			// adding SOAP soap_headers
@@ -2272,7 +2272,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getSiteCollectionSizeRequest");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getSiteCollectionSizeRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -2289,10 +2289,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), getSiteCollectionSize12,
 				optimizeContent(new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getSiteCollectionSize")),
 				new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getSiteCollectionSize"));
 
 		// adding SOAP soap_headers
@@ -2453,7 +2453,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getContentDataRequest");
+							"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getContentDataRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -2473,10 +2473,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 							.getSoapVersionURI()),
 					getContentData14,
 					optimizeContent(new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getContentData")),
 					new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getContentData"));
 
 			// adding SOAP soap_headers
@@ -2592,7 +2592,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getContentDataRequest");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getContentDataRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -2609,9 +2609,9 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), getContentData14,
 				optimizeContent(new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getContentData")), new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getContentData"));
 
 		// adding SOAP soap_headers
@@ -2772,7 +2772,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getInfoRequest");
+							"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getInfoRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -2792,10 +2792,10 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 							.getSoapVersionURI()),
 					getInfo16,
 					optimizeContent(new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getInfo")),
 					new javax.xml.namespace.QName(
-							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+							"http://localhost:8080/sakai-axis/ContentHosting.jws",
 							"getInfo"));
 
 			// adding SOAP soap_headers
@@ -2911,7 +2911,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws/ContentHosting/getInfoRequest");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws/ContentHosting/getInfoRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -2928,9 +2928,9 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), getInfo16,
 				optimizeContent(new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getInfo")), new javax.xml.namespace.QName(
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+						"http://localhost:8080/sakai-axis/ContentHosting.jws",
 						"getInfo"));
 
 		// adding SOAP soap_headers
@@ -3099,12 +3099,12 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		return false;
 	}
 
-	// core.sakai.objects.SakaiConstants.SERVER_URL + /sakai-axis/ContentHosting.jws
+	// http://localhost:8080/sakai-axis/ContentHosting.jws
 	public static class CreateContentItemResponse implements
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"createContentItemResponse", "ns2");
 
 		/**
@@ -3175,7 +3175,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -3216,7 +3216,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws")) {
+					.equals("http://localhost:8080/sakai-axis/ContentHosting.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
@@ -4988,7 +4988,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getInfoResponse", "ns2");
 
 		/**
@@ -5059,7 +5059,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -5099,7 +5099,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws")) {
+					.equals("http://localhost:8080/sakai-axis/ContentHosting.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
@@ -7692,7 +7692,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"createFolderResponse", "ns2");
 
 		/**
@@ -7763,7 +7763,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -7803,7 +7803,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws")) {
+					.equals("http://localhost:8080/sakai-axis/ContentHosting.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
@@ -8151,7 +8151,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getContentDataResponse", "ns2");
 
 		/**
@@ -8222,7 +8222,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -8264,7 +8264,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws")) {
+					.equals("http://localhost:8080/sakai-axis/ContentHosting.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
@@ -8612,7 +8612,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getResourcesResponse", "ns2");
 
 		/**
@@ -8683,7 +8683,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -8723,7 +8723,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws")) {
+					.equals("http://localhost:8080/sakai-axis/ContentHosting.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
@@ -9071,7 +9071,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getVirtualRootResponse", "ns2");
 
 		/**
@@ -9142,7 +9142,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -9184,7 +9184,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws")) {
+					.equals("http://localhost:8080/sakai-axis/ContentHosting.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
@@ -10086,7 +10086,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"createTopFolderResponse", "ns2");
 
 		/**
@@ -10157,7 +10157,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -10198,7 +10198,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws")) {
+					.equals("http://localhost:8080/sakai-axis/ContentHosting.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
@@ -11628,7 +11628,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getAllSitesCollectionSizeResponse", "ns2");
 
 		/**
@@ -11699,7 +11699,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -11742,7 +11742,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws")) {
+					.equals("http://localhost:8080/sakai-axis/ContentHosting.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
@@ -12092,7 +12092,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws",
+				"http://localhost:8080/sakai-axis/ContentHosting.jws",
 				"getSiteCollectionSizeResponse", "ns2");
 
 		/**
@@ -12163,7 +12163,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws");
+						"http://localhost:8080/sakai-axis/ContentHosting.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -12204,7 +12204,7 @@ public class ContentHostingServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ContentHosting.jws")) {
+					.equals("http://localhost:8080/sakai-axis/ContentHosting.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
