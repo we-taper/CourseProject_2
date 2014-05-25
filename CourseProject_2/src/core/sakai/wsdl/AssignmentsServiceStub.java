@@ -49,7 +49,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws", "undeleteAssignments"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws", "undeleteAssignments"));
 	    _service.addOperation(__operation);
 	    
 
@@ -61,7 +61,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws", "getSubmissionsForAssignment"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws", "getSubmissionsForAssignment"));
 	    _service.addOperation(__operation);
 	    
 
@@ -73,7 +73,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws", "setAssignmentGradeCommentforUser"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws", "setAssignmentGradeCommentforUser"));
 	    _service.addOperation(__operation);
 	    
 
@@ -85,7 +85,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws", "createAssignment"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws", "createAssignment"));
 	    _service.addOperation(__operation);
 	    
 
@@ -97,7 +97,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws", "addSubmissionAttachment"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws", "addSubmissionAttachment"));
 	    _service.addOperation(__operation);
 	    
 
@@ -109,7 +109,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws", "getAssignmentsForContext"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws", "getAssignmentsForContext"));
 	    _service.addOperation(__operation);
 	    
 
@@ -121,7 +121,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws", "createSubmission"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws", "createSubmission"));
 	    _service.addOperation(__operation);
 	    
 
@@ -133,7 +133,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws", "setAssignmentAcceptUntil"));
+            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws", "setAssignmentAcceptUntil"));
 	    _service.addOperation(__operation);
 	    
 
@@ -187,7 +187,7 @@
      */
     public AssignmentsServiceStub(org.apache.axis2.context.ConfigurationContext configurationContext) throws org.apache.axis2.AxisFault {
         
-                    this(configurationContext,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws" );
+                    this(configurationContext,"http://localhost:8080/sakai-axis/Assignments.jws" );
                 
     }
 
@@ -196,7 +196,7 @@
      */
     public AssignmentsServiceStub() throws org.apache.axis2.AxisFault {
         
-                    this(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws" );
+                    this("http://localhost:8080/sakai-axis/Assignments.jws" );
                 
     }
 
@@ -231,7 +231,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/undeleteAssignmentsRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/undeleteAssignmentsRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -250,8 +250,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     undeleteAssignments0,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "undeleteAssignments")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "undeleteAssignments")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "undeleteAssignments"));
                                                 
         //adding SOAP soap_headers
@@ -348,7 +348,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/undeleteAssignmentsRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/undeleteAssignmentsRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -367,8 +367,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     undeleteAssignments0,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "undeleteAssignments")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "undeleteAssignments")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "undeleteAssignments"));
                                                 
         // adding SOAP soap_headers
@@ -500,7 +500,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/getSubmissionsForAssignmentRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/getSubmissionsForAssignmentRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -519,8 +519,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     getSubmissionsForAssignment2,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "getSubmissionsForAssignment")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "getSubmissionsForAssignment")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "getSubmissionsForAssignment"));
                                                 
         //adding SOAP soap_headers
@@ -617,7 +617,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/getSubmissionsForAssignmentRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/getSubmissionsForAssignmentRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -636,8 +636,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     getSubmissionsForAssignment2,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "getSubmissionsForAssignment")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "getSubmissionsForAssignment")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "getSubmissionsForAssignment"));
                                                 
         // adding SOAP soap_headers
@@ -769,7 +769,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/setAssignmentGradeCommentforUserRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/setAssignmentGradeCommentforUserRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -788,8 +788,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     setAssignmentGradeCommentforUser4,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "setAssignmentGradeCommentforUser")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "setAssignmentGradeCommentforUser")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "setAssignmentGradeCommentforUser"));
                                                 
         //adding SOAP soap_headers
@@ -886,7 +886,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/setAssignmentGradeCommentforUserRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/setAssignmentGradeCommentforUserRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -905,8 +905,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     setAssignmentGradeCommentforUser4,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "setAssignmentGradeCommentforUser")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "setAssignmentGradeCommentforUser")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "setAssignmentGradeCommentforUser"));
                                                 
         // adding SOAP soap_headers
@@ -1038,7 +1038,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[3].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/createAssignmentRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/createAssignmentRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1057,8 +1057,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     createAssignment6,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "createAssignment")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "createAssignment")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "createAssignment"));
                                                 
         //adding SOAP soap_headers
@@ -1155,7 +1155,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[3].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/createAssignmentRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/createAssignmentRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1174,8 +1174,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     createAssignment6,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "createAssignment")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "createAssignment")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "createAssignment"));
                                                 
         // adding SOAP soap_headers
@@ -1307,7 +1307,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[4].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/addSubmissionAttachmentRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/addSubmissionAttachmentRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1326,8 +1326,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     addSubmissionAttachment8,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "addSubmissionAttachment")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "addSubmissionAttachment")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "addSubmissionAttachment"));
                                                 
         //adding SOAP soap_headers
@@ -1424,7 +1424,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[4].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/addSubmissionAttachmentRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/addSubmissionAttachmentRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1443,8 +1443,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     addSubmissionAttachment8,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "addSubmissionAttachment")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "addSubmissionAttachment")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "addSubmissionAttachment"));
                                                 
         // adding SOAP soap_headers
@@ -1576,7 +1576,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[5].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/getAssignmentsForContextRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/getAssignmentsForContextRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1595,8 +1595,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     getAssignmentsForContext10,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "getAssignmentsForContext")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "getAssignmentsForContext")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "getAssignmentsForContext"));
                                                 
         //adding SOAP soap_headers
@@ -1693,7 +1693,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[5].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/getAssignmentsForContextRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/getAssignmentsForContextRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1712,8 +1712,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     getAssignmentsForContext10,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "getAssignmentsForContext")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "getAssignmentsForContext")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "getAssignmentsForContext"));
                                                 
         // adding SOAP soap_headers
@@ -1845,7 +1845,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[6].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/createSubmissionRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/createSubmissionRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1864,8 +1864,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     createSubmission12,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "createSubmission")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "createSubmission")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "createSubmission"));
                                                 
         //adding SOAP soap_headers
@@ -1962,7 +1962,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[6].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/createSubmissionRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/createSubmissionRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -1981,8 +1981,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     createSubmission12,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "createSubmission")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "createSubmission")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "createSubmission"));
                                                 
         // adding SOAP soap_headers
@@ -2114,7 +2114,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[7].getName());
-              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/setAssignmentAcceptUntilRequest");
+              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/setAssignmentAcceptUntilRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -2133,8 +2133,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     setAssignmentAcceptUntil14,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "setAssignmentAcceptUntil")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "setAssignmentAcceptUntil")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "setAssignmentAcceptUntil"));
                                                 
         //adding SOAP soap_headers
@@ -2231,7 +2231,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[7].getName());
-             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws/Assignments/setAssignmentAcceptUntilRequest");
+             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/Assignments.jws/Assignments/setAssignmentAcceptUntilRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -2250,8 +2250,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     setAssignmentAcceptUntil14,
-                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
-                                                    "setAssignmentAcceptUntil")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
+                                                    "setAssignmentAcceptUntil")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/Assignments.jws",
                                                     "setAssignmentAcceptUntil"));
                                                 
         // adding SOAP soap_headers
@@ -2393,12 +2393,12 @@
         }
         return false;
     }
-     //core.sakai.objects.SakaiConstants.SERVER_URL + /sakai-axis/Assignments.jws
+     //http://localhost:8080/sakai-axis/Assignments.jws
         public static class GetAssignmentsForContextResponse
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                "http://localhost:8080/sakai-axis/Assignments.jws",
                 "getAssignmentsForContextResponse",
                 "ns2");
 
@@ -2479,7 +2479,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/Assignments.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":getAssignmentsForContextResponse",
@@ -2517,7 +2517,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/Assignments.jws")){
                 return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -2834,7 +2834,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                "http://localhost:8080/sakai-axis/Assignments.jws",
                 "createAssignmentResponse",
                 "ns2");
 
@@ -2915,7 +2915,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/Assignments.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":createAssignmentResponse",
@@ -2953,7 +2953,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/Assignments.jws")){
                 return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -3789,7 +3789,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                "http://localhost:8080/sakai-axis/Assignments.jws",
                 "undeleteAssignmentsResponse",
                 "ns2");
 
@@ -3870,7 +3870,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/Assignments.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":undeleteAssignmentsResponse",
@@ -3908,7 +3908,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/Assignments.jws")){
                 return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -4225,7 +4225,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                "http://localhost:8080/sakai-axis/Assignments.jws",
                 "setAssignmentGradeCommentforUserResponse",
                 "ns2");
 
@@ -4306,7 +4306,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/Assignments.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":setAssignmentGradeCommentforUserResponse",
@@ -4344,7 +4344,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/Assignments.jws")){
                 return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -4661,7 +4661,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                "http://localhost:8080/sakai-axis/Assignments.jws",
                 "createSubmissionResponse",
                 "ns2");
 
@@ -4742,7 +4742,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/Assignments.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":createSubmissionResponse",
@@ -4780,7 +4780,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/Assignments.jws")){
                 return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -8845,7 +8845,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                "http://localhost:8080/sakai-axis/Assignments.jws",
                 "addSubmissionAttachmentResponse",
                 "ns2");
 
@@ -8926,7 +8926,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/Assignments.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":addSubmissionAttachmentResponse",
@@ -8964,7 +8964,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/Assignments.jws")){
                 return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -9281,7 +9281,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                "http://localhost:8080/sakai-axis/Assignments.jws",
                 "setAssignmentAcceptUntilResponse",
                 "ns2");
 
@@ -9362,7 +9362,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/Assignments.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":setAssignmentAcceptUntilResponse",
@@ -9400,7 +9400,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/Assignments.jws")){
                 return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -9717,7 +9717,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws",
+                "http://localhost:8080/sakai-axis/Assignments.jws",
                 "getSubmissionsForAssignmentResponse",
                 "ns2");
 
@@ -9798,7 +9798,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/Assignments.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":getSubmissionsForAssignmentResponse",
@@ -9836,7 +9836,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/Assignments.jws")){
+            if(namespace.equals("http://localhost:8080/sakai-axis/Assignments.jws")){
                 return "ns2";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
