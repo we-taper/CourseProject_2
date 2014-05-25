@@ -1,10 +1,15 @@
 package control;
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.EOFException;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import java.util.Set;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
@@ -20,11 +25,15 @@ import core.sakai.objects.SakaiSite;
 @SuppressWarnings("unchecked")
 public class Sites 
 {
-	static 
+	public static SitesAdd handler;
+	
+	static
 	{
+		sitesInfo = new HashMap<String, SakaiSite>();
+		
 		try(ObjectInputStream loader = 
 				new ObjectInputStream(new BufferedInputStream
-						(new FileInputStream(LocalInfo.sitesMapPath))))
+						(new FileInputStream(LocalConstants.sitesMapPath))))
 		{
 			sitesInfo = (HashMap<String, SakaiSite>)loader.readObject();
 		}
@@ -34,29 +43,70 @@ public class Sites
 		}
 		catch(EOFException e)
 		{
-			
+//			e.printStackTrace();
 		}
 		catch(IOException e)
 		{
 			e.printStackTrace();
 		}
+	
 	}
 	
 	public static HashMap<String, SakaiSite> sitesInfo;
 	
-	public static String[] loadSites() throws ParserConfigurationException, SAXException, IOException, JAXBException
+	public static void addSitesAddHandler(SitesAdd handler)
 	{
-		SakaiSite[] sites = 
-				SiteServices.getSitesForUser(LocalInfo.sessionID, SakaiConstants.SERVER_URL);
-		for(SakaiSite site:sites)
-		{
-			sitesInfo.put(site.getTitle(), site);
-		}
-		
-		return sitesInfo.keySet().toArray(new String[0]);
+		Sites.handler = handler;
 	}
 	
+	public static void updateSites() throws ParserConfigurationException, SAXException, IOException, JAXBException
+	{
+		SakaiSite[] sites = 
+				SiteServices.getSitesForUser(LocalConstants.sessionID, SakaiConstants.SERVER_URL);
+		Set<String> siteTitles = sitesInfo.keySet();
+		
+		for(SakaiSite site:sites)
+		{
+			if(!siteTitles.contains(site.getTitle()))
+			{
+				site.updateAssignment();
+				
+				sitesInfo.put(site.getTitle(), site);
+				if(handler != null)
+				{
+					handler.siteAdd(site);
+				}
+			}
+		}
+	}
 	
+//	Must be called before exit
+	public static void saveInfo()
+	{
+		try(ObjectOutputStream saver = 
+				new ObjectOutputStream(new BufferedOutputStream
+						(new FileOutputStream(LocalConstants.sitesMapPath))))
+		{
+			saver.writeObject(sitesInfo);
+			saver.flush();
+		} 
+		
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		}
+		
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public HashMap<String, SakaiSite> getAllSites()
+	{
+		return sitesInfo;
+	}
 
 
 }

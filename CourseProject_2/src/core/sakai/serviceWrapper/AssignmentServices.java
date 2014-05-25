@@ -82,7 +82,6 @@ public class AssignmentServices {
 					context2, ses,
 					System.currentTimeMillis(), "admin");
 			SakaiLogin.logout(ses);
-			log.error(rep);
 		}
 	}
 
@@ -107,7 +106,6 @@ public class AssignmentServices {
 	public static SakaiAssignment[] getAssignmentsForSite(String siteId,
 			String sessionStr, String serverURL) throws IOException,
 			JAXBException {
-
 		@XmlRootElement(name = "assignment_collection")
 		class SakaiAssignmentCollection {
 			private List<SakaiAssignment> assignment;
@@ -121,6 +119,12 @@ public class AssignmentServices {
 			// work.
 			public void setAssignment(List<SakaiAssignment> assignment) {
 				this.assignment = assignment;
+			}
+
+			@Override
+			public String toString() {
+				return "SakaiAssignmentCollection [getAssignment()="
+						+ getAssignment() + "]";
 			}
 
 		}
@@ -154,7 +158,9 @@ public class AssignmentServices {
 		conn.disconnect();
 		try {
 			return collection.getAssignment().toArray(new SakaiAssignment[0]);
+			
 		} catch (NullPointerException e) {
+			/* The collection.getAssignment() is null */
 			throw new RemoteException("The session String is invalid");
 		}
 
