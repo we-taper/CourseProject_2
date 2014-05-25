@@ -77,3 +77,89 @@
 2014-05-25 16:41:04 DEBUG DownloadTask:61 - read:4096
 2014-05-25 16:41:04 DEBUG DownloadTask:61 - read:4096
 2014-05-25 16:41:04 DEBUG DownloadTask:61 - read:963
+2014-05-25 17:29:08 INFO  HttpMethodDirector:439 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2014-05-25 17:29:08 INFO  HttpMethodDirector:445 - Retrying request
+2014-05-25 17:29:09 INFO  HttpMethodDirector:439 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2014-05-25 17:29:09 INFO  HttpMethodDirector:445 - Retrying request
+2014-05-25 17:29:10 INFO  HttpMethodDirector:439 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2014-05-25 17:29:10 INFO  HttpMethodDirector:445 - Retrying request
+2014-05-25 17:29:11 INFO  HTTPSender:196 - Unable to sendViaPost to url[http://localhost:8080/sakai-axis/SakaiLogin.jws]
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.commons.httpclient.protocol.ReflectionSocketFactory.createSocket(ReflectionSocketFactory.java:140)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:125)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.axis2.transport.http.AbstractHTTPSender.executeMethod(AbstractHTTPSender.java:621)
+	at org.apache.axis2.transport.http.HTTPSender.sendViaPost(HTTPSender.java:193)
+	at org.apache.axis2.transport.http.HTTPSender.send(HTTPSender.java:75)
+	at org.apache.axis2.transport.http.CommonsHTTPTransportSender.writeMessageWithCommons(CommonsHTTPTransportSender.java:404)
+	at org.apache.axis2.transport.http.CommonsHTTPTransportSender.invoke(CommonsHTTPTransportSender.java:231)
+	at org.apache.axis2.engine.AxisEngine.send(AxisEngine.java:443)
+	at org.apache.axis2.description.OutInAxisOperationClient.send(OutInAxisOperation.java:406)
+	at org.apache.axis2.description.OutInAxisOperationClient.executeImpl(OutInAxisOperation.java:229)
+	at org.apache.axis2.client.OperationClient.execute(OperationClient.java:165)
+	at core.sakai.wsdl.SakaiLoginServiceStub.login(SakaiLoginServiceStub.java:506)
+	at core.sakai.serviceWrapper.SakaiLogin.login(SakaiLogin.java:36)
+	at core.sakai.serviceWrapper.Tester.testLogin(Tester.java:201)
+	at core.sakai.serviceWrapper.Tester.main(Tester.java:27)
+2014-05-25 17:31:55 INFO  HttpMethodDirector:439 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2014-05-25 17:31:55 INFO  HttpMethodDirector:445 - Retrying request
+2014-05-25 17:31:56 INFO  HttpMethodDirector:439 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2014-05-25 17:31:56 INFO  HttpMethodDirector:445 - Retrying request
+2014-05-25 17:31:57 INFO  HttpMethodDirector:439 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+2014-05-25 17:31:57 INFO  HttpMethodDirector:445 - Retrying request
+2014-05-25 17:31:58 INFO  HTTPSender:196 - Unable to sendViaPost to url[http://localhost:8080/sakai-axis/SakaiLogin.jws]
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.commons.httpclient.protocol.ReflectionSocketFactory.createSocket(ReflectionSocketFactory.java:140)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:125)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.axis2.transport.http.AbstractHTTPSender.executeMethod(AbstractHTTPSender.java:621)
+	at org.apache.axis2.transport.http.HTTPSender.sendViaPost(HTTPSender.java:193)
+	at org.apache.axis2.transport.http.HTTPSender.send(HTTPSender.java:75)
+	at org.apache.axis2.transport.http.CommonsHTTPTransportSender.writeMessageWithCommons(CommonsHTTPTransportSender.java:404)
+	at org.apache.axis2.transport.http.CommonsHTTPTransportSender.invoke(CommonsHTTPTransportSender.java:231)
+	at org.apache.axis2.engine.AxisEngine.send(AxisEngine.java:443)
+	at org.apache.axis2.description.OutInAxisOperationClient.send(OutInAxisOperation.java:406)
+	at org.apache.axis2.description.OutInAxisOperationClient.executeImpl(OutInAxisOperation.java:229)
+	at org.apache.axis2.client.OperationClient.execute(OperationClient.java:165)
+	at core.sakai.wsdl.SakaiLoginServiceStub.login(SakaiLoginServiceStub.java:506)
+	at core.sakai.serviceWrapper.SakaiLogin.login(SakaiLogin.java:36)
+	at core.sakai.serviceWrapper.Tester.testLogin(Tester.java:201)
+	at core.sakai.serviceWrapper.Tester.main(Tester.java:27)
+2014-05-25 18:13:57 INFO  HttpMethodDirector:439 - I/O exception (java.net.ConnectException) caught when processing request: Connection timed out: connect
+2014-05-25 18:13:57 INFO  HttpMethodDirector:445 - Retrying request
+2014-05-25 18:14:18 INFO  HttpMethodDirector:439 - I/O exception (java.net.ConnectException) caught when processing request: Connection timed out: connect
+2014-05-25 18:14:18 INFO  HttpMethodDirector:445 - Retrying request
+2014-05-25 18:14:39 INFO  HttpMethodDirector:439 - I/O exception (java.net.ConnectException) caught when processing request: Connection timed out: connect
+2014-05-25 18:14:39 INFO  HttpMethodDirector:445 - Retrying request

@@ -49,7 +49,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws", "createAssessmentFromExportFile"));
+            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws", "createAssessmentFromExportFile"));
 	    _service.addOperation(__operation);
 	    
 
@@ -61,7 +61,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws", "createAssessmentFromText"));
+            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws", "createAssessmentFromText"));
 	    _service.addOperation(__operation);
 	    
 
@@ -73,7 +73,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws", "createAssessmentFromExport"));
+            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws", "createAssessmentFromExport"));
 	    _service.addOperation(__operation);
 	    
 
@@ -127,7 +127,7 @@
      */
     public TestsAndQuizzesServiceStub(org.apache.axis2.context.ConfigurationContext configurationContext) throws org.apache.axis2.AxisFault {
         
-                    this(configurationContext,"http://localhost:8080/sakai-axis/TestsAndQuizzes.jws" );
+                    this(configurationContext,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws" );
                 
     }
 
@@ -136,7 +136,7 @@
      */
     public TestsAndQuizzesServiceStub() throws org.apache.axis2.AxisFault {
         
-                    this("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws" );
+                    this(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws" );
                 
     }
 
@@ -171,7 +171,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromExportFileRequest");
+              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromExportFileRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -190,8 +190,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     createAssessmentFromExportFile0,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
-                                                    "createAssessmentFromExportFile")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
+                                                    "createAssessmentFromExportFile")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
                                                     "createAssessmentFromExportFile"));
                                                 
         //adding SOAP soap_headers
@@ -288,7 +288,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromExportFileRequest");
+             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromExportFileRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -307,8 +307,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     createAssessmentFromExportFile0,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
-                                                    "createAssessmentFromExportFile")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
+                                                    "createAssessmentFromExportFile")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
                                                     "createAssessmentFromExportFile"));
                                                 
         // adding SOAP soap_headers
@@ -440,7 +440,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
-              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromTextRequest");
+              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromTextRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -459,8 +459,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     createAssessmentFromText2,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
-                                                    "createAssessmentFromText")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
+                                                    "createAssessmentFromText")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
                                                     "createAssessmentFromText"));
                                                 
         //adding SOAP soap_headers
@@ -557,7 +557,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
-             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromTextRequest");
+             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromTextRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -576,8 +576,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     createAssessmentFromText2,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
-                                                    "createAssessmentFromText")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
+                                                    "createAssessmentFromText")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
                                                     "createAssessmentFromText"));
                                                 
         // adding SOAP soap_headers
@@ -709,7 +709,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
-              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromExportRequest");
+              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromExportRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -728,8 +728,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     createAssessmentFromExport4,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
-                                                    "createAssessmentFromExport")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
+                                                    "createAssessmentFromExport")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
                                                     "createAssessmentFromExport"));
                                                 
         //adding SOAP soap_headers
@@ -826,7 +826,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
-             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromExportRequest");
+             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws/TestsAndQuizzes/createAssessmentFromExportRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -845,8 +845,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     createAssessmentFromExport4,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
-                                                    "createAssessmentFromExport")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
+                                                    "createAssessmentFromExport")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
                                                     "createAssessmentFromExport"));
                                                 
         // adding SOAP soap_headers
@@ -988,12 +988,12 @@
         }
         return false;
     }
-     //http://localhost:8080/sakai-axis/TestsAndQuizzes.jws
+     //core.sakai.objects.SakaiConstants.SERVER_URL + /sakai-axis/TestsAndQuizzes.jws
         public static class CreateAssessmentFromExportResponse
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
+                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
                 "createAssessmentFromExportResponse",
                 "ns1");
 
@@ -1074,7 +1074,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/TestsAndQuizzes.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":createAssessmentFromExportResponse",
@@ -1107,7 +1107,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws")){
+            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -1424,7 +1424,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
+                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
                 "createAssessmentFromTextResponse",
                 "ns1");
 
@@ -1505,7 +1505,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/TestsAndQuizzes.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":createAssessmentFromTextResponse",
@@ -1538,7 +1538,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws")){
+            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
@@ -1855,7 +1855,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://localhost:8080/sakai-axis/TestsAndQuizzes.jws",
+                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws",
                 "createAssessmentFromExportFileResponse",
                 "ns1");
 
@@ -1936,7 +1936,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/TestsAndQuizzes.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":createAssessmentFromExportFileResponse",
@@ -1969,7 +1969,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://localhost:8080/sakai-axis/TestsAndQuizzes.jws")){
+            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/TestsAndQuizzes.jws")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();
