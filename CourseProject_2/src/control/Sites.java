@@ -43,7 +43,6 @@ public class Sites
 		}
 		catch(EOFException e)
 		{
-//			e.printStackTrace();
 		}
 		catch(IOException e)
 		{
