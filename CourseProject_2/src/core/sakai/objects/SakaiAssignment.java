@@ -5,8 +5,14 @@ import java.util.Arrays;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name="assignment")
-public class SakaiAssignment {
+public class SakaiAssignment implements java.io.Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8551951924115828419L;
+	
+	
 	private String access;
 	public void setAccess(String a) {
 		access = a;
@@ -238,7 +244,11 @@ public class SakaiAssignment {
 	}
 	
 	@XmlRootElement(name="content")
-	public static class SakaiAssignmentContent{
+	public static class SakaiAssignmentContent implements java.io.Serializable{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = -8777142136704977252L;
 		@Override
 		public String toString() {
 			return "SakaiAssignmentContent [allowAttachments="

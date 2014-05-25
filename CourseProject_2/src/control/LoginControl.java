@@ -1,26 +1,32 @@
 package control;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
-import org.apache.axis2.AxisFault;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import core.sakai.serviceWrapper.SakaiLogin;
 
 public class LoginControl 
 {
-	public static void login(String userID, String password) throws AxisFault, RemoteException
+	public static void login(String userID, String password) throws ParserConfigurationException, SAXException, IOException, JAXBException
 	{
 		String sessionid = SakaiLogin.login(userID, password);
-		LocalInfo.sessionID = sessionid;
-		LocalInfo.online = true;
+		LocalConstants.sessionID = sessionid;
+		LocalConstants.online = true;
+		
+		Sites.updateSites();
 	}
 	
 	public static boolean logout() throws RemoteException
 	{
-		boolean state = SakaiLogin.logout(LocalInfo.sessionID);
+		boolean state = SakaiLogin.logout(LocalConstants.sessionID);
 		if(state)
 		{
-			LocalInfo.online = false;
+			LocalConstants.online = false;
 		}
 		return state;
 	}

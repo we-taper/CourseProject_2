@@ -1,17 +1,83 @@
 package core.sakai.objects;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
+import control.AssignmentAdd;
+import control.LocalConstants;
+import core.sakai.objects.SakaiAssignment.SakaiAssignmentContent;
+import core.sakai.serviceWrapper.AssignmentServices;
 
 @XmlRootElement(name = "site")
 public class SakaiSite implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7970570717621854997L;
+	private AssignmentAdd handler; 
+
+	public void addAssignmentAddHandler(AssignmentAdd handler)
+	{
+		this.handler = handler;
+	}
+	
+	public HashMap<String, SakaiAssignmentContent> assignments; 
+	
+	public HashMap<String, SakaiAssignmentContent> getAllAssignments()
+	{
+		return assignments;
+	}
+	
+	public void updateAssignment() throws IOException, JAXBException, ParserConfigurationException, SAXException
+	{
+		
+		try
+		{
+			SakaiAssignment[] rawAssignment = 
+					AssignmentServices.getAssignmentsForSite
+					(this.getId(), LocalConstants.sessionID, LocalConstants.siteURL);
+			for(SakaiAssignment ass:rawAssignment)
+			{
+				if(!assignments.keySet().contains(ass.getTitle()))
+				{
+					SakaiAssignmentContent content= AssignmentServices.getAssignmentContent
+					(LocalConstants.siteURL, this.getId(), ass.getId(), LocalConstants.sessionID);
+					
+					if(handler != null)
+					{
+						handler.newAssignment(content);
+					}
+					
+					assignments.put(content.getTitle(), content);
+				}
+			}
+		}
+		catch(RemoteException e)
+		{
+			return;
+		}
+		
+		
+	}
+	
 	@XmlRootElement(name = "props")
 	public static class Props implements Serializable{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		private String term_eid;
 		private String contact_name;
 		boolean sections_student_registration_allowed;
@@ -82,6 +148,10 @@ public class SakaiSite implements Serializable{
 	
 	@XmlRootElement(name = "siteOwner")
 	public static class SiteOwner implements Serializable{
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 2571070037869338661L;
 		private String userDisplayName;
 		private String userEntityURL;
 		private String userId;
@@ -394,6 +464,8 @@ public class SakaiSite implements Serializable{
 				+ getEntityId() + ", getEntityTitle()=" + getEntityTitle()
 				+ "]";
 	}
+	
+	
 	
 }
 

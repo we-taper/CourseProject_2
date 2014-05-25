@@ -16,6 +16,7 @@ import org.xml.sax.SAXException;
 
 import taper.util.MyHTTPUtil;
 import taper.util.XMLUtil;
+import core.sakai.objects.SakaiAssignment.SakaiAssignmentContent;
 import core.sakai.objects.SakaiConstants;
 import core.sakai.objects.SakaiSite;
 
@@ -67,7 +68,8 @@ public class SiteServices {
 		Unmarshaller unmarshaller = jc.createUnmarshaller();
 		for (int i = 0; i < sites.getLength(); i++) {
 			sites_array[i] = (SakaiSite) unmarshaller.unmarshal(sites.item(i));
-			log.error(sites_array[i].toString());
+			sites_array[i].assignments = 
+					new java.util.HashMap<String, SakaiAssignmentContent>();
 		}
 
 		conn.disconnect();

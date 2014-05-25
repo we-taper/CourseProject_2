@@ -10,8 +10,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlRootElement(name="resource")
 
-public class SakaiResource {
+public class SakaiResource implements java.io.Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1640628539774340191L;
 	private String name,id,type,url;
 	
 	public SakaiResource(String name, String id, String type, String url) {
