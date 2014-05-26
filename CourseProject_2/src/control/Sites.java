@@ -102,7 +102,7 @@ public class Sites
 		
 	}
 	
-	public HashMap<String, SakaiSite> getAllSites()
+	public static HashMap<String, SakaiSite> getAllSites()
 	{
 		return sitesInfo;
 	}
