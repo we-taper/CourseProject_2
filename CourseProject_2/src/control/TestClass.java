@@ -13,7 +13,7 @@ import core.sakai.objects.SakaiSite;
 
 public class TestClass 
 {
-	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, JAXBException
+	public static void example() throws ParserConfigurationException, SAXException, IOException, JAXBException
 	{
 		LoginControl.login("admin", "admin");
 		HashMap<String, SakaiSite> sites = Sites.getAllSites();
@@ -70,4 +70,10 @@ public class TestClass
 		}
 		
 	}
+	
+	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, JAXBException
+	{
+
+	}
+	
 }

@@ -18,7 +18,6 @@ public class UpdateTasker
 		(
 			new TimerTask()
 		{
-			private long gap = 1000 * 60 * 60; 	
 			
 			@Override
 			public void run() 
