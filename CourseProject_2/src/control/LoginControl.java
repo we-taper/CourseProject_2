@@ -17,6 +17,8 @@ public class LoginControl
 		String sessionid = SakaiLogin.login(userID, password);
 		LocalConstants.sessionID = sessionid;
 		LocalConstants.online = true;
+		
+		Sites.updateSites();
 	}
 	
 	public static boolean logout() throws RemoteException
