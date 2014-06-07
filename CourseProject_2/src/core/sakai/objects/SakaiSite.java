@@ -47,13 +47,13 @@ public class SakaiSite implements Serializable{
 		{
 			SakaiAssignment[] rawAssignment = 
 					AssignmentServices.getAssignmentsForSite
-					(this.getId(), LocalConstants.sessionID, LocalConstants.siteURL);
+					(this.getId(), LocalConstants.sessionID, SakaiConstants.SERVER_URL);
 			for(SakaiAssignment ass:rawAssignment)
 			{
 				if(!assignments.keySet().contains(ass.getTitle()))
 				{
 					SakaiAssignmentContent content= AssignmentServices.getAssignmentContent
-					(LocalConstants.siteURL, this.getId(), ass.getId(), LocalConstants.sessionID);
+					(SakaiConstants.SERVER_URL, this.getId(), ass.getId(), LocalConstants.sessionID);
 					
 					if(handler != null)
 					{
