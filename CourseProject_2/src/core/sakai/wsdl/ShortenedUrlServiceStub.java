@@ -49,7 +49,7 @@
                    __operation = new org.apache.axis2.description.OutInAxisOperation();
                 
 
-            __operation.setName(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/ShortenedUrl.jws", "shorten"));
+            __operation.setName(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws", "shorten"));
 	    _service.addOperation(__operation);
 	    
 
@@ -103,7 +103,7 @@
      */
     public ShortenedUrlServiceStub(org.apache.axis2.context.ConfigurationContext configurationContext) throws org.apache.axis2.AxisFault {
         
-                    this(configurationContext,"http://localhost:8080/sakai-axis/ShortenedUrl.jws" );
+                    this(configurationContext,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws" );
                 
     }
 
@@ -112,7 +112,7 @@
      */
     public ShortenedUrlServiceStub() throws org.apache.axis2.AxisFault {
         
-                    this("http://localhost:8080/sakai-axis/ShortenedUrl.jws" );
+                    this(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws" );
                 
     }
 
@@ -147,7 +147,7 @@
               org.apache.axis2.context.MessageContext _messageContext = null;
               try{
                org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-              _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/ShortenedUrl.jws/ShortenedUrl/shortenRequest");
+              _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws/ShortenedUrl/shortenRequest");
               _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -166,8 +166,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     shorten0,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/ShortenedUrl.jws",
-                                                    "shorten")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/ShortenedUrl.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws",
+                                                    "shorten")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws",
                                                     "shorten"));
                                                 
         //adding SOAP soap_headers
@@ -264,7 +264,7 @@
                 throws java.rmi.RemoteException{
 
               org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
-             _operationClient.getOptions().setAction("http://localhost:8080/sakai-axis/ShortenedUrl.jws/ShortenedUrl/shortenRequest");
+             _operationClient.getOptions().setAction(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws/ShortenedUrl/shortenRequest");
              _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
               
@@ -283,8 +283,8 @@
                                                     
                                                     env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()),
                                                     shorten0,
-                                                    optimizeContent(new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/ShortenedUrl.jws",
-                                                    "shorten")), new javax.xml.namespace.QName("http://localhost:8080/sakai-axis/ShortenedUrl.jws",
+                                                    optimizeContent(new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws",
+                                                    "shorten")), new javax.xml.namespace.QName(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws",
                                                     "shorten"));
                                                 
         // adding SOAP soap_headers
@@ -1045,7 +1045,7 @@
         implements org.apache.axis2.databinding.ADBBean{
         
                 public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-                "http://localhost:8080/sakai-axis/ShortenedUrl.jws",
+                core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws",
                 "shortenResponse",
                 "ns1");
 
@@ -1126,7 +1126,7 @@
                   if (serializeType){
                
 
-                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,"http://localhost:8080/sakai-axis/ShortenedUrl.jws");
+                   java.lang.String namespacePrefix = registerPrefix(xmlWriter,core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws");
                    if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)){
                        writeAttribute("xsi","http://www.w3.org/2001/XMLSchema-instance","type",
                            namespacePrefix+":shortenResponse",
@@ -1164,7 +1164,7 @@
         }
 
         private static java.lang.String generatePrefix(java.lang.String namespace) {
-            if(namespace.equals("http://localhost:8080/sakai-axis/ShortenedUrl.jws")){
+            if(namespace.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/ShortenedUrl.jws")){
                 return "ns1";
             }
             return org.apache.axis2.databinding.utils.BeanUtil.getUniquePrefix();

@@ -45,7 +45,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				"http://localhost:8080/sakai-axis/SakaiLogin.jws", "logout"));
+				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws", "logout"));
 		_service.addOperation(__operation);
 
 		_operations[0] = __operation;
@@ -53,7 +53,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				"http://localhost:8080/sakai-axis/SakaiLogin.jws", "login"));
+				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws", "login"));
 		_service.addOperation(__operation);
 
 		_operations[1] = __operation;
@@ -61,7 +61,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		__operation = new org.apache.axis2.description.OutInAxisOperation();
 
 		__operation.setName(new javax.xml.namespace.QName(
-				"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 				"loginToServer"));
 		_service.addOperation(__operation);
 
@@ -113,7 +113,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			throws org.apache.axis2.AxisFault {
 
 		this(configurationContext,
-				"http://localhost:8080/sakai-axis/SakaiLogin.jws");
+				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws");
 
 	}
 
@@ -122,7 +122,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 	 */
 	public SakaiLoginServiceStub() throws org.apache.axis2.AxisFault {
 
-		this("http://localhost:8080/sakai-axis/SakaiLogin.jws");
+		this(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws");
 
 	}
 
@@ -156,7 +156,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							"http://localhost:8080/sakai-axis/SakaiLogin.jws/SakaiLogin/logoutRequest");
+							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws/SakaiLogin/logoutRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -174,9 +174,9 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			env = toEnvelope(getFactory(_operationClient.getOptions()
 					.getSoapVersionURI()), logout0,
 					optimizeContent(new javax.xml.namespace.QName(
-							"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 							"logout")), new javax.xml.namespace.QName(
-							"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 							"logout"));
 
 			// adding SOAP soap_headers
@@ -292,7 +292,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws/SakaiLogin/logoutRequest");
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws/SakaiLogin/logoutRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -309,9 +309,9 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), logout0,
 				optimizeContent(new javax.xml.namespace.QName(
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 						"logout")), new javax.xml.namespace.QName(
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 						"logout"));
 
 		// adding SOAP soap_headers
@@ -471,7 +471,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							"http://localhost:8080/sakai-axis/SakaiLogin.jws/SakaiLogin/loginRequest");
+							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws/SakaiLogin/loginRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -489,9 +489,9 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			env = toEnvelope(getFactory(_operationClient.getOptions()
 					.getSoapVersionURI()), login2,
 					optimizeContent(new javax.xml.namespace.QName(
-							"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 							"login")), new javax.xml.namespace.QName(
-							"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 							"login"));
 
 			// adding SOAP soap_headers
@@ -607,7 +607,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws/SakaiLogin/loginRequest");
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws/SakaiLogin/loginRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -624,9 +624,9 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), login2,
 				optimizeContent(new javax.xml.namespace.QName(
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 						"login")), new javax.xml.namespace.QName(
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 						"login"));
 
 		// adding SOAP soap_headers
@@ -786,7 +786,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			_operationClient
 					.getOptions()
 					.setAction(
-							"http://localhost:8080/sakai-axis/SakaiLogin.jws/SakaiLogin/loginToServerRequest");
+							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws/SakaiLogin/loginToServerRequest");
 			_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(
 					true);
 
@@ -804,9 +804,9 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			env = toEnvelope(getFactory(_operationClient.getOptions()
 					.getSoapVersionURI()), loginToServer4,
 					optimizeContent(new javax.xml.namespace.QName(
-							"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 							"loginToServer")), new javax.xml.namespace.QName(
-							"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+							core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 							"loginToServer"));
 
 			// adding SOAP soap_headers
@@ -922,7 +922,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		_operationClient
 				.getOptions()
 				.setAction(
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws/SakaiLogin/loginToServerRequest");
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws/SakaiLogin/loginToServerRequest");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
 		addPropertyToOperationClient(
@@ -939,9 +939,9 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		env = toEnvelope(getFactory(_operationClient.getOptions()
 				.getSoapVersionURI()), loginToServer4,
 				optimizeContent(new javax.xml.namespace.QName(
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 						"loginToServer")), new javax.xml.namespace.QName(
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 						"loginToServer"));
 
 		// adding SOAP soap_headers
@@ -1569,7 +1569,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 				"loginResponse", "ns2");
 
 		/**
@@ -1640,7 +1640,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws");
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -1680,7 +1680,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals("http://localhost:8080/sakai-axis/SakaiLogin.jws")) {
+					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
@@ -3118,7 +3118,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 				"logoutResponse", "ns2");
 
 		/**
@@ -3189,7 +3189,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws");
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -3228,7 +3228,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals("http://localhost:8080/sakai-axis/SakaiLogin.jws")) {
+					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
@@ -3573,7 +3573,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			org.apache.axis2.databinding.ADBBean {
 
 		public static final javax.xml.namespace.QName MY_QNAME = new javax.xml.namespace.QName(
-				"http://localhost:8080/sakai-axis/SakaiLogin.jws",
+				core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws",
 				"loginToServerResponse", "ns2");
 
 		/**
@@ -3644,7 +3644,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 			if (serializeType) {
 
 				java.lang.String namespacePrefix = registerPrefix(xmlWriter,
-						"http://localhost:8080/sakai-axis/SakaiLogin.jws");
+						core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws");
 				if ((namespacePrefix != null)
 						&& (namespacePrefix.trim().length() > 0)) {
 					writeAttribute("xsi",
@@ -3684,7 +3684,7 @@ public class SakaiLoginServiceStub extends org.apache.axis2.client.Stub {
 		private static java.lang.String generatePrefix(
 				java.lang.String namespace) {
 			if (namespace
-					.equals("http://localhost:8080/sakai-axis/SakaiLogin.jws")) {
+					.equals(core.sakai.objects.SakaiConstants.SERVER_URL + "/sakai-axis/SakaiLogin.jws")) {
 				return "ns2";
 			}
 			return org.apache.axis2.databinding.utils.BeanUtil
