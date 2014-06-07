@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.log4j.Logger;
@@ -44,8 +45,13 @@ public final class SakaiConstants {
 	
 	@XmlRootElement(name = "properties")
 	private static class Property{
+		@XmlElement(name = "comment")
+		private String comment;
+		@XmlElement(name = "SERVER_URL")
 		private String SERVER_URL;
+		@XmlElement(name = "PRECEDE_TO_SESSION_ID")
 		private String PRECEDE_TO_SESSION_ID;
+		@XmlElement(name = "APPEND_TO_SESSION_ID")
 		private String APPEND_TO_SESSION_ID;
 	}
 }
