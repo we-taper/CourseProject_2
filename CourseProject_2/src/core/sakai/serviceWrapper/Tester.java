@@ -24,7 +24,7 @@ import core.sakai.objects.SakaiSiteInfo;
 public class Tester{
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, JAXBException {
-		testContentHosting();
+		testLogin(args);
 	}
 	
 
@@ -198,7 +198,7 @@ public class Tester{
 	}
 	public static void testLogin(String[] args) throws RemoteException {
 
-		String sessionidString = SakaiLogin.login("admind", "admin");
+		String sessionidString = SakaiLogin.login("admin", "admin");
 		Scanner input = new Scanner(System.in);
 		System.out.printf("To logout?");
 		input.nextLine();
