@@ -21,9 +21,10 @@ public class mainpanel  {
 	JLabel jl4=new JLabel();
 	JLabel jb1=new JLabel();
 	JLabel jb2=new JLabel();
+	public static resources re=new resources();
 	
 	Point loc = null;    Point tmp = null;    boolean isDragged = false; 
-	public mainpanel(String sessionID){
+	public mainpanel(){
 		Container co=jf.getContentPane();
 		jf.setLayout(null);
 		jf.setUndecorated(true);
@@ -280,9 +281,9 @@ public class mainpanel  {
 		jf.setVisible(true);
 		
 		jf.setBounds(160,60,1352,902);
-		resources re=new resources();
-		re.setOpaque(true);
-	re.setBounds(252, 100, 1055, 770);
+	
+		re.setOpaque(false);
+	    re.setBounds(252, 100, 1055, 770);
 		jf.add(jl1);
 		jf.add(jl2);
 		jf.add(jl3);
@@ -295,6 +296,10 @@ public class mainpanel  {
 		jf.add(jl);
 		
 		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+   new mainpanel();
 	}
 
 }

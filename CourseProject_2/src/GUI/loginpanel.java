@@ -2,12 +2,16 @@ package GUI;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
 
 import javax.swing.*;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.axis2.AxisFault;
+import org.xml.sax.SAXException;
 public class loginpanel {
 	public JFrame jf=new JFrame();
 	public JLabel jl=new JLabel();
@@ -53,24 +57,21 @@ public class loginpanel {
 
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
-					try{
-						String sessionID= core.sakai.serviceWrapper.SakaiLogin.login(jt1.getText(), jt2.getText());
-						new mainpanel(sessionID);
-						jf.setVisible(false);
-					}
-					catch(AxisFault e){
-						new myDialog("用户名或密码错误");
+					String password=new String(jt2.getPassword());
+					try{control.LoginControl.login(jt1.getText(),password);
 						
+						jf.setVisible(false);
+						new mainpanel();
 					}
-					catch(RemoteException e){
-						new myDialog("连接不上服务器");
+				
+					catch(Exception e){
+						new myDialog("用户名或密码不正确");
 						
 					}
 					// TODO Auto-generated method stub
-					
+ 
+				
 				}
-
-				@Override
 				public void mouseEntered(MouseEvent arg0) {
 					jl1.setIcon(icon2);
 					// TODO Auto-generated method stub
