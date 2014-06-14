@@ -19,11 +19,30 @@ public class LoginControl
 		LocalConstants.sessionID = sessionid;
 		LocalConstants.online = true;
 		
-		Sites.updateSites();
-		for(SakaiSite site : Sites.getAllSites().values())
+		Thread thread = new Thread()
 		{
-			site.updateAssignment();
-		}
+			public void run()
+			{
+				try {
+					Sites.updateSites();
+				} catch (ParserConfigurationException | SAXException
+						| IOException | JAXBException e) {
+					e.printStackTrace();
+				}
+				for(SakaiSite site : Sites.getAllSites().values())
+				{
+					try {
+						site.updateAssignment();
+					} catch (IOException | JAXBException
+							| ParserConfigurationException | SAXException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		};
+		
+		thread.start();
+		
 	}
 	
 	public static boolean logout() throws RemoteException
