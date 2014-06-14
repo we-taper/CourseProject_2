@@ -80,10 +80,8 @@ public class homeworkpanel extends JPanel{
 					loginpanel.mainpanel.re.removeall();
 				homeworkcontent js=	new homeworkcontent(ass);
 				js.setBounds(0, 40, 1077,733);
-				js.setVisible(true);
-			
 					loginpanel.mainpanel.re.add(js);
-					
+					loginpanel.mainpanel.repaint();
 					// TODO Auto-generated method stub
 					
 				}
@@ -100,6 +98,7 @@ public class homeworkpanel extends JPanel{
 		add(iscomepleted); 
 		add(timecreated);
 		add(timelast);
+		y=y+37;
 		
 			
 		
