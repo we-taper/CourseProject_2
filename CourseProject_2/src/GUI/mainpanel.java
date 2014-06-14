@@ -5,6 +5,7 @@ import java.awt.Cursor;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.net.URL;
 
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class mainpanel extends JFrame {
 	JLabel jb2=new JLabel();
 	public static JhomeworkPanel re=new JhomeworkPanel();
 	
+	public Jresourcepanel jr=new Jresourcepanel(new File("e:\\"));
 	Point loc = null;    Point tmp = null;    boolean isDragged = false; 
 	public mainpanel(){
 		super();
@@ -33,6 +35,14 @@ public class mainpanel extends JFrame {
 		jl4.setIcon(new ImageIcon(mainpanel.class.getResource("»’≥Ã1.png")));
 		jb1.setIcon(new ImageIcon(mainpanel.class.getResource("subtract1.png")));
 		jb2.setIcon(new ImageIcon(mainpanel.class.getResource("cross1.png")));
+		re.setVisible(false);
+		re.setOpaque(false);
+	    re.setBounds(252, 100, 1055, 770);
+	  add(re);
+	  jr.setVisible(false);
+	
+	    jr.setBounds(252, 100, 1055, 770);
+	  add(jr);
 		jb1.addMouseListener(new MouseListener(){
 
 			@Override
@@ -147,7 +157,9 @@ public class mainpanel extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+				jr.setVisible(false);
+			
+			re.setVisible(true);
 			}
 
 			@Override
@@ -185,6 +197,9 @@ public class mainpanel extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
+				re.setVisible(false);
+				jr.setVisible(true);
+				repaint();
 				
 			}
 
@@ -280,15 +295,14 @@ public class mainpanel extends JFrame {
 		
 		setBounds(160,60,1352,902);
 	
-		re.setOpaque(false);
-	    re.setBounds(252, 100, 1055, 770);
+		
 		add(jl1);
 		add(jl2);
 		add(jl3);
 		add(jl4);
 		
 		
-		add(re);
+		
 		add(jb1);
 		add(jb2);
 		add(jl);

@@ -80,7 +80,8 @@ public class homeworkpanel extends JPanel{
 					loginpanel.mainpanel.re.removeall();
 				homeworkcontent js=	new homeworkcontent(ass);
 				JScrollPane jScrollPane=new JScrollPane(js);
-				jScrollPane.setBounds(0, 40, 1055,732);
+				jScrollPane.setBounds(0, 40, 1055,730);
+				
 					loginpanel.mainpanel.re.add(jScrollPane);
 					loginpanel.mainpanel.re.revalidate();
 				//	loginpanel.mainpanel.setVisible(true);
