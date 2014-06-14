@@ -15,9 +15,22 @@ public class mylabel extends JLabel{
 	
 	mylabel(String name, SakaiSite si ){
 		super(name);
+		int width=0;
 		site=si;
+		char[] na=name.toCharArray();
+		for(char ch:na){	
+			if(Character.isLetter(ch)){
+				width=width+15;
+				
+			}
+			else {
+				
+				width=width+40;
+			}
+		}
 		setFont(new Font(this.getFont().getFontName(),this.getFont().getStyle(),28));
-		setSize(15*name.length(),36);
+		
+		setSize(width,36);
 		addMouseListener(new MouseListener() {
 			
 			@Override
@@ -52,8 +65,15 @@ public class mylabel extends JLabel{
 			
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				mainpanel.re.add(new homeworkpanel(site));
-				mainpanel.re.repaint();
+			
+				loginpanel.mainpanel.re.removeall();
+				
+				loginpanel.mainpanel.re.add( new homeworkpanel(site));
+				
+				loginpanel.mainpanel.re.repaint();
+				
+				
+			
 				
 				// TODO Auto-generated method stub
 				

@@ -17,7 +17,7 @@ public class loginpanel {
 	public JLabel jl=new JLabel();
 	public JLabel jl1=new JLabel();
 	public JLabel jl2=new JLabel();
-	
+	public static mainpanel mainpanel;
 	Point loc = null;    Point tmp = null;    boolean isDragged = false; 
 	public static JTextField jt1=new JTextField(10);
 	public static JPasswordField jt2=new JPasswordField(10);
@@ -61,7 +61,7 @@ public class loginpanel {
 					try{control.LoginControl.login(jt1.getText(),password);
 						
 						jf.setVisible(false);
-						new mainpanel();
+						 mainpanel=new mainpanel();
 					}
 				
 					catch(Exception e){

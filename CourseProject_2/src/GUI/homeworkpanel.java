@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
@@ -18,6 +19,7 @@ import javax.jws.soap.SOAPBinding.Style;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import sun.font.FontScaler;
 import core.sakai.objects.SakaiSite;
@@ -39,7 +41,7 @@ public class homeworkpanel extends JPanel{
 		
 		int y=37;
 		for(String str :assignments.keySet()){
-			SakaiAssignmentContent ass=assignments.get(str);
+			final SakaiAssignmentContent ass=assignments.get(str);
 			final JLabel title=new JLabel("<HTML><U>"+ass.getTitle()+"</U></HTML>");
 			JLabel iscomepleted=new JLabel();
 			JLabel timecreated=new JLabel(ass.getTimeCreated().getDisplay());
@@ -75,6 +77,13 @@ public class homeworkpanel extends JPanel{
 				
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
+					loginpanel.mainpanel.re.removeall();
+				homeworkcontent js=	new homeworkcontent(ass);
+				js.setBounds(0, 40, 1077,733);
+				js.setVisible(true);
+			
+					loginpanel.mainpanel.re.add(js);
+					
 					// TODO Auto-generated method stub
 					
 				}
