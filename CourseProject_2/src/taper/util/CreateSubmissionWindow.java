@@ -11,7 +11,6 @@ import chrriis.common.UIUtils;
 import chrriis.dj.nativeswing.swtimpl.NativeInterface;
 import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
 import core.sakai.objects.SakaiAssignment;
-import core.sakai.objects.SakaiAssignment.SakaiAssignmentContent;
 import core.sakai.objects.SakaiConstants;
 import core.sakai.serviceWrapper.SakaiLogin;
 
