@@ -102,7 +102,7 @@ public class myDialog {
 					jf.setExtendedState(JFrame.ICONIFIED);
 				}
 			});
-		jl.setBounds(114, 104,260,61);
+		jl.setBounds(105, 104,320,61);
 		jb1.setBounds(350, 0, 46, 44);
 		jb2.setBounds(302, 0, 43, 43);
 		jf.setBounds(673, 358, 402, 252);

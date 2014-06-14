@@ -79,9 +79,9 @@ public class homeworkpanel extends JPanel{
 				public void mouseClicked(MouseEvent arg0) {
 					loginpanel.mainpanel.re.removeall();
 				homeworkcontent js=	new homeworkcontent(ass);
-				js.setBounds(0, 40, 1077,733);
-					loginpanel.mainpanel.re.add(js);
-				
+				JScrollPane jScrollPane=new JScrollPane(js);
+				jScrollPane.setBounds(0, 40, 1055,732);
+					loginpanel.mainpanel.re.add(jScrollPane);
 					loginpanel.mainpanel.re.revalidate();
 				//	loginpanel.mainpanel.setVisible(true);
 					// TODO Auto-generated method stub
