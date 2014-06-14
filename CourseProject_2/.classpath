@@ -73,5 +73,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/Workspace/JAR Libs/DJNativeSwing-SWT-1-0-2/DJNativeSwing.jar"/>
+	<classpathentry kind="lib" path="JarLib/JWebBrowser/DJNativeSwing-SWT.jar"/>
+	<classpathentry kind="lib" path="JarLib/JWebBrowser/DJNativeSwing.jar"/>
+	<classpathentry kind="lib" path="JarLib/JWebBrowser/swt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

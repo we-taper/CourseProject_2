@@ -42,6 +42,9 @@ public final class SakaiConstants {
 		SERVER_URL = property.SERVER_URL;
 	}
 
+	public static String decorateSesStr(String sesStr){
+		return PRECEDE_TO_SESSION_ID + sesStr + APPEND_TO_SESSION_ID;
+	}
 	
 	@XmlRootElement(name = "properties")
 	private static class Property{

@@ -24,7 +24,7 @@ import core.sakai.objects.SakaiSiteInfo;
 public class Tester{
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, JAXBException {
-		testLogin(args);
+		testContentHosting();
 	}
 	
 

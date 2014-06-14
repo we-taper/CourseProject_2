@@ -1,19 +1,11 @@
 package core.sakai.serviceWrapper;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.JAXBContext;
@@ -21,9 +13,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 
-import org.apache.axis2.AxisFault;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -32,26 +22,34 @@ import org.xml.sax.SAXException;
 
 import taper.util.MyHTTPUtil;
 import taper.util.XMLUtil;
-import core.sakai.objects.SakaiConstants;
 import core.sakai.objects.SakaiAssignment;
+import core.sakai.objects.SakaiConstants;
 import core.sakai.objects.SakaiSubmission;
 import core.sakai.wsdl.AssignmentsServiceStub;
-import core.sakai.wsdl.AssignmentsServiceStub.CreateSubmission;
-import core.sakai.wsdl.AssignmentsServiceStub.GetSubmissionsForAssignment;
-import core.sakai.wsdl.ContentHostingServiceStub.GetContentData;
 
 public class AssignmentServices {
 
 	private static Logger log = Logger.getLogger(AssignmentServices.class);
 
 	public static void main(String[] args) throws Exception {
-		new TesterForThis().testCreSub();
+		TesterForThis.testCreSub();
+//		TesterForThis.testGetAssign();
+//		TesterForThis.testGetAsignCont();
 	}
 
 	private static class TesterForThis {
+		private static String sesStr;
+		static {
+			try {
+				sesStr = SakaiLogin.login("test", "test");
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		private static void testGetAssign() throws Exception, JAXBException {
-			SakaiAssignment[] assignments = getAssignmentsForSite("mercury",
-					"df4c6378-a8cd-4ab3-b0a6-b3aab984d9a7",
+			SakaiAssignment[] assignments = getAssignmentsForSite("newSiteId",
+					sesStr,
 					"http://localhost:8080/");
 			for (SakaiAssignment a : assignments) {
 				System.out.println(a.toString());
@@ -59,9 +57,11 @@ public class AssignmentServices {
 		}
 
 		private static void testGetAsignCont() throws Exception {
+			String assignStr = "280f7eac-1b97-4c6f-a261-88084922e054";
+			String assStr = "41a509f6-34fb-4b31-aa73-9a247bc98090"; //看看能不能提交
 			System.out.println(getAssignmentContent("http://localhost:8080/",
-					"mercury", "142c8ef4-2c0d-4119-9890-c08a5c2fedff",
-					"df4c6378-a8cd-4ab3-b0a6-b3aab984d9a7"));
+					"newSiteId", assStr,
+					sesStr));
 		}
 
 		private static void testGetSubm() throws Exception {
@@ -75,13 +75,15 @@ public class AssignmentServices {
 		}
 
 		private static void testCreSub() throws Exception {
-			String ses = SakaiLogin.login("admin", "admin");
-			String context = "this is my context for submissioin 哈哈哈哈哈哈";
+			String ses = SakaiLogin.login("test", "test");
+			String context = "提交的context内容。";
 			String context2 = "mercury";
-			String rep = createSubmission("142c8ef4-2c0d-4119-9890-c08a5c2fedff",
-					context2, ses,
-					System.currentTimeMillis(), "admin");
-			SakaiLogin.logout(ses);
+			String assignID = "41a509f6-34fb-4b31-aa73-9a247bc98090"; //看看能不能提交
+			String rep = createSubmission(assignID,
+					context, ses,
+					System.currentTimeMillis(), "test");
+			boolean response = SakaiLogin.logout(ses);
+			System.err.println(response);
 		}
 	}
 
@@ -161,7 +163,8 @@ public class AssignmentServices {
 			
 		} catch (NullPointerException e) {
 			/* The collection.getAssignment() is null */
-			throw new RemoteException("The session String is invalid");
+			throw new RemoteException(
+					"Either the session String or the SiteId is invalid (Maybe you are not a member of this site!)");
 		}
 
 	}
