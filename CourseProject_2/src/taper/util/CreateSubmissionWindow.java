@@ -10,6 +10,8 @@ import javax.swing.SwingUtilities;
 import chrriis.common.UIUtils;
 import chrriis.dj.nativeswing.swtimpl.NativeInterface;
 import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
+import core.sakai.objects.SakaiAssignment;
+import core.sakai.objects.SakaiAssignment.SakaiAssignmentContent;
 import core.sakai.objects.SakaiConstants;
 import core.sakai.serviceWrapper.SakaiLogin;
 
@@ -44,17 +46,17 @@ public class CreateSubmissionWindow extends JPanel {
 	 * @param URL_To_Assignment The URL you find by {@code getEntityUrl()} method.
 	 * @param sessionId
 	 */
-	public static void openWindow(final String titleOfWindow, final String URL_To_Assignment, final String sessionId) {
+	public static void openWindow(final String titleOfWindow, final SakaiAssignment assign, final String sessionId) {
+		
 		if(!NativeInterface.isOpen()){
-
-		UIUtils.setPreferredLookAndFeel();
+			UIUtils.setPreferredLookAndFeel();
 			NativeInterface.open();
 		}
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				JFrame frame = new JFrame(titleOfWindow);
 				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				frame.getContentPane().add(new CreateSubmissionWindow(URL_To_Assignment, sessionId),
+				frame.getContentPane().add(new CreateSubmissionWindow(assign.getEntityURL(), sessionId),
 						BorderLayout.CENTER);
 				frame.setSize(800, 600);
 				frame.setLocationByPlatform(true);
@@ -71,14 +73,16 @@ public class CreateSubmissionWindow extends JPanel {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String urlString = "http://10.21.67.116:8080/direct/assignment/a95c1f3a-6b2c-47da-a0fe-30a2c4af43da";
+		String urlString = "http://10.21.67.116:8080/direct/assignment/280f7eac-1b97-4c6f-a261-88084922e054";
 		String sesStr = "";
 		try {
 			sesStr = SakaiLogin.login("test", "test");
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-		openWindow("title",urlString,sesStr);
+		SakaiAssignment ass = new SakaiAssignment();
+		ass.setEntityURL(urlString);
+		openWindow("title",ass,sesStr);
 	}
 
 }
