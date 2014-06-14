@@ -15,7 +15,7 @@ import core.sakai.objects.SakaiAssignment.SakaiAssignmentContent;
 public class homeworkcontent extends JPanel{
 	public homeworkcontent(SakaiAssignmentContent ass) {
 		
-	setOpaque(true);
+	setOpaque(false);
 		setLayout(new GridLayout(1,1));
 		
 		JTextArea t1=new JTextArea(ass.getInstructions());

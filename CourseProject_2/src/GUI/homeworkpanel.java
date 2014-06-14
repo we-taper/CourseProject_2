@@ -81,7 +81,9 @@ public class homeworkpanel extends JPanel{
 				homeworkcontent js=	new homeworkcontent(ass);
 				js.setBounds(0, 40, 1077,733);
 					loginpanel.mainpanel.re.add(js);
-					loginpanel.mainpanel.repaint();
+				
+					loginpanel.mainpanel.re.revalidate();
+				//	loginpanel.mainpanel.setVisible(true);
 					// TODO Auto-generated method stub
 					
 				}
