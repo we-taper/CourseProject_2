@@ -1,4 +1,5 @@
 package control;
+import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
@@ -7,27 +8,39 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import core.sakai.objects.SakaiConstants;
-import core.sakai.objects.SakaiSiteInfo;
+import core.sakai.objects.SakaiResource;
+import core.sakai.objects.SakaiSite;
 import core.sakai.serviceWrapper.ContentHosting;
 
 public class Resources
 {
+	
 	public static void main(String[] args) throws RemoteException, ParserConfigurationException, SAXException, IOException, JAXBException
 	{
-		LoginControl.login("admin", "admin");
-		Sites.updateSites();
-		getResources();
+		System.out.println(createPath("\\group"));
+		
 	}
 	
-	private static void getResources() throws RemoteException, ParserConfigurationException, SAXException, IOException, JAXBException
+	public static void getResources(SakaiSite targetSite) throws RemoteException, ParserConfigurationException, SAXException, IOException, JAXBException
 	{
-		SakaiSiteInfo[] sites =
-		new ContentHosting(LocalConstants.sessionID).getAllSitesCollection();
+		String id = "/group/" + targetSite.getId() + "/";
 		
-		for(SakaiSiteInfo site : sites)
+		System.out.println(id);
+		
+		SakaiResource[] ress = 
+				new ContentHosting(LocalConstants.sessionID).getResources(id);
+		System.out.println(ress.length);
+		
+		for(SakaiResource res : ress)
 		{
-			System.out.println(site.getTitle());
+			
 		}
 	}
+	
+	private static boolean createPath(String path) throws IOException
+	{
+		File filePath = new File(path);
+		return filePath.mkdir();
+	}
+	
 }
