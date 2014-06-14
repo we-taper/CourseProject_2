@@ -97,23 +97,14 @@ public class Jresourcepanel extends JPanel {
 					@Override
 					public void mouseEntered(MouseEvent arg0) {
 						// TODO Auto-generated method stub
-
-						System.out.println("dddd"+f.getAbsolutePath());
 						filelJLabel1.setForeground(Color.gray);
-						try {
-							Runtime.getRuntime().exec(f.getAbsolutePath());
-							System.out.println("dddd"+f.getAbsolutePath());
-						} catch (IOException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
 					}
 
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
 						// TODO Auto-generated method stub
 						try {
-							Runtime.getRuntime().exec(f.getAbsolutePath());
+							Runtime.getRuntime().exec("cmd /c "+f.getAbsolutePath());
 							System.out.println(f.getAbsolutePath());
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
@@ -146,16 +137,13 @@ public class Jresourcepanel extends JPanel {
 
 					@Override
 					public void mouseExited(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						filelJLabel2.setForeground(Color.red);
+						filelJLabel2.setForeground(Color.black);
 					}
 
 					@Override
 					public void mouseEntered(MouseEvent arg0) {
-						// TODO Auto-generated method stub
 
-						System.out.println("dddd"+f.getAbsolutePath());
-						filelJLabel2.setForeground(Color.red);
+						filelJLabel2.setForeground(Color.gray);
 					}
 
 					@Override
