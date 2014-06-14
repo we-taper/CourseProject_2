@@ -68,6 +68,7 @@ public class Sites
 		{
 			if(!siteTitles.contains(site.getTitle()))
 			{
+				System.out.println(site.getTitle());
 				site.updateAssignment();
 				
 				sitesInfo.put(site.getTitle(), site);

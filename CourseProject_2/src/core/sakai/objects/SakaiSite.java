@@ -26,7 +26,7 @@ public class SakaiSite implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -7970570717621854997L;
-	private AssignmentAdd handler; 
+	private transient AssignmentAdd handler; 
 
 	public void addAssignmentAddHandler(AssignmentAdd handler)
 	{
@@ -51,7 +51,7 @@ public class SakaiSite implements Serializable{
 			for(SakaiAssignment ass:rawAssignment)
 			{
 				if(!assignments.keySet().contains(ass.getTitle()))
-				{
+				{					
 					SakaiAssignmentContent content= AssignmentServices.getAssignmentContent
 					(SakaiConstants.SERVER_URL, this.getId(), ass.getId(), LocalConstants.sessionID);
 					
