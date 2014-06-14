@@ -3,12 +3,12 @@ package control;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
-import javax.swing.JLabel;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import core.sakai.objects.SakaiSite;
 import core.sakai.serviceWrapper.SakaiLogin;
 
 public class LoginControl 
@@ -19,7 +19,30 @@ public class LoginControl
 		LocalConstants.sessionID = sessionid;
 		LocalConstants.online = true;
 		
-		Sites.updateSites();
+		Thread thread = new Thread()
+		{
+			public void run()
+			{
+				try {
+					Sites.updateSites();
+				} catch (ParserConfigurationException | SAXException
+						| IOException | JAXBException e) {
+					e.printStackTrace();
+				}
+				for(SakaiSite site : Sites.getAllSites().values())
+				{
+					try {
+						site.updateAssignment();
+					} catch (IOException | JAXBException
+							| ParserConfigurationException | SAXException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		};
+		
+		thread.start();
+		
 	}
 	
 	public static boolean logout() throws RemoteException

@@ -33,7 +33,7 @@ public class TestClass
 			System.out.println(str);
 		}
 		
-		System.out.println(assignments.get("123test").getInstructions());
+		System.out.println(assignments.get("这个是测试性的作业").getInstructions());
 		
 		Sites.addSitesAddHandler
 		(
@@ -61,20 +61,13 @@ public class TestClass
 			}
 		);
 		
-		UpdateTasker.startUpdateSites();
-		UpdateTasker.startAssignmentUpdater(mercury);
-		
-		if(LoginControl.logout())
-		{
-			UpdateTasker.stopAllTaker();
-			Sites.saveInfo();
-		}
+		Sites.saveInfo();
 		
 	}
 	
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, JAXBException
 	{
-
+		example();
 	}
 	
 }

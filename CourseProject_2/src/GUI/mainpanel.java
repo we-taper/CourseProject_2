@@ -1,8 +1,5 @@
 package GUI;
 
-
-
-
 import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Point;
@@ -12,8 +9,8 @@ import java.net.URL;
 
 import javax.swing.*;
 
-public class mainpanel  {
-	JFrame jf=new JFrame();
+public class mainpanel extends JFrame {
+
 	JLabel jl=new JLabel();
 	JLabel jl1=new JLabel();
 	JLabel jl2=new JLabel();
@@ -21,12 +18,14 @@ public class mainpanel  {
 	JLabel jl4=new JLabel();
 	JLabel jb1=new JLabel();
 	JLabel jb2=new JLabel();
+	public static JhomeworkPanel re=new JhomeworkPanel();
 	
 	Point loc = null;    Point tmp = null;    boolean isDragged = false; 
-	public mainpanel(String sessionID){
-		Container co=jf.getContentPane();
-		jf.setLayout(null);
-		jf.setUndecorated(true);
+	public mainpanel(){
+		super();
+		Container co=getContentPane();
+		setLayout(null);
+		setUndecorated(true);
 		jl.setIcon(new ImageIcon(mainpanel.class.getResource("background.png")));
 		jl1.setIcon(new ImageIcon(mainpanel.class.getResource("通知1.png")));
 		jl2.setIcon(new ImageIcon(mainpanel.class.getResource("作业1.png")));
@@ -38,7 +37,7 @@ public class mainpanel  {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				jf.setExtendedState(JFrame.ICONIFIED);
+				setExtendedState(JFrame.ICONIFIED);
 				// TODO Auto-generated method stub
 				
 			}
@@ -116,7 +115,7 @@ public class mainpanel  {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				jl1.setIcon(new ImageIcon(mainpanel.class.getResource("通知2.png")));
-			jf.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				// TODO Auto-generated method stub
 				
 			}
@@ -124,7 +123,7 @@ public class mainpanel  {
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				jl1.setIcon(new ImageIcon(mainpanel.class.getResource("通知1.png")));
-				jf.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+				setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 				
 				// TODO Auto-generated method stub
 				
@@ -154,7 +153,7 @@ public class mainpanel  {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				jl2.setIcon(new ImageIcon(mainpanel.class.getResource("作业2.png")));
-				jf.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				// TODO Auto-generated method stub
 				
 			}
@@ -162,7 +161,7 @@ public class mainpanel  {
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				jl2.setIcon(new ImageIcon(mainpanel.class.getResource("作业1.png")));
-				jf.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+				setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 				
 				// TODO Auto-generated method stub
 				
@@ -192,7 +191,7 @@ public class mainpanel  {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				jl3.setIcon(new ImageIcon(mainpanel.class.getResource("资源2.png")));
-				jf.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				// TODO Auto-generated method stub
 				
 			}
@@ -200,7 +199,7 @@ public class mainpanel  {
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				jl3.setIcon(new ImageIcon(mainpanel.class.getResource("资源1.png")));
-				jf.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+				setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 				
 				// TODO Auto-generated method stub
 				
@@ -230,7 +229,7 @@ public class mainpanel  {
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
 				jl4.setIcon(new ImageIcon(mainpanel.class.getResource("日程2.png")));
-				jf.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 				// TODO Auto-generated method stub
 				
 			}
@@ -238,7 +237,7 @@ public class mainpanel  {
 			@Override
 			public void mouseExited(MouseEvent arg0) {
 				jl4.setIcon(new ImageIcon(mainpanel.class.getResource("日程1.png")));
-				jf.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+				setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 				
 				// TODO Auto-generated method stub
 				
@@ -267,8 +266,8 @@ public class mainpanel  {
 			jl.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {  
 				public void mouseDragged(java.awt.event.MouseEvent e) {             
 					if(isDragged) {                
-						loc = new Point(jf.getLocation().x + e.getX() - tmp.x,	jf.getLocation().y + e.getY() - tmp.y);  
-						jf.setLocation(loc);        }}});
+						loc = new Point(getLocation().x + e.getX() - tmp.x,	getLocation().y + e.getY() - tmp.y);  
+						setLocation(loc);        }}});
 		jl.setBounds(0, 0, 1442, 902);
 		jl1.setBounds(38,105,128,128);
 		jl2.setBounds(38,305,128,128);
@@ -277,24 +276,29 @@ public class mainpanel  {
 		jb1.setBounds(1230,0,50,50);
 		jb2.setBounds(1290,0,54,52);
 		
-		jf.setVisible(true);
+		setVisible(true);
 		
-		jf.setBounds(160,60,1352,902);
-		resources re=new resources();
-		re.setOpaque(true);
-	re.setBounds(252, 100, 1055, 770);
-		jf.add(jl1);
-		jf.add(jl2);
-		jf.add(jl3);
-		jf.add(jl4);
-		
-		
-		jf.add(re);
-		jf.add(jb1);
-		jf.add(jb2);
-		jf.add(jl);
+		setBounds(160,60,1352,902);
+	
+		re.setOpaque(false);
+	    re.setBounds(252, 100, 1055, 770);
+		add(jl1);
+		add(jl2);
+		add(jl3);
+		add(jl4);
 		
 		
+		add(re);
+		add(jb1);
+		add(jb2);
+		add(jl);
+		
+		
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+   new mainpanel();
 	}
 
 }

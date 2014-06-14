@@ -145,7 +145,6 @@ public class ContentHosting {
 	public SakaiResource[] getResources(String id) throws ParserConfigurationException, SAXException, IOException, JAXBException {
 		String xml = getResourcesInXml(id);
 		StringReader sr = new StringReader(xml);
-		
         JAXBContext jc = JAXBContext.newInstance(SakaiList.class);
 
         Unmarshaller unmarshaller = jc.createUnmarshaller();
