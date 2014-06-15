@@ -2,13 +2,18 @@ package GUI;
 
 import java.awt.Container;
 import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Point;
+import java.awt.ScrollPane;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.net.URL;
 
 import javax.swing.*;
+
+import org.kohsuke.rngom.digested.DMixedPattern;
 
 public class mainpanel extends JFrame {
 
@@ -20,8 +25,8 @@ public class mainpanel extends JFrame {
 	JLabel jb1=new JLabel();
 	JLabel jb2=new JLabel();
 	public static JhomeworkPanel re=new JhomeworkPanel();
-	
-	public Jresourcepanel jr=new Jresourcepanel(new File("e:\\"));
+   
+   public JScrollPane jr=new JScrollPane(new Jresourcepanel(new File("e:\\")));
 	Point loc = null;    Point tmp = null;    boolean isDragged = false; 
 	public mainpanel(){
 		super();
@@ -39,10 +44,13 @@ public class mainpanel extends JFrame {
 		re.setOpaque(false);
 	    re.setBounds(252, 100, 1055, 770);
 	  add(re);
+	 
+	 
 	  jr.setVisible(false);
-	
-	    jr.setBounds(252, 100, 1055, 770);
-	  add(jr);
+	jr.setOpaque(false);
+	  jr.setBounds(252, 100, 1055, 770);
+	  
+	add(jr);
 		jb1.addMouseListener(new MouseListener(){
 
 			@Override
