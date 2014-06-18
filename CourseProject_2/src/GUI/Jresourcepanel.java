@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -15,15 +16,18 @@ public class Jresourcepanel extends JPanel {
 	public Jresourcepanel(final File file) {
 		super();
 		
-		setLayout(null);
+		//setLayout(null);
 		setOpaque(false);
 
 		int y = 39;
-		File[] filelist = file.listFiles();
-		final JLabel returnLabel = new JLabel();
+		int n=1;
+		
+			File[] filelist= file.listFiles();
+		
+		final JLabel returnLabel = new JLabel("           "+file.getAbsolutePath());
 		returnLabel.setIcon(new ImageIcon(Jresourcepanel.class
 				.getResource("return.png")));
-		returnLabel.setBounds(0, 0, 60, 38);
+		returnLabel.setBounds(0, 0, 1000, 38);
 		returnLabel.setFont(new Font(this.getFont().getFontName(), this
 				.getFont().getStyle(), 28));
 		returnLabel.addMouseListener(new MouseListener() {
@@ -57,10 +61,22 @@ public class Jresourcepanel extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
+				boolean a=false;
+			try{file.getParentFile();
+			a=true;
+			
+			}
+			catch(NullPointerException c){
+				a=false;
+				System.out.println("aaa");
+				
+			}if(a){
 				removeAll();
 				setLayout(new GridLayout(1, 1));
 				add(new Jresourcepanel(file.getParentFile()));
-				revalidate();
+				revalidate();}
+			
+			
 
 			}
 		});
@@ -74,6 +90,7 @@ public class Jresourcepanel extends JPanel {
 						this.getFont().getStyle(), 28));
 				filelJLabel1.setIcon(new ImageIcon(Jresourcepanel.class
 						.getResource("file2.png")));
+				filelJLabel1.setForeground(Color.black);
 				filelJLabel1.addMouseListener(new MouseListener() {
 
 					@Override
@@ -113,6 +130,7 @@ public class Jresourcepanel extends JPanel {
 					}
 				});
 				add(filelJLabel1);
+				n=n+1;
 			} else {
 				final JLabel filelJLabel2 = new JLabel(f.getName());
 				filelJLabel2.setBounds(5, y, 317, 37);
@@ -120,7 +138,7 @@ public class Jresourcepanel extends JPanel {
 						this.getFont().getStyle(), 28));
 				filelJLabel2.setIcon(new ImageIcon(Jresourcepanel.class
 						.getResource("file.png")));
-
+				filelJLabel2.setForeground(Color.black);
 				filelJLabel2.addMouseListener(new MouseListener() {
 
 					@Override
@@ -149,7 +167,7 @@ public class Jresourcepanel extends JPanel {
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
 						removeAll();
-						setLayout(new GridLayout(1, 1));
+						setLayout(new GridLayout(1,1));
 						add(new Jresourcepanel(f));
 						revalidate();
 						// TODO Auto-generated method stub
@@ -157,11 +175,15 @@ public class Jresourcepanel extends JPanel {
 					}
 				});
 				add(filelJLabel2);
-
+n=n+1;
 			}
 			y = y + 37;
 		}
-
+		if(n>19){
+setLayout(new GridLayout(n,1));}
+		else{
+			setLayout(null);
+		}
 		// TODO Auto-generated constructor stub
 	}
 }
