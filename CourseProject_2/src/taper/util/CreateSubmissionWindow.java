@@ -72,12 +72,13 @@ public class CreateSubmissionWindow extends JPanel {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String urlString = "http://10.21.67.116:8080/direct/assignment/280f7eac-1b97-4c6f-a261-88084922e054";
+//		String urlString = "http://10.21.67.116:8080/direct/assignment/280f7eac-1b97-4c6f-a261-88084922e054";
+		String urlString = "http://www.baidu.com";
 		String sesStr = "";
 		try {
 			sesStr = SakaiLogin.login("test", "test");
 		} catch (RemoteException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		SakaiAssignment ass = new SakaiAssignment();
 		ass.setEntityURL(urlString);

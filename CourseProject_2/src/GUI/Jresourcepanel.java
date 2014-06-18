@@ -4,6 +4,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.LookAndFeel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -15,8 +18,21 @@ import java.io.*;
 public class Jresourcepanel extends JPanel {
 	public Jresourcepanel(final File file) {
 		super();
+	String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
 		
-		//setLayout(null);
+		try {
+			UIManager.setLookAndFeel(lookAndFeel);
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+	
+
+
+		
+
 		setOpaque(false);
 
 		int y = 39;
@@ -122,7 +138,7 @@ public class Jresourcepanel extends JPanel {
 						// TODO Auto-generated method stub
 						try {
 							Runtime.getRuntime().exec("cmd /c "+f.getAbsolutePath());
-							System.out.println(f.getAbsolutePath());
+							
 						} catch (IOException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

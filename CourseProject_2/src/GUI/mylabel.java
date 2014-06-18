@@ -12,6 +12,7 @@ import core.sakai.objects.SakaiSite;
 
 public class mylabel extends JLabel{
 	public SakaiSite site;
+	boolean isclicked=false;
 	
 	mylabel(String name, SakaiSite si ){
 		super(name);
@@ -47,31 +48,40 @@ public class mylabel extends JLabel{
 			
 			@Override
 			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
+				if(isclicked){}else {
+					
+				
+				
 				setOpaque(false);
 				setForeground(Color.black);
-				setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+				setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));}
 			}
 			
 			@Override
 			public void mouseEntered(MouseEvent arg0) {
+				if(isclicked){}else {
+					
+				
 				setOpaque(true);
 				setBackground(Color.GRAY);
 				setForeground(Color.white);
-				setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));}
 				// TODO Auto-generated method stub
 				
 			}
 			
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-			
-				loginpanel.mainpanel.re.removeall();
+				loginpanel.mainpanel.jp.removeAll();
 				
-				loginpanel.mainpanel.re.add( new homeworkpanel(site));
+				loginpanel.mainpanel.jp.add( new homeworkpanel(site));
+				loginpanel.mainpanel.jp.revalidate();
+				loginpanel.mainpanel.jp.repaint();
 				
-				loginpanel.mainpanel.re.repaint();
-				
+				isclicked=(true);
+				setOpaque(true);
+				setBackground(Color.GRAY);
+				setForeground(Color.white);
 				
 			
 				

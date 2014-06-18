@@ -25,14 +25,25 @@ public class mainpanel extends JFrame {
 	JLabel jb1=new JLabel();
 	JLabel jb2=new JLabel();
 	public static JhomeworkPanel re=new JhomeworkPanel();
+	public static JPanel jp=new JPanel();
    
    public JScrollPane jr=new JScrollPane(new Jresourcepanel(new File("e:\\")));
 	Point loc = null;    Point tmp = null;    boolean isDragged = false; 
 	public mainpanel(){
+		
 		super();
 		Container co=getContentPane();
 		setLayout(null);
 		setUndecorated(true);
+	String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+		
+		try {
+			UIManager.setLookAndFeel(lookAndFeel);
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		jl.setIcon(new ImageIcon(mainpanel.class.getResource("background.png")));
 		jl1.setIcon(new ImageIcon(mainpanel.class.getResource("通知1.png")));
 		jl2.setIcon(new ImageIcon(mainpanel.class.getResource("作业1.png")));
@@ -42,10 +53,13 @@ public class mainpanel extends JFrame {
 		jb2.setIcon(new ImageIcon(mainpanel.class.getResource("cross1.png")));
 		re.setVisible(false);
 		re.setOpaque(false);
-	    re.setBounds(252, 100, 1055, 770);
+	    re.setBounds(247, 100, 1055, 36);
 	  add(re);
-	 
-	 
+	  jp.setVisible(true);
+	 jp.setOpaque(false);
+	 jp.setBounds(252, 137, 1055, 760);
+	 jp.setLayout(null);
+	 add(jp);
 	  jr.setVisible(false);
 	jr.setOpaque(false);
 	  jr.setBounds(252, 100, 1055, 770);

@@ -244,7 +244,7 @@ public class SakaiAssignment implements java.io.Serializable{
 	}
 	
 	@XmlRootElement(name="content")
-	public static class SakaiAssignmentContent implements java.io.Serializable{
+	public static class SakaiAssignmentContent  implements java.io.Serializable{
 		/**
 		 * 
 		 */
