@@ -21,7 +21,7 @@ public class mainpanel extends JFrame {
 	JLabel jb2=new JLabel();
 	public static JhomeworkPanel re=new JhomeworkPanel();
 	
-	public Jresourcepanel jr=new Jresourcepanel(new File("e:\\"));
+	public Jresourcepanel jr=new Jresourcepanel(new File("f:\\"));
 	Point loc = null;    Point tmp = null;    boolean isDragged = false; 
 	public mainpanel(){
 		super();

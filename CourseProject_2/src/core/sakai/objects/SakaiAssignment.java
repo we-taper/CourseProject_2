@@ -1,8 +1,16 @@
 package core.sakai.objects;
 
+import java.io.IOException;
 import java.util.Arrays;
 
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
+import control.LocalConstants;
+import core.sakai.serviceWrapper.AssignmentServices;
 
 @XmlRootElement(name="assignment")
 public class SakaiAssignment implements java.io.Serializable{
@@ -12,6 +20,11 @@ public class SakaiAssignment implements java.io.Serializable{
 	 */
 	private static final long serialVersionUID = -8551951924115828419L;
 	
+	public SakaiSubmission[] getSubmission() throws ParserConfigurationException, SAXException, IOException, JAXBException
+	{
+		return AssignmentServices.
+				getSubmissionsForAssignment(this.getId(), LocalConstants.sessionID);
+	}
 	
 	private String access;
 	public void setAccess(String a) {
