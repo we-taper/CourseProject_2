@@ -10,8 +10,9 @@ public class UpdateTasker
 {
 	public static ArrayList<Timer> timers = new ArrayList<Timer>();
 	
-	public static void startUpdateSites()
+	public static void startUpdateSites(SitesAdd handler)
 	{
+		Sites.addSitesAddHandler(handler);
 		
 		Timer siteTimer = new Timer();
 		siteTimer.schedule
@@ -40,10 +41,38 @@ public class UpdateTasker
 	
 	}
 	
+	public static void startResourceUpdater(final SakaiSite site, final ResourceAdd handler)
+	{
+		Timer resTimer = new Timer();
+		
+		resTimer.schedule
+		(
+			new TimerTask()
+			{
+				@Override
+				public void run() 
+				{
+					try
+					{
+						Resources.updateSiteResource(site, handler);
+					}
+					catch(Exception e)
+					{
+						e.printStackTrace();
+					}
+				}
+				
+			}, 10, 1000 * 60 * 5
+		);
 	
-	public static void startAssignmentUpdater(final SakaiSite site)
+	}
+	
+	
+	public static void startAssignmentUpdater(final SakaiSite site, final AssignmentAdd handler)
 	{
 		Timer assTimer = new Timer();
+		
+		site.addAssignmentAddHandler(handler);
 		assTimer.schedule
 		(
 			new TimerTask()

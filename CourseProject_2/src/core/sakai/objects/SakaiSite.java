@@ -14,6 +14,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import control.AnnouncementAdd;
 import control.AssignmentAdd;
 import control.LocalConstants;
 import core.sakai.objects.SakaiAssignment.SakaiAssignmentContent;
@@ -27,11 +28,14 @@ public class SakaiSite implements Serializable{
 	 */
 	private static final long serialVersionUID = -7970570717621854997L;
 	private transient AssignmentAdd handler; 
-
+	private transient AnnouncementAdd announcementHandler;
+	
 	public void addAssignmentAddHandler(AssignmentAdd handler)
 	{
 		this.handler = handler;
 	}
+	
+//	public void addAnnouncementHandler
 	
 	public HashMap<String, SakaiAssignmentContent> assignments; 
 	

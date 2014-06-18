@@ -3,8 +3,12 @@ package core.sakai.objects;
 import java.util.Date;
 import java.util.List;
 
-public class SakaiAnnouncement {
+public class SakaiAnnouncement implements java.io.Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3186034236694173580L;
 	private String announcementId;
 	private List<SakaiResource> attachments;
 	private String body;

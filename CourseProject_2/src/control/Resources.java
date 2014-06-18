@@ -27,6 +27,59 @@ public class Resources
 		APP_PATH = current.getAbsolutePath() + "\\Resources";
 	}
 	
+	public static void updateSiteResource(SakaiSite targetSite, final ResourceAdd handler) throws RemoteException, ParserConfigurationException, SAXException, IOException, JAXBException
+	{
+		String id = "/group/" + targetSite.getId() + "/";
+		SakaiResource[] ress = 
+				new ContentHosting(LocalConstants.sessionID).getResources(id);
+		
+		for(SakaiResource res : ress)
+		{
+			if(res.getType().equals("collection"))
+			{
+				String path = urlToPath(res.getUrl(), id);
+				path = trimPath(path, res.getName());
+				createPath(id.replace("/", "\\") + path);
+			}
+		}
+		
+		ExecutorService tasks = Executors.newCachedThreadPool();
+		
+		for(SakaiResource res : ress)
+		{
+			if(res.getType().equals("resource"))
+			{
+				String path = urlToPath(res.getUrl(), id);
+				path = trimPath(path, res.getName());
+				
+				final SakaiResource downloadRes = res;
+				final String downloadPath = APP_PATH + id.replace("/", "\\") + path;
+				final File resource = new File(downloadPath);
+				
+				if(!resource.exists())
+				{
+					tasks.execute(
+							new Runnable()
+							{
+								@Override
+								public void run()
+								{
+									try 
+									{
+										downloadFile(downloadRes, downloadPath);
+										handler.resourceAdd(resource);
+									} 
+									catch (IOException e) 
+									{
+										e.printStackTrace();
+									}
+								}
+							});
+				}
+			}
+		}
+	}
+	
 	public static void main(String[] args) throws RemoteException, ParserConfigurationException, SAXException, IOException, JAXBException
 	{
 //		For testing only
@@ -60,7 +113,7 @@ public class Resources
 				path = trimPath(path, res.getName());
 				
 				final SakaiResource downloadRes = res;
-				final String downloadPath = path;
+				final String downloadPath = APP_PATH + id.replace("/", "\\") + path;
 				
 				tasks.execute(
 				new Runnable()
@@ -131,7 +184,12 @@ public class Resources
 		path = APP_PATH + path;
 
 		File filePath = new File(path);
-		return filePath.mkdirs();
+		if(!filePath.exists())
+		{
+			return filePath.mkdirs();
+		}
+		
+		return false;
 	}
 	
 }

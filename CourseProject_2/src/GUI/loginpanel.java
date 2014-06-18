@@ -2,16 +2,9 @@ package GUI;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 import java.net.URL;
-import java.rmi.RemoteException;
-
 import javax.swing.*;
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
 
-import org.apache.axis2.AxisFault;
-import org.xml.sax.SAXException;
 public class loginpanel {
 	public JFrame jf=new JFrame();
 	public JLabel jl=new JLabel();
