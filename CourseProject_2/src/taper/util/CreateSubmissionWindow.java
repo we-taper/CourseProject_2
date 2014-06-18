@@ -11,6 +11,7 @@ import chrriis.common.UIUtils;
 import chrriis.dj.nativeswing.swtimpl.NativeInterface;
 import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
 import core.sakai.objects.SakaiAssignment;
+import core.sakai.objects.SakaiAssignment.SakaiAssignmentContent;
 import core.sakai.objects.SakaiConstants;
 import core.sakai.serviceWrapper.SakaiLogin;
 
@@ -34,15 +35,46 @@ public class CreateSubmissionWindow extends JPanel {
 		webBrowser = new JWebBrowser();
 		JWebBrowser.setCookie(SakaiConstants.SERVER_URL, cookie);
 		webBrowser.navigate(URL);
-		webBrowser.setMenuBarVisible(false);
-		
+		webBrowser.setMenuBarVisible(false);// hide menu bar (like options e.g.)
+		webBrowser.setLocationBarVisible(false); // hide URL typing bar
+		webBrowser.setButtonBarVisible(false); // hide the reload buttons
 		add(webBrowser,BorderLayout.CENTER);
 	}
 
 	/**
 	 * 
 	 * @param titleOfWindow The title shown top of the window.
-	 * @param URL_To_Assignment The URL you find by {@code getEntityUrl()} method.
+	 * @param assign the assignment to be submitted.
+	 * @param sessionId
+	 */
+	public static void openWindow(final String titleOfWindow, final SakaiAssignmentContent assign, final String sessionId) {
+		
+		if(!NativeInterface.isOpen()){
+			UIUtils.setPreferredLookAndFeel();
+			NativeInterface.open();
+		}
+		SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				JFrame frame = new JFrame(titleOfWindow);
+				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				String url = assign.getReference();
+				url = SakaiConstants.SERVER_URL + "/direct" + url.replaceAll("/a/.*/", "/");
+				frame.getContentPane().add(new CreateSubmissionWindow(url, sessionId),
+						BorderLayout.CENTER);
+				frame.setSize(800, 600);
+				frame.setLocationByPlatform(true);
+				frame.setVisible(true);
+			}
+		});
+		if(!NativeInterface.isEventPumpRunning()) {
+			NativeInterface.runEventPump();
+		}
+	}
+	
+	/**
+	 * 
+	 * @param titleOfWindow The title shown top of the window.
+	 * @param assign the assignment to be submitted.
 	 * @param sessionId
 	 */
 	public static void openWindow(final String titleOfWindow, final SakaiAssignment assign, final String sessionId) {
@@ -66,22 +98,21 @@ public class CreateSubmissionWindow extends JPanel {
 			NativeInterface.runEventPump();
 		}
 	}
-	
 	/**
 	 * @deprecated
 	 * @param args
 	 */
 	public static void main(String[] args) {
 //		String urlString = "http://10.21.67.116:8080/direct/assignment/280f7eac-1b97-4c6f-a261-88084922e054";
-		String urlString = "http://www.baidu.com";
+		String urlString = "/assignment/a/mercury/651ccf6b-2f90-4131-8721-54b4ed35f083";
 		String sesStr = "";
 		try {
 			sesStr = SakaiLogin.login("test", "test");
 		} catch (RemoteException e) {
-//			e.printStackTrace();
+			e.printStackTrace();
 		}
-		SakaiAssignment ass = new SakaiAssignment();
-		ass.setEntityURL(urlString);
+		SakaiAssignmentContent ass = new SakaiAssignmentContent();
+		ass.setReference(urlString);
 		openWindow("title",ass,sesStr);
 	}
 

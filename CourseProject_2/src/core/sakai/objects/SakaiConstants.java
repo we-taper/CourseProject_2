@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
@@ -11,6 +13,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.log4j.Logger;
+
+import sun.print.resources.serviceui;
 
 public final class SakaiConstants {
 
@@ -39,7 +43,18 @@ public final class SakaiConstants {
 		}
 		APPEND_TO_SESSION_ID = property.APPEND_TO_SESSION_ID;
 		PRECEDE_TO_SESSION_ID = property.PRECEDE_TO_SESSION_ID;
-		SERVER_URL = property.SERVER_URL;
+		if(property.SERVER_URL.endsWith("\\")){
+			SERVER_URL = property.SERVER_URL.substring(0, property.SERVER_URL.length() - 1);
+		}else{
+			SERVER_URL = property.SERVER_URL;
+		}
+		try {
+			URL url = new URL(SERVER_URL);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+			log.fatal("Error reading configuration file \"Config\\config.xml\"", e);
+			System.exit(1);
+		}
 	}
 
 	public static String decorateSesStr(String sesStr){

@@ -1,5 +1,6 @@
 package GUI;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.*;
@@ -19,6 +20,7 @@ public class JhomeworkPanel extends JPanel{
 		
 		try {
 			UIManager.setLookAndFeel(lookAndFeel);
+		
 		} catch (ClassNotFoundException | InstantiationException
 				| IllegalAccessException | UnsupportedLookAndFeelException e1) {
 			// TODO Auto-generated catch block
