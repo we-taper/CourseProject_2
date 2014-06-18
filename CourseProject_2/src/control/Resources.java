@@ -2,6 +2,8 @@ package control;
 import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 
 import javax.xml.bind.JAXBException;
@@ -48,6 +50,8 @@ public class Resources
 			}
 		}
 		
+		ExecutorService tasks = Executors.newCachedThreadPool();
+		
 		for(SakaiResource res : ress)
 		{
 			if(res.getType().equals("resource"))
@@ -58,7 +62,8 @@ public class Resources
 				final SakaiResource downloadRes = res;
 				final String downloadPath = path;
 				
-				new Thread()
+				tasks.execute(
+				new Runnable()
 				{
 					@Override
 					public void run()
@@ -72,7 +77,7 @@ public class Resources
 							e.printStackTrace();
 						}
 					}
-				}.start();
+				});
 			
 			}
 		}
