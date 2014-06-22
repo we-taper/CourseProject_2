@@ -212,7 +212,12 @@ public class AssignmentServices {
 		Document document = XMLUtil.loadXMLFromInputStream(MyHTTPUtil
 				.getRemoteInputStream(conn, acceptType, cookie));
 		Node content = document.getElementsByTagName("content").item(0);
-		return getAssignmentContent(content);
+		SakaiAssignment.SakaiAssignmentContent result =  getAssignmentContent(content);
+		
+		// Get an extra field called assignmentId
+		Node id = document.getElementsByTagName("assignmentId").item(0);
+		result.setAssignmentId(id.getTextContent());
+		return result;
 	}
 
 	/**
