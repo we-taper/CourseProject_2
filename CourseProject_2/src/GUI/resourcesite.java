@@ -1,21 +1,23 @@
 package GUI;
-import java.awt.*;
+
+import java.awt.FlowLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.swing.*;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import control.Sites;
 import core.sakai.objects.SakaiSite;
 
-public class JhomeworkPanel extends JPanel{
-    ArrayList<mylabel> mylabels =new ArrayList<>();
-	public JhomeworkPanel(){
+public class resourcesite extends JPanel {
+	ArrayList<resourcelabel> mylabels=new ArrayList<resourcelabel>();
+	public resourcesite() {
 		FlowLayout flowLayout=new FlowLayout();
 		setLayout(flowLayout);
 		flowLayout.setAlignment(FlowLayout.LEADING);
-		
-	String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
 		
 		try {
 			UIManager.setLookAndFeel(lookAndFeel);
@@ -25,10 +27,7 @@ public class JhomeworkPanel extends JPanel{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		
 		HashMap<String, SakaiSite> sites = Sites.getAllSites();
-
 		for(String str :sites.keySet()){
 			if(str.equals("Citations Admin")||str.equals("Administration Workspace")||str.equals("Portfolio Admin")){
 				
@@ -36,7 +35,7 @@ public class JhomeworkPanel extends JPanel{
 				
 			
 			SakaiSite site=sites.get(str);
-			mylabel ml=new mylabel(str,site);
+			resourcelabel ml=new resourcelabel(str,site);
 			mylabels.add(ml);
 	
 			
@@ -44,14 +43,12 @@ public class JhomeworkPanel extends JPanel{
 			
 		}
 	
-		for(mylabel ml:mylabels){
+	for(resourcelabel ml:mylabels){
 			add(ml);
-		}
+	}
 		
 		
 		}
+	}
+
 	
-
-
-
-}

@@ -97,6 +97,38 @@ public class homeworkpanel extends JPanel{
 				
 					loginpanel.mainpanel.jp.add(jScrollPane);
 					JButton jButton=new JButton("提交作业");
+					jButton.addMouseListener(new MouseListener() {
+						
+						@Override
+						public void mouseReleased(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void mousePressed(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void mouseExited(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void mouseEntered(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void mouseClicked(MouseEvent e) {
+							// TODO Auto-generated method stub
+							taper.util.CreateSubmissionWindow.openWindow(ass.getTitle(),ass,LocalConstants.sessionID);
+						}
+					});
 					jButton.setBounds(0, 700,100,30);
 					//taper.util.CreateSubmissionWindow.openWindow(ass.getTitle(), ass, LocalConstants.sessionID);
 					loginpanel.mainpanel.jp.add(jButton);

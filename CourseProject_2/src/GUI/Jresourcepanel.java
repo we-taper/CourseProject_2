@@ -8,6 +8,8 @@ import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import core.sakai.objects.SakaiSite;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -18,6 +20,7 @@ import java.io.*;
 public class Jresourcepanel extends JPanel {
 	public Jresourcepanel(final File file) {
 		super();
+		
 	String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
 		
 		try {
@@ -40,7 +43,7 @@ public class Jresourcepanel extends JPanel {
 		
 			File[] filelist= file.listFiles();
 		
-		final JLabel returnLabel = new JLabel("           "+file.getAbsolutePath());
+		final JLabel returnLabel = new JLabel("           "+file.getPath());
 		returnLabel.setIcon(new ImageIcon(Jresourcepanel.class
 				.getResource("return.png")));
 		returnLabel.setBounds(0, 0, 1000, 38);
@@ -78,15 +81,18 @@ public class Jresourcepanel extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
 				boolean a=false;
-			try{file.getParentFile();
+			try{System.out.println("aaa");
+				file.getParent();
 			a=true;
 			
 			}
-			catch(NullPointerException c){
+			catch(Exception c){
 				a=false;
 				System.out.println("aaa");
 				
-			}if(a){
+			}if(file.getName().equals("group"))
+			{}else{
+				
 				removeAll();
 				setLayout(new GridLayout(1, 1));
 				add(new Jresourcepanel(file.getParentFile()));

@@ -26,8 +26,8 @@ public class mainpanel extends JFrame {
 	JLabel jb2=new JLabel();
 	public static JhomeworkPanel re=new JhomeworkPanel();
 	public static JPanel jp=new JPanel();
-   
-   public JScrollPane jr=new JScrollPane(new Jresourcepanel(new File("e:\\")));
+   public static resourcesite rs=new resourcesite();
+   public JPanel jr=new JPanel();
 	Point loc = null;    Point tmp = null;    boolean isDragged = false; 
 	public mainpanel(){
 		
@@ -55,16 +55,20 @@ public class mainpanel extends JFrame {
 		re.setOpaque(false);
 	    re.setBounds(247, 100, 1055, 36);
 	  add(re);
-	  jp.setVisible(true);
+	  jp.setVisible(false);
 	 jp.setOpaque(false);
 	 jp.setBounds(252, 137, 1055, 760);
 	 jp.setLayout(null);
 	 add(jp);
 	  jr.setVisible(false);
-	jr.setOpaque(false);
-	  jr.setBounds(252, 100, 1055, 770);
+	jr.setLayout(new GridLayout(1,1));
+	  jr.setBounds(252, 137, 1055, 730);
 	  
 	add(jr);
+	rs.setVisible(false);
+	rs.setOpaque(false);
+	rs.setBounds(247, 100, 1055, 36);
+	add(rs);
 		jb1.addMouseListener(new MouseListener(){
 
 			@Override
@@ -180,8 +184,10 @@ public class mainpanel extends JFrame {
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
 				jr.setVisible(false);
-			
+				rs.setVisible(false);
 			re.setVisible(true);
+	   	jp.setVisible(true);
+			repaint();
 			}
 
 			@Override
@@ -219,9 +225,12 @@ public class mainpanel extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
+				rs.setVisible(true);
 				re.setVisible(false);
+				jp.setVisible(false);
 				jr.setVisible(true);
 				repaint();
+				
 				
 			}
 

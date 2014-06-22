@@ -18,20 +18,10 @@ public class mylabel extends JLabel{
 		super(name);
 		int width=0;
 		site=si;
-		char[] na=name.toCharArray();
-		for(char ch:na){	
-			if(Character.isLetter(ch)){
-				width=width+15;
-				
-			}
-			else {
-				
-				width=width+40;
-			}
-		}
+	
 		setFont(new Font(this.getFont().getFontName(),this.getFont().getStyle(),28));
 		
-		setSize(width,36);
+		
 		addMouseListener(new MouseListener() {
 			
 			@Override
@@ -77,8 +67,14 @@ public class mylabel extends JLabel{
 				loginpanel.mainpanel.jp.add( new homeworkpanel(site));
 				loginpanel.mainpanel.jp.revalidate();
 				loginpanel.mainpanel.jp.repaint();
-				
-				isclicked=(true);
+				for(int i = 0;i < loginpanel.mainpanel.re.mylabels.size(); i ++){
+					loginpanel.mainpanel.re.mylabels.get(i).isclicked=false;
+					loginpanel.mainpanel.re.mylabels.get(i).setOpaque(false);
+					loginpanel.mainpanel.re.mylabels.get(i).setForeground(Color.black);
+					
+				}
+
+				isclicked=true;
 				setOpaque(true);
 				setBackground(Color.GRAY);
 				setForeground(Color.white);
