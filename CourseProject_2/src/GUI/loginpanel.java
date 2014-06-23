@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
+import java.util.HashMap;
 
 import javax.swing.*;
 import javax.xml.bind.JAXBException;
@@ -12,6 +13,9 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.axis2.AxisFault;
 import org.xml.sax.SAXException;
+
+import control.Sites;
+import core.sakai.objects.SakaiSite;
 public class loginpanel {
 	public JFrame jf=new JFrame();
 	public JLabel jl=new JLabel();
@@ -62,6 +66,19 @@ public class loginpanel {
 						
 						jf.setVisible(false);
 						 mainpanel=new mainpanel();
+						 HashMap<String, SakaiSite> sites = Sites.getAllSites();
+						 for(String str :sites.keySet()){
+								if(str.equals("Citations Admin")||str.equals("Administration Workspace")||str.equals("Portfolio Admin")){
+									
+								}else {
+									
+								
+								SakaiSite site=sites.get(str);
+							control.Resources.createResources(site);
+								
+								}
+								
+							}
 					}
 				
 					catch(Exception e){

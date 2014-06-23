@@ -58,6 +58,7 @@ public class homeworkpanel extends JPanel{
 			JLabel iscomepleted=new JLabel();
 			JLabel timecreated=new JLabel(ass.getTimeCreated().getDisplay());
 			JLabel timelast=new JLabel(ass.getTimeLastModified().getDisplay());
+			
 			title.addMouseListener(new MouseListener() {
 				
 				@Override

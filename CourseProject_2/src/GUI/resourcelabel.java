@@ -71,31 +71,16 @@ public class resourcelabel extends JLabel{
 			
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				try {
-					control.Resources.createResources(site);
+			
+						
+						loginpanel.mainpanel.jr.removeAll();
+						loginpanel.mainpanel.jr.add(new JScrollPane(new Jresourcepanel(new File("Resources\\group\\"+site.getId()))));
+						loginpanel.mainpanel.jr.revalidate();
+						loginpanel.mainpanel.jr.repaint();
+					
 					System.out.println(site.getTitle());
 				
-				} catch (RemoteException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ParserConfigurationException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SAXException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (JAXBException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				loginpanel.mainpanel.jr.removeAll();
-				loginpanel.mainpanel.jr.add(new JScrollPane(new Jresourcepanel(new File("Resources\\group\\"+site.getId()))));
-				loginpanel.mainpanel.jr.revalidate();
-				loginpanel.mainpanel.jr.repaint();
+			
 				for(int i = 0;i < loginpanel.mainpanel.rs.mylabels.size(); i ++){
 					loginpanel.mainpanel.rs.mylabels.get(i).isclicked=false;
 					loginpanel.mainpanel.rs.mylabels.get(i).setOpaque(false);

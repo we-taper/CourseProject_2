@@ -103,6 +103,7 @@ public class Jresourcepanel extends JPanel {
 			}
 		});
 		add(returnLabel);
+		try{
 		for (final File f : filelist) {
 			if (f.isFile()) {
 				final JLabel filelJLabel1 = new JLabel(f.getName());
@@ -200,6 +201,8 @@ public class Jresourcepanel extends JPanel {
 n=n+1;
 			}
 			y = y + 37;
+		}}catch(NullPointerException e){
+			
 		}
 		if(n>19){
 setLayout(new GridLayout(n,1));}
