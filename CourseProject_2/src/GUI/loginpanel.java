@@ -1,18 +1,12 @@
-package GUI;
+package GUI;//
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.HashMap;
 
 import javax.swing.*;
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.apache.axis2.AxisFault;
-import org.xml.sax.SAXException;
 
 import control.Sites;
 import core.sakai.objects.SakaiSite;
@@ -127,7 +121,7 @@ public class loginpanel {
 					jl2.setIcon(icon5);
 					// TODO Auto-generated method stub
 					
-				}
+				} 
 
 				@Override
 				public void mouseExited(MouseEvent arg0) {

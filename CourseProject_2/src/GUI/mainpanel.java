@@ -25,9 +25,13 @@ public class mainpanel extends JFrame {
 	JLabel jb1=new JLabel();
 	JLabel jb2=new JLabel();
 	public static JhomeworkPanel re=new JhomeworkPanel();
+	 
+
+
 	public static JPanel jp=new JPanel();
    public static resourcesite rs=new resourcesite();
    public JPanel jr=new JPanel();
+
 	Point loc = null;    Point tmp = null;    boolean isDragged = false; 
 	public mainpanel(){
 		
