@@ -131,5 +131,4 @@ public class UpdateTasker
 			timer.cancel();
 		}
 	}
-
 }

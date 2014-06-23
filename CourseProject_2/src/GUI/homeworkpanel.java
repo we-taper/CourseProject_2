@@ -17,10 +17,14 @@ import java.util.HashMap;
 
 import javax.jws.soap.SOAPBinding.Style;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
+import control.LocalConstants;
 import sun.font.FontScaler;
 import core.sakai.objects.SakaiSite;
 import core.sakai.objects.SakaiAssignment.SakaiAssignmentContent;
@@ -32,13 +36,21 @@ public class homeworkpanel extends JPanel{
 		super();
 		setLayout(null);
 		setOpaque(false);	
-		setBounds(0, 40, 1055, 733);
+		setBounds(0, 0, 1055, 733);
 		HashMap<String, SakaiAssignmentContent> assignments = 
 				si.getAllAssignments();
 		JLabel bg=new JLabel();
 		bg.setIcon(new ImageIcon(homeworkpanel.class.getResource("bg.png")));
 		bg.setBounds(0, 0, 1055,37);
+	String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
 		
+		try {
+			UIManager.setLookAndFeel(lookAndFeel);
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		int y=37;
 		for(String str :assignments.keySet()){
 			final SakaiAssignmentContent ass=assignments.get(str);
@@ -77,13 +89,52 @@ public class homeworkpanel extends JPanel{
 				
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
-					loginpanel.mainpanel.re.removeall();
+					loginpanel.mainpanel.jp.removeAll();
+					loginpanel.mainpanel.jp.setLayout(null);
 				homeworkcontent js=	new homeworkcontent(ass);
 				JScrollPane jScrollPane=new JScrollPane(js);
-				jScrollPane.setBounds(0, 40, 1055,730);
+				jScrollPane.setBounds(0, 0, 1055,690);
 				
-					loginpanel.mainpanel.re.add(jScrollPane);
-					loginpanel.mainpanel.re.revalidate();
+					loginpanel.mainpanel.jp.add(jScrollPane);
+					JButton jButton=new JButton("提交作业");
+					jButton.addMouseListener(new MouseListener() {
+						
+						@Override
+						public void mouseReleased(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void mousePressed(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void mouseExited(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void mouseEntered(MouseEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void mouseClicked(MouseEvent e) {
+							// TODO Auto-generated method stub
+							taper.util.CreateSubmissionWindow.openWindow(ass.getTitle(),ass,LocalConstants.sessionID);
+						}
+					});
+					jButton.setBounds(0, 700,100,30);
+					//taper.util.CreateSubmissionWindow.openWindow(ass.getTitle(), ass, LocalConstants.sessionID);
+					loginpanel.mainpanel.jp.add(jButton);
+					loginpanel.mainpanel.jp.revalidate();
+					loginpanel.mainpanel.jp.repaint();
+					
 				//	loginpanel.mainpanel.setVisible(true);
 					// TODO Auto-generated method stub
 					

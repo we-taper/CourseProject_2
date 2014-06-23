@@ -78,3 +78,4 @@
 	<classpathentry kind="lib" path="JarLib/JWebBrowser/swt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
+
