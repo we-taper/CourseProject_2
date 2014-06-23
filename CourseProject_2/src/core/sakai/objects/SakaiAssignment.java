@@ -24,6 +24,7 @@ public class SakaiAssignment implements java.io.Serializable{
 	{
 		return AssignmentServices.
 				getSubmissionsForAssignment(this.getId(), LocalConstants.sessionID);
+		
 	}
 	
 	private String access;

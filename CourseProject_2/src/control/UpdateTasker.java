@@ -8,7 +8,35 @@ import core.sakai.objects.SakaiSite;
 
 public class UpdateTasker 
 {
-	public static ArrayList<Timer> timers = new ArrayList<Timer>();
+	private static ArrayList<Timer> timers = new ArrayList<Timer>();
+	
+	public static void startAnnouncementUpdater
+	(final SakaiSite target, final AnnouncementAdd handler)
+	{
+		target.addAnnouncementHandler(handler);
+		
+		Timer annTimer = new Timer();
+		annTimer.schedule
+		(
+			new TimerTask()
+			{
+				@Override
+				public void run()
+				{
+					try
+					{
+						target.updataAnnouncement();
+					}
+					catch(Exception e)
+					{
+						e.printStackTrace();
+					}
+				}
+			}, 10, 1000 * 60 / 2
+		);
+		
+		timers.add(annTimer);
+	}
 	
 	public static void startUpdateSites(SitesAdd handler)
 	{
@@ -30,11 +58,10 @@ public class UpdateTasker
 				catch(Exception e)
 				{
 					e.printStackTrace();
-//					new Timer().schedule(this, gap, gap);
 				}
 			}
 		
-		}, 10, 1000 * 60 * 30);
+		}, 10, 1000 * 60 * 1);
 		
 		timers.add(siteTimer);
 		
@@ -62,9 +89,10 @@ public class UpdateTasker
 					}
 				}
 				
-			}, 10, 1000 * 60 * 5
+			}, 10, 1000 * 60 / 2
 		);
-	
+		
+		timers.add(resTimer);
 	}
 	
 	
@@ -88,11 +116,10 @@ public class UpdateTasker
 				catch(Exception e)
 				{
 					e.printStackTrace();
-//					new Timer().schedule(this, 0, 1000 * 60 * 5);
 				}
 			}
 			
-		}, 10, 1000 * 60 * 5);
+		}, 10, 1000 * 60 / 2);
 		
 		timers.add(assTimer);
 	}

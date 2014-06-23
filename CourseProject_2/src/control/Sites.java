@@ -25,7 +25,7 @@ import core.sakai.objects.SakaiSite;
 @SuppressWarnings("unchecked")
 public class Sites 
 {
-	public static SitesAdd handler;
+	private static SitesAdd handler;
 	
 	static
 	{
@@ -69,6 +69,7 @@ public class Sites
 			if(!siteTitles.contains(site.getTitle()))
 			{
 				System.out.println(site.getTitle());
+				site.updataAnnouncement();
 				site.updateAssignment();
 				
 				sitesInfo.put(site.getTitle(), site);
@@ -80,7 +81,6 @@ public class Sites
 		}
 	}
 	
-//	Must be called before exit
 	public static void saveInfo()
 	{
 		try(ObjectOutputStream saver = 
