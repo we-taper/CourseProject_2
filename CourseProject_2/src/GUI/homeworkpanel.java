@@ -13,6 +13,7 @@ import java.awt.event.MouseListener;
 import java.awt.font.TextAttribute;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
+import java.io.IOException;
 import java.util.HashMap;
 
 import javax.jws.soap.SOAPBinding.Style;
@@ -23,11 +24,16 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
 
 import control.LocalConstants;
 import sun.font.FontScaler;
 import core.sakai.objects.SakaiSite;
 import core.sakai.objects.SakaiAssignment.SakaiAssignmentContent;
+import core.sakai.objects.SakaiSubmission;
 
 public class homeworkpanel extends JPanel{
     
@@ -58,7 +64,29 @@ public class homeworkpanel extends JPanel{
 			JLabel iscomepleted=new JLabel();
 			JLabel timecreated=new JLabel(ass.getTimeCreated().getDisplay());
 			JLabel timelast=new JLabel(ass.getTimeLastModified().getDisplay());
-			
+			SakaiSubmission[] submissions = null;
+			try {
+				submissions=ass.getSubmission();
+			} catch (ParserConfigurationException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SAXException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (JAXBException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			if(submissions.length == 0
+					){iscomepleted.setText("未提交");
+				
+			}
+			else{
+				iscomepleted.setText("已提交");
+			}
 			title.addMouseListener(new MouseListener() {
 				
 				@Override
@@ -127,7 +155,7 @@ public class homeworkpanel extends JPanel{
 						@Override
 						public void mouseClicked(MouseEvent e) {
 							// TODO Auto-generated method stub
-							taper.util.CreateSubmissionWindow.openWindow(ass.getTitle(),ass,LocalConstants.sessionID);
+						taper.util.CreateSubmissionWindow.openWindow(ass.getTitle(),ass,LocalConstants.sessionID);
 						}
 					});
 					jButton.setBounds(0, 700,100,30);

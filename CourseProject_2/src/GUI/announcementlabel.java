@@ -67,18 +67,18 @@ public class announcementlabel extends JLabel{
 				public void mouseClicked(MouseEvent arg0) {
 				
 							
-							loginpanel.mainpanel.jr.removeAll();
-							loginpanel.mainpanel.jr.add(new JScrollPane(new Jresourcepanel(new File("Resources\\group\\"+site.getId()))));
-							loginpanel.mainpanel.jr.revalidate();
-							loginpanel.mainpanel.jr.repaint();
+							loginpanel.mainpanel.ap.removeAll();
+							loginpanel.mainpanel.ap.add(new announcementpanel(site));
+							loginpanel.mainpanel.ap.revalidate();
+							loginpanel.mainpanel.ap.repaint();
 						
-						System.out.println(site.getTitle());
+					
 					
 				
-					for(int i = 0;i < loginpanel.mainpanel.rs.mylabels.size(); i ++){
-						loginpanel.mainpanel.rs.mylabels.get(i).isclicked=false;
-						loginpanel.mainpanel.rs.mylabels.get(i).setOpaque(false);
-						loginpanel.mainpanel.rs.mylabels.get(i).setForeground(Color.black);
+					for(int i = 0;i < loginpanel.mainpanel.as.mylabels.size(); i ++){
+						loginpanel.mainpanel.as.mylabels.get(i).isclicked=false;
+						loginpanel.mainpanel.as.mylabels.get(i).setOpaque(false);
+						loginpanel.mainpanel.as.mylabels.get(i).setForeground(Color.black);
 						
 					}
 

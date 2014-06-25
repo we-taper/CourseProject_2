@@ -76,5 +76,10 @@
 	<classpathentry kind="lib" path="JarLib/JWebBrowser/DJNativeSwing-SWT.jar"/>
 	<classpathentry kind="lib" path="JarLib/JWebBrowser/DJNativeSwing.jar"/>
 	<classpathentry kind="lib" path="JarLib/JWebBrowser/swt.jar"/>
+	<classpathentry kind="lib" path="D:/Workspace/JAR Libs/Swingx/swingx-all-1.6.4.jar" sourcepath="D:/Workspace/JAR Libs/Swingx/swingx-all-1.6.4-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/D:/Workspace/JAR%20Libs/Swingx/swingx-all-1.6.4-javadoc.jar!/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

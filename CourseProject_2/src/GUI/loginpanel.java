@@ -1,4 +1,4 @@
-package GUI;//
+package GUI;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -9,6 +9,7 @@ import java.util.HashMap;
 import javax.swing.*;
 
 import control.Sites;
+import control.UpdateTasker;
 import core.sakai.objects.SakaiSite;
 public class loginpanel {
 	public JFrame jf=new JFrame();
@@ -73,9 +74,31 @@ public class loginpanel {
 								}
 								
 							}
+						 
+						 new Thread()
+						 {
+							 @Override
+							 public void run()
+							 {
+									try {
+										Thread.sleep(3000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+								   	SakaiSite site = Sites.getAllSites().get("mercury site");
+								   	
+								   	UpdateTasker.startAnnouncementUpdater(site, null);
+								   	UpdateTasker.startAssignmentUpdater(site, null);
+								   	UpdateTasker.startResourceUpdater(site, null);
+							 }
+						 }.start();
 					}
 				
-					catch(Exception e){
+					catch(NullPointerException e){
+						e.printStackTrace();
+					}catch (Exception e) {
+						e.printStackTrace();
 						new myDialog("用户名或密码不正确");
 						
 					}
@@ -162,10 +185,13 @@ public class loginpanel {
 
 	/**
 	 * @param args
+	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
    new loginpanel();
+   
+   
 	}
 
 }

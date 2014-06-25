@@ -1,8 +1,16 @@
 package core.sakai.objects;
 
+import java.io.IOException;
 import java.util.Arrays;
 
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.xml.sax.SAXException;
+
+import control.LocalConstants;
+import core.sakai.serviceWrapper.AssignmentServices;
 
 @XmlRootElement(name="assignment")
 public class SakaiAssignment implements java.io.Serializable{
@@ -11,7 +19,6 @@ public class SakaiAssignment implements java.io.Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -8551951924115828419L;
-	
 	
 	private String access;
 	public void setAccess(String a) {
@@ -251,29 +258,35 @@ public class SakaiAssignment implements java.io.Serializable{
 		private static final long serialVersionUID = -8777142136704977252L;
 		@Override
 		public String toString() {
-			return "SakaiAssignmentContent [allowAttachments="
-					+ allowAttachments + ", allowReviewService="
-					+ allowReviewService + ", allowStudentViewReport="
-					+ allowStudentViewReport + ", attachments="
-					+ Arrays.toString(attachments) + ", authorLastModified="
-					+ authorLastModified + ", authors="
-					+ Arrays.toString(authors) + ", context=" + context
-					+ ", creator=" + creator + ", generateOriginalityReport="
-					+ generateOriginalityReport + ", groupProject="
-					+ groupProject + ", honorPledge=" + honorPledge + ", id="
-					+ id + ", instructions=" + instructions
-					+ ", maxGradePoint=" + maxGradePoint
-					+ ", maxGradePointDisplay=" + maxGradePointDisplay
-					+ ", properties=" + Arrays.toString(properties)
-					+ ", reference=" + reference + ", submitReviewRepo="
-					+ submitReviewRepo + ", timeCreated=" + timeCreated
-					+ ", timeLastModified=" + timeLastModified + ", title="
-					+ title + ", typeOfGrade=" + typeOfGrade
-					+ ", typeOfSubmission=" + typeOfSubmission + ", url=" + url
-					+ ", checkInstitution=" + checkInstitution
-					+ ", checkInternet=" + checkInternet
-					+ ", checkPublications=" + checkPublications
-					+ ", checkTurnitin=" + checkTurnitin + "]";
+			return "SakaiAssignmentContent [isAllowAttachments()="
+					+ isAllowAttachments() + ", isAllowReviewService()="
+					+ isAllowReviewService() + ", isAllowStudentViewReport()="
+					+ isAllowStudentViewReport() + ", getAttachments()="
+					+ Arrays.toString(getAttachments())
+					+ ", getAuthorLastModified()=" + getAuthorLastModified()
+					+ ", getAuthors()=" + Arrays.toString(getAuthors())
+					+ ", getContext()=" + getContext() + ", getCreator()="
+					+ getCreator() + ", getGenerateOriginalityReport()="
+					+ getGenerateOriginalityReport() + ", isGroupProject()="
+					+ isGroupProject() + ", getHonorPledge()="
+					+ getHonorPledge() + ", getId()=" + getId()
+					+ ", getInstructions()=" + getInstructions()
+					+ ", getMaxGradePoint()=" + getMaxGradePoint()
+					+ ", getMaxGradePointDisplay()="
+					+ getMaxGradePointDisplay() + ", getProperties()="
+					+ Arrays.toString(getProperties()) + ", getReference()="
+					+ getReference() + ", getSubmitReviewRepo()="
+					+ getSubmitReviewRepo() + ", getTimeCreated()="
+					+ getTimeCreated() + ", getTimeLastModified()="
+					+ getTimeLastModified() + ", getTitle()=" + getTitle()
+					+ ", getTypeOfGrade()=" + getTypeOfGrade()
+					+ ", getTypeOfSubmission()=" + getTypeOfSubmission()
+					+ ", getUrl()=" + getUrl() + ", isCheckInstitution()="
+					+ isCheckInstitution() + ", isCheckInternet()="
+					+ isCheckInternet() + ", isCheckPublications()="
+					+ isCheckPublications() + ", isCheckTurnitin()="
+					+ isCheckTurnitin() + ", getAssignmentId()="
+					+ getAssignmentId() + "]";
 		}
 		private boolean allowAttachments;
 		private boolean allowReviewService;
@@ -303,6 +316,15 @@ public class SakaiAssignment implements java.io.Serializable{
 		private boolean checkInternet;
 		private boolean checkPublications;
 		private boolean checkTurnitin;
+		private String assignmentId;
+		
+		public SakaiSubmission[] getSubmission() throws ParserConfigurationException, SAXException, IOException, JAXBException
+		{
+			return AssignmentServices.
+					getSubmissionsForAssignment(this.getAssignmentId(), LocalConstants.sessionID);
+			
+		}
+		
 		public boolean isAllowAttachments() {
 			return allowAttachments;
 		}
@@ -470,6 +492,12 @@ public class SakaiAssignment implements java.io.Serializable{
 		}
 		public void setCheckTurnitin(boolean checkTurnitin) {
 			this.checkTurnitin = checkTurnitin;
+		}
+		public String getAssignmentId() {
+			return assignmentId;
+		}
+		public void setAssignmentId(String assignmentId) {
+			this.assignmentId = assignmentId;
 		}
 	}
 }

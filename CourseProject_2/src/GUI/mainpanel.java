@@ -31,7 +31,9 @@ public class mainpanel extends JFrame {
 	public static JPanel jp=new JPanel();
    public static resourcesite rs=new resourcesite();
    public JPanel jr=new JPanel();
-
+   public announcementsite as=new announcementsite();
+   public JPanel ap=new JPanel();
+//public SchedulePane acPane;
 	Point loc = null;    Point tmp = null;    boolean isDragged = false; 
 	public mainpanel(){
 		
@@ -73,6 +75,15 @@ public class mainpanel extends JFrame {
 	rs.setOpaque(false);
 	rs.setBounds(247, 100, 1055, 36);
 	add(rs);
+	as.setVisible(true);
+	as.setOpaque(false);
+	as.setBounds(247, 100, 1055, 36);
+	add(as);
+	ap.setVisible(true);
+	ap.setOpaque(false);
+	ap.setLayout(null);
+	ap.setBounds(252, 137, 1055, 730);
+	add(ap);
 		jb1.addMouseListener(new MouseListener(){
 
 			@Override
@@ -149,7 +160,18 @@ public class mainpanel extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
-				
+//				acPane = new SchedulePane();
+//				acPane.setVisible(false);
+//				acPane.setBounds(252, 137, 1055, 730);
+//				add(acPane);
+//				acPane.setVisible(false);
+				as.setVisible(true);
+				ap.setVisible(true);
+				jr.setVisible(false);
+				rs.setVisible(false);
+			re.setVisible(false);
+	   	jp.setVisible(false);
+	   	repaint();
 			}
 
 			@Override
@@ -187,9 +209,12 @@ public class mainpanel extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				// TODO Auto-generated method stub
+				as.setVisible(false);
+				ap.setVisible(false);
 				jr.setVisible(false);
 				rs.setVisible(false);
 			re.setVisible(true);
+//			acPane.setVisible(false);
 	   	jp.setVisible(true);
 			repaint();
 			}
@@ -228,10 +253,13 @@ public class mainpanel extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+				as.setVisible(false);
+				ap.setVisible(false);
 				// TODO Auto-generated method stub
 				rs.setVisible(true);
 				re.setVisible(false);
 				jp.setVisible(false);
+//				acPane.setVisible(false);
 				jr.setVisible(true);
 				repaint();
 				
@@ -268,10 +296,19 @@ public class mainpanel extends JFrame {
 			}
 			
 		});
-		jl4.addMouseListener(new MouseListener(){
+	jl4.addMouseListener(new MouseListener(){
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
+//				acPane.setVisible(true);
+				ap.setVisible(false);
+				// TODO Auto-generated method stub
+				rs.setVisible(false);
+				re.setVisible(false);
+				jp.setVisible(false);
+//				acPane.setVisible(false);
+				jr.setVisible(false);
+				repaint();
 				// TODO Auto-generated method stub
 				
 			}

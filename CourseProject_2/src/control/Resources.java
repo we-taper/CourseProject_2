@@ -6,28 +6,50 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Matcher;
 
+import javax.swing.JOptionPane;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import GUI.VersionUtil;
+import GUI.myDialog;
 import taper.util.SakaiBase64Decoder;
+import core.sakai.objects.SakaiAnnouncement;
 import core.sakai.objects.SakaiResource;
 import core.sakai.objects.SakaiSite;
 import core.sakai.serviceWrapper.ContentHosting;
 
+
+
+/**
+ * Provide mathod for downloading resource form specific 
+ * <code>SakaiSite.</code> 
+ * 
+ */
 public class Resources
 {
+	
 	private final static String APP_PATH;
-	
-	
+//	Static initialize block, find current path of program.
 	static
 	{
 		File current = new File("");
 		APP_PATH = current.getAbsolutePath() + "\\Resources";
 	}
 	
-	public static void updateSiteResource(SakaiSite targetSite, final ResourceAdd handler) throws RemoteException, ParserConfigurationException, SAXException, IOException, JAXBException
+	/**
+	 * The method for updating resource for specific <code>SakaiSite.</code>  
+	 * 
+	 *  <p>Exception is not expected to be caught by application because  
+	 * It often indicates problem on the server site.</p>
+	 * 
+	 * @param targetSite Target site which need to be updated. 
+	 * @param handler The event handler which is called if new resource is added.
+	 *
+	 */			
+	
+	public static void updateSiteResource(final SakaiSite targetSite, final ResourceAdd handler) throws RemoteException, ParserConfigurationException, SAXException, IOException, JAXBException
 	{
 		String id = "/group/" + targetSite.getId() + "/";
 		SakaiResource[] ress = 
@@ -67,7 +89,12 @@ public class Resources
 									try 
 									{
 										downloadFile(downloadRes, downloadPath);
-										handler.resourceAdd(resource);
+										new VersionUtil
+										("新资源", downloadRes.getName(), "请到资源中查看");
+										if(handler != null)
+										{
+											handler.resourceAdd(resource);
+										}
 									} 
 									catch (IOException e) 
 									{
@@ -84,8 +111,16 @@ public class Resources
 	{
 //		For testing only
 		LoginControl.login("admin", "admin");
-		createResources(Sites.getAllSites().get("mercury site"));
+		
+	
 	}
+	
+	/**
+	 * Create resource for a newly added site, or the first time 
+	 * the program is being executed.
+	 * 
+	 * @param targetSite The Target site whose resource need to be constructed.
+	 */
 	
 	public static void createResources(SakaiSite targetSite) throws RemoteException, ParserConfigurationException, SAXException, IOException, JAXBException
 	{
@@ -123,6 +158,7 @@ public class Resources
 					{
 						try 
 						{
+							
 							downloadFile(downloadRes, downloadPath);
 						} 
 						catch (IOException e) 

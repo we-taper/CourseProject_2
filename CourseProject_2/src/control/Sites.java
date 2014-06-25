@@ -10,23 +10,26 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Set;
-
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.xml.sax.SAXException;
-
 import core.sakai.serviceWrapper.SiteServices;
-
-
 import core.sakai.objects.SakaiConstants;
 import core.sakai.objects.SakaiSite;
+
+/**
+ * Sites class holds local data,
+ * including <code>SakaiSite</code> and 
+ *<code>SakaiAssignment</code>, <code>SakaiAnnouncement</code>
+ * associate with that Site.
+ */
 
 @SuppressWarnings("unchecked")
 public class Sites 
 {
-	public static SitesAdd handler;
+	private static SitesAdd handler;
 	
+//	Static caluse read data from local storage.
 	static
 	{
 		sitesInfo = new HashMap<String, SakaiSite>();
@@ -58,6 +61,15 @@ public class Sites
 		Sites.handler = handler;
 	}
 	
+	/**
+	 * Find if there is new site added. 
+	 * 
+	 * @throws ParserConfigurationException
+	 * @throws SAXException
+	 * @throws IOException
+	 * @throws JAXBException
+	 */
+	
 	public static void updateSites() throws ParserConfigurationException, SAXException, IOException, JAXBException
 	{
 		SakaiSite[] sites = 
@@ -68,8 +80,17 @@ public class Sites
 		{
 			if(!siteTitles.contains(site.getTitle()))
 			{
-				System.out.println(site.getTitle());
-				site.updateAssignment();
+				
+				try
+				{
+					site.updataAnnouncement();
+					site.updateAssignment();
+				}
+				catch(Exception e)
+				{
+//					e.printStackTrace();
+				}
+				
 				
 				sitesInfo.put(site.getTitle(), site);
 				if(handler != null)
@@ -80,7 +101,10 @@ public class Sites
 		}
 	}
 	
-//	Must be called before exit
+	/**
+	 * Write all information onto storage
+	 */
+	
 	public static void saveInfo()
 	{
 		try(ObjectOutputStream saver = 
@@ -103,6 +127,11 @@ public class Sites
 		
 	}
 	
+	/**
+	 * Get a <code>HashMap</code> for all sites.
+	 * @return HashMap(SiteTitle, Site Object)
+	 */
+	
 	public static HashMap<String, SakaiSite> getAllSites()
 	{
 		return sitesInfo;
@@ -112,3 +141,4 @@ public class Sites
 
 
 }
+

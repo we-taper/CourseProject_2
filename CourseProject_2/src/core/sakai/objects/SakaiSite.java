@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 
+import javax.swing.JOptionPane;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -14,9 +15,13 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+import GUI.VersionUtil;
+import GUI.myDialog;
+import control.AnnouncementAdd;
 import control.AssignmentAdd;
 import control.LocalConstants;
 import core.sakai.objects.SakaiAssignment.SakaiAssignmentContent;
+import core.sakai.serviceWrapper.AnnouncementServices;
 import core.sakai.serviceWrapper.AssignmentServices;
 
 @XmlRootElement(name = "site")
@@ -27,17 +32,64 @@ public class SakaiSite implements Serializable{
 	 */
 	private static final long serialVersionUID = -7970570717621854997L;
 	private transient AssignmentAdd handler; 
-
+	private transient AnnouncementAdd announcementHandler;
+	
 	public void addAssignmentAddHandler(AssignmentAdd handler)
 	{
 		this.handler = handler;
 	}
 	
-	public HashMap<String, SakaiAssignmentContent> assignments; 
+	public void addAnnouncementHandler(AnnouncementAdd handler)
+	{
+		this.announcementHandler = handler;
+	}
 	
+	public HashMap<String, SakaiAssignmentContent> assignments; 
 	public HashMap<String, SakaiAssignmentContent> getAllAssignments()
 	{
 		return assignments;
+	}
+	
+	private HashMap<String, SakaiAnnouncement> announcements = new HashMap<String, SakaiAnnouncement>();
+	
+	public void setAllAnnouncements(HashMap<String, SakaiAnnouncement> announcements)
+	{
+		this.announcements = announcements;
+	}
+	
+	public HashMap<String, SakaiAnnouncement> getAllAnnouncements()
+	{
+		return this.announcements;
+	}
+	
+	public void updataAnnouncement() throws IOException, JAXBException
+	{
+		SakaiAnnouncement[] rawAnnouncement = 
+				AnnouncementServices.getAnnouncementsForSite
+				(this.getId(), LocalConstants.sessionID, SakaiConstants.SERVER_URL);
+		
+		for(SakaiAnnouncement ann : rawAnnouncement)
+		{
+//			System.out.println(ann.toString());
+			if(announcements == null) {
+				announcements = new HashMap<String, SakaiAnnouncement>();
+			}
+//			announcements.keySet();
+//			announcements.keySet().contains("");
+//			ann.getTitle();
+			if(!announcements.keySet().contains(ann.getTitle()))
+			{
+				System.out.println("New");
+				new VersionUtil("新的通知", "站点：" + this.getTitle(), 
+						ann.getTitle() + "\n" + ann.getBody());
+				if(this.announcementHandler != null)
+				{
+					announcementHandler.newAnnouncement(ann);
+				}
+				
+				this.announcements.put(ann.getTitle(), ann);
+			}
+		}
 	}
 	
 	public void updateAssignment() throws IOException, JAXBException, ParserConfigurationException, SAXException
@@ -55,6 +107,8 @@ public class SakaiSite implements Serializable{
 					SakaiAssignmentContent content= AssignmentServices.getAssignmentContent
 					(SakaiConstants.SERVER_URL, this.getId(), ass.getId(), LocalConstants.sessionID);
 					
+					new VersionUtil("新作业", "站点:" + this.getTitle(),
+							this.getTitle() + "\n" + this.getDescription());
 					if(handler != null)
 					{
 						handler.newAssignment(content);

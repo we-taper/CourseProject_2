@@ -4,5 +4,5 @@
 		causally!</comment>
 	<APPEND_TO_SESSION_ID>.localhost</APPEND_TO_SESSION_ID>
 	<PRECEDE_TO_SESSION_ID>JSESSIONID=</PRECEDE_TO_SESSION_ID>
-	<SERVER_URL>http://10.21.67.116:8080</SERVER_URL>
+	<SERVER_URL>http://localhost:8080</SERVER_URL>
 </properties>
