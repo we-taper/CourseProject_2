@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- http://localhost:8080/direct/assignment/annc/mercury/c5193d07-bd8a-493a-bbcd-4f36dbfbba77.xml-->
+<assignment type='bean' size='6'>
+	<data type='map' size='3'>
+		<assignment type='bean' size='27'>
+			<access type='bean' size='0'>
+			</access>
+			<authorLastModified>admin</authorLastModified>
+			<authors type='collection' size='0'>
+			</authors>
+			<closeTime type='bean' size='2'>
+				<display>2014-5-30 下午5:00</display>
+				<time type='number'>1401440400000</time>
+			</closeTime>
+			<closeTimeString>2014-5-30 下午5:00</closeTimeString>
+			<content type='bean' size='28'>
+				<allowAttachments type='boolean'>true</allowAttachments>
+				<allowReviewService type='boolean'>false
+				</allowReviewService>
+				<allowStudentViewReport type='boolean'>false
+				</allowStudentViewReport>
+				<attachments type='collection' size='0'>
+				</attachments>
+				<authorLastModified>admin</authorLastModified>
+				<authors type='collection' size='0'>
+				</authors>
+				<context>mercury</context>
+				<creator>admin</creator>
+				<generateOriginalityReport>0</generateOriginalityReport>
+				<groupProject type='boolean'>true</groupProject>
+				<honorPledge type='number'>1</honorPledge>
+				<id>c2925ea5-4399-44af-ad01-a542eff3efab</id>
+				<instructions>&lt;p&gt; instructions !!!!!!&lt;/p&gt;</instructions>
+				<maxGradePoint type='number'>0</maxGradePoint>
+				<maxGradePointDisplay>0.0</maxGradePointDisplay>
+				<properties type='bean' size='31'>
+					<contentHander type='bean' size='0'>
+					</contentHander>
+					<namePropAssignmentDeleted>CHEF:assignment_deleted
+					</namePropAssignmentDeleted>
+					<namePropCalendarLocation>CHEF:calendar-location
+					</namePropCalendarLocation>
+					<namePropCalendarType>CHEF:calendar-type</namePropCalendarType>
+					<namePropChatRoom>CHEF:chat-room</namePropChatRoom>
+					<namePropCollectionBodyQuota>CHEF:collection-body-quota
+					</namePropCollectionBodyQuota>
+					<namePropContentLength>DAV:getcontentlength</namePropContentLength>
+					<namePropContentType>DAV:getcontenttype</namePropContentType>
+					<namePropCopyright>CHEF:copyright</namePropCopyright>
+					<namePropCopyrightAlert>CHEF:copyrightalert
+					</namePropCopyrightAlert>
+					<namePropCopyrightChoice>CHEF:copyrightchoice
+					</namePropCopyrightChoice>
+					<namePropCreationDate>DAV:creationdate</namePropCreationDate>
+					<namePropCreator>CHEF:creator</namePropCreator>
+					<namePropDescription>CHEF:description</namePropDescription>
+					<namePropDisplayName>DAV:displayname</namePropDisplayName>
+					<namePropIsCollection>CHEF:is-collection</namePropIsCollection>
+					<namePropModifiedBy>CHEF:modifiedby</namePropModifiedBy>
+					<namePropModifiedDate>DAV:getlastmodified</namePropModifiedDate>
+					<namePropNewAssignmentCheckAddDueDate>new_assignment_check_add_due_date
+					</namePropNewAssignmentCheckAddDueDate>
+					<namePropNewAssignmentCheckAutoAnnounce>new_assignment_check_auto_announce
+					</namePropNewAssignmentCheckAutoAnnounce>
+					<namePropReplyStyle>CHEF:discussion-reply-style
+					</namePropReplyStyle>
+					<namePropStructObjType>SAKAI:structobj_type</namePropStructObjType>
+					<namePropSubmissionPreviousFeedbackComment>CHEF:submission_previous_feedback_comment
+					</namePropSubmissionPreviousFeedbackComment>
+					<namePropSubmissionPreviousFeedbackText>CHEF:submission_previous_feedback_text
+					</namePropSubmissionPreviousFeedbackText>
+					<namePropSubmissionPreviousGrades>CHEF:submission_previous_grades
+					</namePropSubmissionPreviousGrades>
+					<namePropSubmissionScaledPreviousGrades>CHEF:submission_scaled_previous_grades
+					</namePropSubmissionScaledPreviousGrades>
+					<namePropTo>CHEF:to</namePropTo>
+					<propertyNames type='bean' size='0'>
+					</propertyNames>
+					<serializableProperties type='map' size='4'>
+						<DAV:getlastmodified>20140523114735373</DAV:getlastmodified>
+						<CHEF:creator>admin</CHEF:creator>
+						<DAV:creationdate>20140523114735326</DAV:creationdate>
+						<CHEF:modifiedby>admin</CHEF:modifiedby>
+					</serializableProperties>
+					<typeUrl>text/url</typeUrl>
+					<lazy type='boolean'>false</lazy>
+				</properties>
+				<reference>/assignment/c/mercury/c2925ea5-4399-44af-ad01-a542eff3efab
+				</reference>
+				<submitReviewRepo>0</submitReviewRepo>
+				<timeCreated type='bean' size='2'>
+					<display>2014-5-23 下午7:47</display>
+					<time type='number'>1400845655326</time>
+				</timeCreated>
+				<timeLastModified type='bean' size='2'>
+					<display>2014-5-23 下午7:47</display>
+					<time type='number'>1400845655326</time>
+				</timeLastModified>
+				<title>Another test assign</title>
+				<typeOfGrade type='number'>1</typeOfGrade>
+				<typeOfSubmission type='number'>3</typeOfSubmission>
+				<url>http://localhost:8080/access/assignment/c/mercury/c2925ea5-4399-44af-ad01-a542eff3efab
+				</url>
+				<checkInstitution type='boolean'>false</checkInstitution>
+				<checkInternet type='boolean'>false</checkInternet>
+				<checkPublications type='boolean'>false</checkPublications>
+				<checkTurnitin type='boolean'>false</checkTurnitin>
+			</content>
+			<contentReference>/assignment/c/mercury/c2925ea5-4399-44af-ad01-a542eff3efab
+			</contentReference>
+			<context>mercury</context>
+			<creator>admin</creator>
+			<draft type='boolean'>false</draft>
+			<dropDeadTime type='bean' size='2'>
+				<display>2014-5-30 下午5:00</display>
+				<time type='number'>1401440400000</time>
+			</dropDeadTime>
+			<dropDeadTimeString>2014-5-30 下午5:00</dropDeadTimeString>
+			<dueTime type='bean' size='2'>
+				<display>2014-5-30 下午5:00</display>
+				<time type='number'>1401440400000</time>
+			</dueTime>
+			<dueTimeString>2014-5-30 下午5:00</dueTimeString>
+			<groups type='collection' size='0'>
+			</groups>
+			<id>c5193d07-bd8a-493a-bbcd-4f36dbfbba77</id>
+			<openTime type='bean' size='2'>
+				<display>2014-5-23 下午12:00</display>
+				<time type='number'>1400817600000</time>
+			</openTime>
+			<openTimeString>2014-5-23 下午12:00</openTimeString>
+			<position_order type='number'>0</position_order>
+			<properties type='bean' size='31'>
+				<contentHander type='bean' size='0'>
+				</contentHander>
+				<namePropAssignmentDeleted>CHEF:assignment_deleted
+				</namePropAssignmentDeleted>
+				<namePropCalendarLocation>CHEF:calendar-location
+				</namePropCalendarLocation>
+				<namePropCalendarType>CHEF:calendar-type</namePropCalendarType>
+				<namePropChatRoom>CHEF:chat-room</namePropChatRoom>
+				<namePropCollectionBodyQuota>CHEF:collection-body-quota
+				</namePropCollectionBodyQuota>
+				<namePropContentLength>DAV:getcontentlength</namePropContentLength>
+				<namePropContentType>DAV:getcontenttype</namePropContentType>
+				<namePropCopyright>CHEF:copyright</namePropCopyright>
+				<namePropCopyrightAlert>CHEF:copyrightalert</namePropCopyrightAlert>
+				<namePropCopyrightChoice>CHEF:copyrightchoice
+				</namePropCopyrightChoice>
+				<namePropCreationDate>DAV:creationdate</namePropCreationDate>
+				<namePropCreator>CHEF:creator</namePropCreator>
+				<namePropDescription>CHEF:description</namePropDescription>
+				<namePropDisplayName>DAV:displayname</namePropDisplayName>
+				<namePropIsCollection>CHEF:is-collection</namePropIsCollection>
+				<namePropModifiedBy>CHEF:modifiedby</namePropModifiedBy>
+				<namePropModifiedDate>DAV:getlastmodified</namePropModifiedDate>
+				<namePropNewAssignmentCheckAddDueDate>new_assignment_check_add_due_date
+				</namePropNewAssignmentCheckAddDueDate>
+				<namePropNewAssignmentCheckAutoAnnounce>new_assignment_check_auto_announce
+				</namePropNewAssignmentCheckAutoAnnounce>
+				<namePropReplyStyle>CHEF:discussion-reply-style</namePropReplyStyle>
+				<namePropStructObjType>SAKAI:structobj_type</namePropStructObjType>
+				<namePropSubmissionPreviousFeedbackComment>CHEF:submission_previous_feedback_comment
+				</namePropSubmissionPreviousFeedbackComment>
+				<namePropSubmissionPreviousFeedbackText>CHEF:submission_previous_feedback_text
+				</namePropSubmissionPreviousFeedbackText>
+				<namePropSubmissionPreviousGrades>CHEF:submission_previous_grades
+				</namePropSubmissionPreviousGrades>
+				<namePropSubmissionScaledPreviousGrades>CHEF:submission_scaled_previous_grades
+				</namePropSubmissionScaledPreviousGrades>
+				<namePropTo>CHEF:to</namePropTo>
+				<propertyNames type='bean' size='0'>
+				</propertyNames>
+				<serializableProperties type='map' size='11'>
+					<new_assignment_check_add_due_date>false
+					</new_assignment_check_add_due_date>
+					<new_assignment_check_auto_announce>false
+					</new_assignment_check_auto_announce>
+					<DAV:getlastmodified>20140523114735373</DAV:getlastmodified>
+					<assignment_releasegrade_notification_value>assignment_releasegrade_notification_none
+					</assignment_releasegrade_notification_value>
+					<newAssignment>true</newAssignment>
+					<assignment_instructor_notifications_value>assignment_instructor_notifications_none
+					</assignment_instructor_notifications_value>
+					<prop_new_assignment_add_to_gradebook></prop_new_assignment_add_to_gradebook>
+					<CHEF:creator>admin</CHEF:creator>
+					<DAV:creationdate>20140523114735373</DAV:creationdate>
+					<new_assignment_add_to_gradebook></new_assignment_add_to_gradebook>
+					<CHEF:modifiedby>admin</CHEF:modifiedby>
+				</serializableProperties>
+				<typeUrl>text/url</typeUrl>
+				<lazy type='boolean'>false</lazy>
+			</properties>
+			<reference>/assignment/a/mercury/c5193d07-bd8a-493a-bbcd-4f36dbfbba77
+			</reference>
+			<section></section>
+			<status>开始</status>
+			<timeCreated type='bean' size='2'>
+				<display>2014-5-23 下午7:47</display>
+				<time type='number'>1400845655373</time>
+			</timeCreated>
+			<timeLastModified type='bean' size='2'>
+				<display>2014-5-23 下午7:47</display>
+				<time type='number'>1400845655373</time>
+			</timeLastModified>
+			<title>Another test assign</title>
+			<url>http://localhost:8080/access/assignment/a/mercury/c5193d07-bd8a-493a-bbcd-4f36dbfbba77
+			</url>
+		</assignment>
+		<context>mercury</context>
+		<assignmentId>c5193d07-bd8a-493a-bbcd-4f36dbfbba77</assignmentId>
+	</data>
+	<displayTitle>annc</displayTitle>
+	<entityId />
+	<entityProperties type='map' size='0'>
+	</entityProperties>
+	<entityReference>/assignment</entityReference>
+	<entityURL>http://localhost:8080/direct/assignment</entityURL>
+</assignment>

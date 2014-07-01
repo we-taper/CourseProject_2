@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site_collection entityPrefix="site">
+	<site type='bean' size='36'>
+		<createdDate type='date' date='2014-04-27T15:36:16+08:00'>1398584176604</createdDate>
+		<createdTime type='bean' size='2'>
+			<display>2014-4-27 下午3:36</display>
+			<time type='number'>1398584176604</time>
+		</createdTime>
+		<description>&lt;p&gt;
+			This is the description of this site.&lt;/p&gt;
+			&lt;p&gt;
+			A picture:&lt;img alt=&quot;&quot;
+			src=&quot;http://localhost:8080/access/content/group/mercury/1.png&quot;
+			style=&quot;width: 11px; height: 9px;&quot;/&gt;&lt;/p&gt;
+		</description>
+		<iconUrl />
+		<iconUrlFull />
+		<id>mercury</id>
+		<infoUrl />
+		<infoUrlFull />
+		<joinerRole>access</joinerRole>
+		<lastModified type='number'>1399552653600</lastModified>
+		<maintainRole>maintain</maintainRole>
+		<modifiedDate type='date' date='2014-05-08T20:37:33+08:00'>1399552653600
+		</modifiedDate>
+		<modifiedTime type='bean' size='2'>
+			<display>2014-5-8 下午8:37</display>
+			<time type='number'>1399552653600</time>
+		</modifiedTime>
+		<owner>admin</owner>
+		<props />
+		<providerGroupId />
+		<reference>/site/mercury</reference>
+		<shortDescription />
+		<siteGroups />
+		<siteOwner type='bean' size='3'>
+			<userDisplayName>Sakai Administrator</userDisplayName>
+			<userEntityURL>/direct/user/admin</userEntityURL>
+			<userId>admin</userId>
+		</siteOwner>
+		<skin />
+		<softlyDeletedDate />
+		<title>mercury site</title>
+		<type />
+		<userRoles type='array' length='2'>
+			<string>maintain</string>
+			<string>access</string>
+		</userRoles>
+		<activeEdit type='boolean'>false</activeEdit>
+		<customPageOrdered type='boolean'>false</customPageOrdered>
+		<empty type='boolean'>false</empty>
+		<joinable type='boolean'>true</joinable>
+		<pubView type='boolean'>true</pubView>
+		<published type='boolean'>true</published>
+		<softlyDeleted type='boolean'>false</softlyDeleted>
+		<entityReference>/site/mercury</entityReference>
+		<entityURL>http://localhost:8080/direct/site/mercury</entityURL>
+		<entityId>mercury</entityId>
+		<entityTitle>mercury site</entityTitle>
+	</site>
+</site_collection>

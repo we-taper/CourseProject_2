@@ -1,0 +1,16 @@
+<announcement type='bean' size='13'>
+  <announcementId>5ac4ef07-8a2e-4c38-bcd0-4680588305a0</announcementId>
+  <attachments type='collection' size='0'>
+  </attachments>
+  <body>作业开始日期</body>
+  <createdByDisplayName>Sakai Administrator</createdByDisplayName>
+  <createdOn type='date' date='2014-05-21T12:52:02+08:00'>1400647922853</createdOn>
+  <id>mercury:main:5ac4ef07-8a2e-4c38-bcd0-4680588305a0</id>
+  <siteId>mercury</siteId>
+  <siteTitle>mercury site</siteTitle>
+  <title>作业：开始日期</title>
+  <entityReference>/announcement/mercury:main:5ac4ef07-8a2e-4c38-bcd0-4680588305a0</entityReference>
+  <entityURL>http://localhost:8080/direct/announcement/mercury:main:5ac4ef07-8a2e-4c38-bcd0-4680588305a0</entityURL>
+  <entityId>mercury:main:5ac4ef07-8a2e-4c38-bcd0-4680588305a0</entityId>
+  <entityTitle>作业：开始日期</entityTitle>
+</announcement>
