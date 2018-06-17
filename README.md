@@ -1,4 +1,4 @@
-##How to Use Github
+## How to Use Github
 
 1. Register
 2. Download the windows client for Windows.
@@ -17,7 +17,7 @@
 	
 6. Done!
 
-##How to use start a demo Sakai.
+## How to use start a demo Sakai.
 
 1. Download Demo
 	URL: <http://source.sakaiproject.org/release/2.9.3/artifacts/sakai-demo-2.9.3.zip>
